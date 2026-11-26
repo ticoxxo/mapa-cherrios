@@ -30,3 +30,7 @@ Keys: 1–7 switch modes, Esc closes the ficha. Zoom tiers: territorios (z < 12)
 
 The interface is written for people who don't use maps or data tools: plain Mexican Spanish, a first-visit
 "¿Cómo se usa?" card (the **?** button reopens it), and no technical terms on screen.
+
+---
+
+Based on the original [Hermosillo: El Mapa Vivo](https://github.com/jmsalcido/mapa-hermosillo) by jmsalcido.

@@ -1,6 +1,6 @@
 # Cloudflare Workers static assets (account "vinc").
 # Deploy: npm run build && CLOUDFLARE_ACCOUNT_ID=<vinc id> npx wrangler deploy
-name = "hermosillo-mapa-vivo"
+name = "mapa-cherrios"
 compatibility_date = "2026-11-26"
 
 [assets]

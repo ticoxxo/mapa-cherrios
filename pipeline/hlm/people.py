@@ -5,10 +5,10 @@ import csv
 import io
 import zipfile
 
-from .common import MUN, Manifest, Provenance, fetch, num
+from .common import ENT, MUN, Manifest, Provenance, fetch, num
 
 URL = ("https://www.inegi.org.mx/contenidos/programas/ccpv/2020/datosabiertos/"
-       "ageb_manzana/ageb_mza_urbana_26_cpv2020_csv.zip")
+       f"ageb_manzana/ageb_mza_urbana_{ENT}_cpv2020_csv.zip")
 
 # census mnemonic -> short property name used in the app
 FIELDS = {
@@ -28,9 +28,14 @@ FIELDS = {
 }
 
 
-def load_census(manifest: Manifest):
-    """Returns (ageb_stats, block_pop, totals) keyed by CVEGEO."""
-    path = fetch(URL, "cpv2020_ageb_mza_26.zip", max_age_days=3650)
+def load_census(manifest: Manifest, locs: tuple[tuple[str, str], ...] | None = None):
+    """Returns (ageb_stats, block_pop, totals) keyed by CVEGEO.
+
+    `locs` = (municipio, localidad) pairs to keep (the "Antes de ser Municipio" view); otherwise the whole
+    current municipio. Juan José Ríos became municipio 020 after 2020, so the 2020 census has no rows for it:
+    the current view then gets empty results and shows "sin datos" for census modes.
+    """
+    path = fetch(URL, f"cpv2020_ageb_mza_{ENT}.zip", max_age_days=3650)
     manifest.add(Provenance(
         id="inegi_censo2020", name="Censo de Población y Vivienda 2020 — AGEB y manzana urbana",
         url=URL, license="INEGI Términos de libre uso de la información", publisher="INEGI",
@@ -40,7 +45,10 @@ def load_census(manifest: Manifest):
         text = z.read(name).decode("utf-8-sig")
     ageb, blocks, totals = {}, {}, {}
     for row in csv.DictReader(io.StringIO(text)):
-        if row["MUN"] != MUN:
+        if locs:
+            if (row["MUN"], row["LOC"]) not in locs:
+                continue
+        elif row["MUN"] != MUN:
             continue
         key = row["ENTIDAD"] + row["MUN"] + row["LOC"]
         if row["LOC"] == "0000":
@@ -56,7 +64,13 @@ def load_census(manifest: Manifest):
             # only block rows carry the real locality name (total rows say "Total ...")
             if row["LOC"] in totals and not row["NOM_LOC"].startswith("Total"):
                 totals[row["LOC"]]["name"] = row["NOM_LOC"]
-    print(f"  census: {len(ageb)} AGEBs, {len(blocks)} blocks, municipality pop {totals['municipio']['pop']:,}")
+    if locs:  # the "area" is the sum of the kept localities
+        locs_t = [v for k, v in totals.items() if k != "municipio"]
+        # only counts add up; averages (schooling, occupants) are not summed
+        totals["municipio"] = {f: (sum(v[f] for v in locs_t) if locs_t and all(v.get(f) is not None for v in locs_t)
+                                   else None) for f in ("pop", "homes")}
+    mpop = totals.get("municipio", {}).get("pop")
+    print(f"  census: {len(ageb)} AGEBs, {len(blocks)} blocks, area pop {mpop if mpop is not None else 'sin datos'}")
     return ageb, blocks, totals
 
 

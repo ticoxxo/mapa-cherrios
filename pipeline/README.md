@@ -33,7 +33,7 @@ Delete a cached file to force a fresh download. `HLM_CACHE` and `HLM_OUT` overri
 
 | File | Contents |
 |---|---|
-| `agebs.geojson` | 673 AGEB polygons with census 2020 fields, derived ratios, IMU/GRS grades (null when unavailable), territory id and colour |
+| `agebs.geojson` | The 15 AGEBs of municipio 25-020 (INEGI, Dec 2025) with live per-AGEB fields (fauna, heat, green, jobs, wells), territory id and colour. No census fields: the 2020 census used other AGEB keys |
 | `realms.geojson` | Territorios: dissolved polygons, label point, name, title, colour and brand (`charge`) |
 | `blocks.geojson` | Manzanas with population and density (lazy-loaded by the app) |
 | `roads_major.geojson`, `roads_minor.geojson` | INEGI vialidades split by rank |
@@ -46,12 +46,13 @@ Delete a cached file to force a fresh download. `HLM_CACHE` and `HLM_OUT` overri
 | `work.json` | DENUE businesses as compact rows `[lon, lat, group, size, name, SCIAN, alta]` plus the activity names (loaded the first time Chamba is opened) |
 | `water.json` | REPDA wells and intakes as compact rows `[lon, lat, kind, use, m³/year, aquifer, holder, year, district]` (holder `""` = private person; loaded the first time Agua is opened) |
 | `stats.json` | City totals, density class breaks and medians used by legends and descriptions |
-| `manifest.json` | Provenance and status of every source and layer |
+| `manifest.json` | Provenance and status of every source and layer (2020-view layers are prefixed `antes_`) |
+| `antes/agebs.geojson`, `antes/realms.geojson`, `antes/blocks.geojson`, `antes/stats.json` | "Antes de ser Municipio": the 20 AGEBs of the 2020 census edition (Guasave 011-0138, Ahome 001-0136) with Censo 2020 fields and CONAPO / CONEVAL grades, their territorios, 2020 blocks and totals |
 
 ## Modules
 
 - `hlm/common.py`: paths, cached `fetch()` with retries and the manual fallback, provenance records
-- `hlm/base.py`: Marco Geoestadístico (AGEB, manzanas, vialidades)
+- `hlm/base.py`: Marco Geoestadístico 2025 (AGEB, manzanas, vialidades, municipio outline, locality names) and the 2020 census edition (state shapefile zip, read with `pyshp`, reprojected from INEGI's Lambert)
 - `hlm/people.py`: Censo 2020 AGEB and manzana CSV; `*` → null
 - `hlm/wealth.py`: CONAPO IMU 2020 and CONEVAL GRS 2020 (column names auto-detected)
 - `hlm/osm.py`: Overpass queries with endpoint fallback
@@ -59,11 +60,11 @@ Delete a cached file to force a fresh download. `HLM_CACHE` and `HLM_OUT` overri
 - `hlm/wildlife.py`: iNaturalist download (paged by id, ≤ 1 request/s), licence and privacy filters, per-AGEB counts
 - `hlm/heat.py`: Landsat summer LST composite (cached in `.cache/heat_comp_*.npz`), per-AGEB means, `heat.png`; NASA POWER daily max
 - `hlm/green.py`: Sentinel-2 NDVI (now and a year ago), WorldCover tree cover (cached `.npy`), `trees.geojson`
-- `hlm/work.py`: INEGI DENUE (Sonora zip, municipio 030), per-AGEB business counts and estimated jobs, compact `work.json` points
+- `hlm/work.py`: INEGI DENUE (Sinaloa zip, municipio 020), per-AGEB business counts and estimated jobs, compact `work.json` points
 - `hlm/water.py`: CONAGUA REPDA (newest release from the Zenodo copy), privacy filter for holders, per-AGEB well counts, `water.json`; SMN drought monitor
 - `hlm/chronicle.py`: weekly snapshot (`history.json`) and La Gaceta entries (`chronicle.json`)
 - `hlm/realms.py`: k-means *territorios*, names, colours and brands
-- `hlm/run.py`: orchestration
+- `hlm/run.py`: orchestration; `build_antes()` writes the 2020 view into `public/data/antes/`
 
 ## When a portal blocks scripts (CONAPO / CONEVAL)
 

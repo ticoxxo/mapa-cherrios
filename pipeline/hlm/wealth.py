@@ -1,5 +1,8 @@
 """Wealth: CONAPO Índice de Marginación Urbana 2020 and CONEVAL Grado de Rezago Social 2020, by AGEB.
 
+Both are 2020 products keyed by the 2020 AGEB codes, so they belong to the "Antes de ser Municipio" view
+(Juan José Ríos in Guasave, El Estero in Ahome); they cannot be joined to the 2025 zones.
+
 Both files are published on datos.gob.mx (CC-BY 4.0) and served from repodatos.atdt.gob.mx,
 which sometimes refuses automated clients. When that happens, download the CSV in a browser
 and save it as pipeline/manual/<file name> (see pipeline/README.md); the pipeline picks it up.
@@ -11,7 +14,7 @@ import io
 import re
 import unicodedata
 
-from .common import ENT, MUN, Manifest, Provenance, SourceUnavailable, fetch, num
+from .common import ANTES_LOCS, ENT, Manifest, Provenance, SourceUnavailable, fetch, num
 
 IMU_URL = "https://repodatos.atdt.gob.mx/api_update/conapo/indices_marginacion/imu_2020.csv"
 GRS_URL = "https://repodatos.atdt.gob.mx/api_update/coneval/rezago_social/grs_ageb_2020.csv"
@@ -73,6 +76,7 @@ def _pick(cols, patterns):
 
 
 def load_imu(manifest: Manifest) -> dict[str, dict]:
+    prefixes = tuple(ENT + m + l for m, l in ANTES_LOCS)
     prov = Provenance(id="conapo_imu2020", name="Índice de Marginación Urbana 2020 (AGEB)", url=DATASET_IMU,
                       license="CC-BY 4.0", publisher="CONAPO", vintage="2020",
                       notes=f"File: {IMU_URL}")
@@ -91,20 +95,21 @@ def load_imu(manifest: Manifest) -> dict[str, dict]:
     out = {}
     for r in rows:
         k = _key(r, cols)
-        if not k or not k.startswith(ENT + MUN):
+        if not k or not k.startswith(prefixes):
             continue
         out[k] = {"imu_grade": _grade(r.get(gcol)) if gcol else None,
                   "imu": num(r.get(icol)) if icol else None,
                   "imu_n": num(r.get(ncol)) if ncol else None}
     prov.status = "ok" if out else "unavailable"
     if not out:
-        prov.notes += " — no Hermosillo rows recognised; check column names."
+        prov.notes += " — no Juan José Ríos rows: the file may be trimmed to another place; save the national CSV."
     manifest.add(prov)
-    print(f"  IMU: {len(out)} Hermosillo AGEBs")
+    print(f"  IMU: {len(out)} AGEBs")
     return out
 
 
 def load_grs(manifest: Manifest) -> dict[str, dict]:
+    prefixes = tuple(ENT + m + l for m, l in ANTES_LOCS)
     prov = Provenance(id="coneval_grs2020", name="Grado de Rezago Social 2020 (AGEB)", url=DATASET_GRS,
                       license="CC-BY 4.0", publisher="CONEVAL", vintage="2020", notes=f"File: {GRS_URL}")
     try:
@@ -120,11 +125,11 @@ def load_grs(manifest: Manifest) -> dict[str, dict]:
     out = {}
     for r in rows:
         k = _key(r, cols)
-        if not k or not k.startswith(ENT + MUN):
+        if not k or not k.startswith(prefixes):
             continue
         # CONEVAL's AGEB grade has five levels (Muy bajo … Muy alto)
         out[k] = {"grs_grade": _grade(r.get(gcol)) if gcol else None}
     prov.status = "ok" if out else "unavailable"
     manifest.add(prov)
-    print(f"  GRS: {len(out)} Hermosillo AGEBs")
+    print(f"  GRS: {len(out)} AGEBs")
     return out

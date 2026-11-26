@@ -2,16 +2,19 @@
 import type { Ageb, Stats } from './data'
 
 export function describe(a: Ageb, s: Stats): string {
-  if (!a.in_census || a.pop == null) return 'Tierra nueva: el Censo 2020 todavía no la registraba.'
-  if (a.pop === 0) return 'Tierra sin habitantes censados en 2020.'
+  // today's zones (municipio view) have no census figures: describe them only with what is measured now
+  const now = s.era === 'municipio' && !a.in_census
+  if (!now && (!a.in_census || a.pop == null)) return 'Tierra nueva: el Censo 2020 todavía no la registraba.'
+  if (!now && a.pop === 0) return 'Tierra sin habitantes censados en 2020.'
 
   const med = (k: string) => s.ranges[k]?.[2]
   const parts: string[] = []
   const dens = a.dens ?? 0
   const dm = med('dens') ?? 0
-  if (dens > dm * 1.6) parts.push('Barrio bien apretado de gente')
+  if (now) parts.push('Barrio del municipio de hoy')
+  else if (dens > dm * 1.6) parts.push('Barrio bien apretado de gente')
   else if (dens < dm * 0.5) parts.push('Barrio despoblado, de casas regadas')
-  else parts.push('Barrio de densidad típica de la ciudad')
+  else parts.push('Barrio de densidad típica del pueblo')
 
   if (a.p_young != null && a.p_young > (med('p_young') ?? 99) + 5) parts.push('muchas familias jóvenes')
   if (a.p_old != null && a.p_old > (med('p_old') ?? 99) * 1.6) parts.push('muchos adultos mayores')

@@ -1,3 +1,5 @@
+import type { Era } from './era'
+
 // Loads the static outputs of /pipeline. Every number shown in the UI comes from these files.
 
 export type LayerStatus = 'ok' | 'unavailable' | 'not_built' | 'partial'
@@ -55,18 +57,22 @@ export interface HeatStats {
 }
 
 export interface Stats {
-  municipio: { pop: number; homes: number }
-  city: { name: string; pop: number; area_km2: number }
+  /** which view these numbers belong to (see src/era.ts) */
+  era?: 'municipio' | 'antes'
+  /** "antes": municipio each 2020 census code belonged to, e.g. { "011": "Guasave" } */
+  parent?: Record<string, string>
+  municipio: { pop: number | null; homes: number | null }
+  city: { name: string; pop: number | null; area_km2: number }
   localities: Record<string, { name: string; pop: number }>
   n_ageb: number
   n_ageb_without_census: number
   breaks: { dens: number[]; w_n?: number[]; lst?: number[]; ndvi?: number[]; j_dens?: number[]; p_tinaco?: number[] }
   work?: WorkStats | null
   water?: WaterStats | null
-  green: GreenStats | null
-  wildlife: WildStats | null
-  heat: HeatStats | null
-  weather: { latest: { date: string; tmax: number }; week_max: { date: string; tmax: number }; series: { date: string; tmax: number }[] } | null
+  green?: GreenStats | null
+  wildlife?: WildStats | null
+  heat?: HeatStats | null
+  weather?: { latest: { date: string; tmax: number }; week_max: { date: string; tmax: number }; series: { date: string; tmax: number }[] } | null
   ranges: Record<string, [number, number, number]>
 }
 
@@ -74,6 +80,8 @@ export interface Stats {
 export interface Ageb {
   cvegeo: string
   loc: string
+  /** "antes" view only: 2020 municipio code (011 Guasave, 001 Ahome) */
+  mun?: string
   ageb: string
   realm: string
   color: string
@@ -238,6 +246,9 @@ async function getJSON<T>(name: string): Promise<T | null> {
 }
 
 export interface CoreData {
+  era: Era
+  /** folder of this view's files: '' (municipio) or 'antes/' */
+  dir: string
   manifest: Manifest
   stats: Stats
   realms: GeoJSON.FeatureCollection
@@ -245,16 +256,18 @@ export interface CoreData {
   chronicle: Chronicle | null
 }
 
-export async function loadCore(): Promise<CoreData> {
+/** The manifest and La Gaceta are shared; zones, territorios and numbers come from the view's folder. */
+export async function loadCore(era: Era): Promise<CoreData> {
+  const dir = era === 'antes' ? 'antes/' : ''
   const [manifest, stats, realms, agebs, chronicle] = await Promise.all([
     getJSON<Manifest>('manifest.json'),
-    getJSON<Stats>('stats.json'),
-    getJSON<GeoJSON.FeatureCollection>('realms.geojson'),
-    getJSON<GeoJSON.FeatureCollection>('agebs.geojson'),
+    getJSON<Stats>(dir + 'stats.json'),
+    getJSON<GeoJSON.FeatureCollection>(dir + 'realms.geojson'),
+    getJSON<GeoJSON.FeatureCollection>(dir + 'agebs.geojson'),
     getJSON<Chronicle>('chronicle.json'),
   ])
   if (!manifest || !stats || !realms || !agebs) throw new Error('core data missing — run the pipeline')
-  return { manifest, stats, realms, agebs, chronicle }
+  return { era, dir, manifest, stats, realms, agebs, chronicle }
 }
 
 export const dataUrl = (name: string) => new URL(BASE + name, window.location.href).toString()

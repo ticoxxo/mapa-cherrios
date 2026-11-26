@@ -1,10 +1,11 @@
 import type { Key } from './i18n'
 import type { Manifest, Stats } from './data'
+import { ANTES_MODES, type Era } from './era'
 
 export type ModeId = 'realm' | 'people' | 'wealth' | 'heat' | 'green' | 'wildlife' | 'work' | 'water'
 
 export const MODES: { id: ModeId; label: Key; hint: string }[] = [
-  { id: 'realm', label: 'm_realm', hint: 'Los territorios de la ciudad' },
+  { id: 'realm', label: 'm_realm', hint: 'Los territorios del pueblo' },
   { id: 'people', label: 'm_people', hint: '¿Dónde vive más gente?' },
   { id: 'wealth', label: 'm_wealth', hint: '¿Qué tanto le falta a la gente?' },
   { id: 'heat', label: 'm_heat', hint: '¿Qué barrios son más calientes?' },
@@ -14,10 +15,15 @@ export const MODES: { id: ModeId; label: Key; hint: string }[] = [
   { id: 'water', label: 'm_water', hint: '¿Quién tiene el agua?' },
 ]
 
-export type ModeState = 'ok' | 'unavailable' | 'soon'
+/** only_antes = this data exists only for 2020 (see "Antes de ser Municipio");
+ *  only_municipio = current data, not shown in the 2020 view. */
+export type ModeState = 'ok' | 'unavailable' | 'soon' | 'only_antes' | 'only_municipio'
 
-export function modeState(m: Manifest, id: ModeId): ModeState {
-  const s = m.layers[id]?.status
+export function modeState(m: Manifest, id: ModeId, era: Era = 'municipio'): ModeState {
+  if (era === 'antes' && !ANTES_MODES.includes(id)) return 'only_municipio'
+  const layer = m.layers[era === 'antes' ? `antes_${id}` : id]
+  if (era === 'municipio' && layer?.status === 'unavailable' && layer.reason === 'antes') return 'only_antes'
+  const s = layer?.status
   if (s === 'ok' || s === 'partial') return 'ok'
   if (s === 'unavailable') return 'unavailable'
   return 'soon'
@@ -34,11 +40,16 @@ export const NO_DATA = '#bfb39a'
 export const IMU_LABELS = ['Muy baja', 'Baja', 'Media', 'Alta', 'Muy alta']
 export const GRS_LABELS = ['Muy bajo', 'Bajo', 'Medio', 'Alto', 'Muy alto']
 
+/** `step` needs at least one break: with none (no data in this view) every barrio gets the first colour,
+ *  and barrios without a value still get NO_DATA through the surrounding `case`. */
+function stepExpr(input: unknown, ramp: string[], breaks: number[] | undefined): unknown {
+  const b = breaks ?? []
+  if (!b.length) return ramp[0]
+  return ['step', input, ramp[0], ...b.flatMap((v, i) => [v, ramp[Math.min(i + 1, ramp.length - 1)]])]
+}
+
 export function peopleColorExpr(stats: Stats): unknown {
-  const b = stats.breaks.dens
-  const steps: unknown[] = []
-  b.forEach((v, i) => steps.push(v, PEOPLE_RAMP[i + 1]))
-  return ['case', ['==', ['get', 'dens'], null], NO_DATA, ['step', ['get', 'dens'], PEOPLE_RAMP[0], ...steps]]
+  return ['case', ['==', ['get', 'dens'], null], NO_DATA, stepExpr(['get', 'dens'], PEOPLE_RAMP, stats.breaks.dens)]
 }
 
 export function wealthColorExpr(primary: 'imu' | 'grs' | null): unknown {
@@ -51,34 +62,27 @@ export function wealthColorExpr(primary: 'imu' | 'grs' | null): unknown {
 
 export function blockPeopleColorExpr(stats: Stats): unknown {
   // blocks are smaller and denser than AGEB averages; same breaks keep the legend honest
-  return ['case', ['==', ['get', 'dens'], null], NO_DATA, ['step', ['get', 'dens'], PEOPLE_RAMP[0],
-    ...stats.breaks.dens.flatMap((v, i) => [v, PEOPLE_RAMP[i + 1]])]]
+  return ['case', ['==', ['get', 'dens'], null], NO_DATA, stepExpr(['get', 'dens'], PEOPLE_RAMP, stats.breaks.dens)]
 }
 
 // Fauna: sightings per barrio. Single-hue turquoise ramp with monotonic lightness (CVD-safe).
 export const WILD_RAMP = ['#efe9d2', '#cfe3d3', '#9fd0c4', '#68b2a8', '#3a8f8a', '#1f6a69']
 export function wildlifeColorExpr(stats: Stats): unknown {
-  const b = stats.breaks.w_n ?? []
-  return ['case', ['==', ['get', 'w_n'], null], NO_DATA,
-    ['step', ['get', 'w_n'], WILD_RAMP[0], ...b.flatMap((v, i) => [v, WILD_RAMP[Math.min(i + 1, WILD_RAMP.length - 1)]])]]
+  return ['case', ['==', ['get', 'w_n'], null], NO_DATA, stepExpr(['get', 'w_n'], WILD_RAMP, stats.breaks.w_n)]
 }
 
 // Calor: summer ground temperature per barrio. Pale = cooler, dark maroon = hottest
 // (monotonic lightness, same ramp as the satellite image).
 export const HEAT_RAMP = ['#fff7d6', '#fdd68c', '#f7a552', '#e26a34', '#b03426', '#6e1824', '#3a0c1e']
 export function heatColorExpr(stats: Stats): unknown {
-  const b = stats.breaks.lst ?? []
-  return ['case', ['==', ['get', 'lst'], null], NO_DATA,
-    ['step', ['get', 'lst'], HEAT_RAMP[0], ...b.flatMap((v, i) => [v, HEAT_RAMP[Math.min(i + 1, HEAT_RAMP.length - 1)]])]]
+  return ['case', ['==', ['get', 'lst'], null], NO_DATA, stepExpr(['get', 'lst'], HEAT_RAMP, stats.breaks.lst)]
 }
 
 // Verde: NDVI per barrio, sand → deep green with monotonic lightness (CVD-safe).
 export const GREEN_RAMP = ['#efe3c2', '#d9d5a2', '#b4c282', '#86a865', '#5a8a4d', '#2f6a3c']
 export const GREEN_PLAIN = ['Casi nada verde', 'Poco verde', 'Algo verde', 'Regular', 'Bastante verde', 'Muy verde']
 export function greenColorExpr(stats: Stats): unknown {
-  const b = stats.breaks.ndvi ?? []
-  return ['case', ['==', ['get', 'ndvi'], null], NO_DATA,
-    ['step', ['get', 'ndvi'], GREEN_RAMP[0], ...b.flatMap((v, i) => [v, GREEN_RAMP[Math.min(i + 1, GREEN_RAMP.length - 1)]])]]
+  return ['case', ['==', ['get', 'ndvi'], null], NO_DATA, stepExpr(['get', 'ndvi'], GREEN_RAMP, stats.breaks.ndvi)]
 }
 export function greenClass(stats: Stats, v: number | null | undefined): number | null {
   if (v == null) return null
@@ -89,9 +93,7 @@ export function greenClass(stats: Stats, v: number | null | undefined): number |
 export const WORK_RAMP = ['#efe8d4', '#cfd6db', '#a6b9cb', '#7896b3', '#4d6f94', '#2a4a6e']
 export const WORK_PLAIN = ['Casi nada de chamba', 'Poquita chamba', 'Algo de chamba', 'Bastante chamba', 'Mucha chamba', 'Muchísima chamba']
 export function workColorExpr(stats: Stats): unknown {
-  const b = stats.breaks.j_dens ?? []
-  return ['case', ['==', ['get', 'j_dens'], null], NO_DATA,
-    ['step', ['coalesce', ['get', 'j_dens'], 0], WORK_RAMP[0], ...b.flatMap((v, i) => [v, WORK_RAMP[Math.min(i + 1, WORK_RAMP.length - 1)]])]]
+  return ['case', ['==', ['get', 'j_dens'], null], NO_DATA, stepExpr(['coalesce', ['get', 'j_dens'], 0], WORK_RAMP, stats.breaks.j_dens)]
 }
 export function workClass(stats: Stats, v: number | null | undefined): number | null {
   if (v == null) return null
@@ -102,9 +104,7 @@ export function workClass(stats: Stats, v: number | null | undefined): number | 
 // monotonic lightness (CVD-safe). Wells and intakes (REPDA) are drawn on top as silhouettes.
 export const WATER_RAMP = ['#f1ecd6', '#cfe2ea', '#9fc8df', '#68a5cf', '#3b7cb6', '#1d528a']
 export function waterColorExpr(stats: Stats): unknown {
-  const b = stats.breaks.p_tinaco ?? []
-  return ['case', ['==', ['get', 'p_tinaco'], null], NO_DATA,
-    ['step', ['get', 'p_tinaco'], WATER_RAMP[0], ...b.flatMap((v, i) => [v, WATER_RAMP[Math.min(i + 1, WATER_RAMP.length - 1)]])]]
+  return ['case', ['==', ['get', 'p_tinaco'], null], NO_DATA, stepExpr(['get', 'p_tinaco'], WATER_RAMP, stats.breaks.p_tinaco)]
 }
 export const DROUGHT_PLAIN = ['Sin sequía', 'Anormalmente seco', 'Sequía moderada', 'Sequía severa', 'Sequía extrema', 'Sequía excepcional']
 // drought colours: pale → dark brown, monotonic lightness

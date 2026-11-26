@@ -28,8 +28,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: pipeline/.cache
-          key: hlm-sources-${{ github.run_id }}
-          restore-keys: hlm-sources-
+          key: jjr-sources-${{ github.run_id }}
+          restore-keys: jjr-sources-
       # Fast-changing layers only. Static ones (census, marginalization, geometry) come from the cache.
       # iNaturalist, NASA POWER, Sentinel-2 NDVI and the DENUE zip (re-downloaded when older than 6 days,
       # so a new INEGI edition is picked up the week it is published) refresh on every run.
@@ -45,7 +45,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: pipeline/.cache
-          key: hlm-sources-${{ github.run_id }}
+          key: jjr-sources-${{ github.run_id }}
       # Someone may push to main while the pipeline runs: replay the data commit on top of the latest main.
       # On a conflicting hunk the fresh data wins (-X theirs = the commit being replayed). Retries a few times.
       - name: Commit changed data

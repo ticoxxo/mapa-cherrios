@@ -4,7 +4,7 @@ import { treeSVG } from '../art/trees'
 import { WORK_GROUPS, WORK_INFO, workSVG, type WorkGroup } from '../art/work'
 import { WATER_INFO, WATER_USES, waterSVG, type WaterUse } from '../art/water'
 import type { CoreData } from '../data'
-import { fmt, t } from '../i18n'
+import { PLACE, fmt, t } from '../i18n'
 import { DROUGHT_PLAIN, DROUGHT_RAMP, GREEN_PLAIN, GREEN_RAMP, GRS_RAMP, HEAT_RAMP, IMU_RAMP, NO_DATA, PEOPLE_RAMP, WATER_RAMP, WILD_RAMP, WORK_PLAIN, WORK_RAMP, modeState, type ModeId } from '../modes'
 
 // Plain-language legends: written for people who have never used a map app like this.
@@ -32,18 +32,19 @@ interface Props {
 
 export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroups, setWorkGroups, waterUses, setWaterUses }: Props) {
   const [open, setOpen] = useState(window.innerWidth > 760)
-  const st = modeState(data.manifest, mode)
+  const st = modeState(data.manifest, mode, data.era)
+  const antes = data.era === 'antes'
 
   let body: React.ReactNode = null
   let source = ''
   if (mode === 'realm') {
     body = (
       <>
-        <p>Cada color es un <b>{t('territory').toLowerCase()}</b>: un pedazo de la ciudad. Acércate para ver cada barrio y, más de cerca, cada manzana.</p>
+        <p>Cada color es un <b>{t('territory').toLowerCase()}</b>: un pedazo del pueblo. Acércate para ver cada barrio y, más de cerca, cada manzana.</p>
         <p className="legend-note">{t('realm_note')}</p>
       </>
     )
-    source = 'INEGI y OpenStreetMap'
+    source = antes ? 'INEGI, Marco Geoestadístico del Censo 2020' : 'INEGI y OpenStreetMap'
   } else if (mode === 'people') {
     const b = data.stats.breaks.dens
     const rows = PEOPLE_RAMP.map((c, i) => ({
@@ -84,7 +85,7 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
           Los arbolitos marcan dónde el satélite ve árboles. Entre más verdes están hoy, más grande el dibujo.
         </p>
         <p className="legend-note">
-          No es un conteo de árboles (Hermosillo no tiene uno público): es lo que se ve desde el espacio. Hoy se ve verde el {fmt(g.city_p_green)}% de la ciudad.
+          No es un conteo de árboles (aquí no hay uno público): es lo que se ve desde el espacio. Hoy se ve verde el {fmt(g.city_p_green)}% de la ciudad.
         </p>
       </>
     )
@@ -100,12 +101,12 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
         <p><b>¿Qué tan caliente se pone el suelo en verano?</b> Más oscuro, más caliente. Medido desde satélite a media mañana.</p>
         <Swatches rows={[...rows, { c: NO_DATA, label: t('no_data') }]} />
         <p className="legend-note">
-          Es la temperatura del <b>suelo y los techos</b>, no del aire: por eso pasa de 50 °C. Los barrios con árboles y riego son más frescos,
-          y el desierto pelón de alrededor se calienta todavía más que la ciudad. Las olitas marcan los 12 barrios más calientes.
+          Es la temperatura del <b>suelo y los techos</b>, no del aire: por eso pasa de 50 °C. Los barrios con árboles y riego son más frescos.
+          Las olitas marcan los 3 barrios más calientes.
         </p>
       </>
     )
-    source = `Satélites Landsat 8 y 9 (USGS/NASA): ${h.n_scenes} días despejados de junio a agosto, ${h.summers[0]}–${h.summers[h.summers.length - 1]}`
+    source = `Satélites Landsat 8 y 9 (USGS/NASA): ${h.n_scenes} días despejados de mayo a septiembre, ${h.summers[0]}–${h.summers[h.summers.length - 1]}`
   } else if (mode === 'wildlife' && st === 'ok') {
     const b = data.stats.breaks.w_n ?? []
     const counts = data.stats.wildlife?.groups ?? {}
@@ -186,7 +187,7 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
               {' '}desde el {date(d.since)}.
             </p>
             <svg className="drought-spark" viewBox={`0 0 ${d.series.length * 4} 22`} preserveAspectRatio="none" role="img"
-              aria-label={`Sequía en Hermosillo cada 15 días desde ${date(d.series[0][0])}`}>
+              aria-label={`Sequía en ${PLACE} cada 15 días desde ${date(d.series[0][0])}`}>
               {d.series.map(([day, lv], i) => (
                 <rect key={day} x={i * 4} y={22 - 4 - lv * 3.6} width={3.2} height={4 + lv * 3.6} fill={DROUGHT_RAMP[lv]}>
                   <title>{`${date(day)}: ${DROUGHT_PLAIN[lv]}`}</title>
@@ -207,8 +208,14 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
             ))}
           </div>
         )}
-        <p className="legend-sub">Color del barrio: cuántas casas tienen <b>tinaco</b> (Censo 2020). Donde el agua llega a ratos, la gente la guarda.</p>
-        <Swatches rows={[...rows, { c: NO_DATA, label: t('no_data') }]} />
+        {b.length ? (
+          <>
+            <p className="legend-sub">Color del barrio: cuántas casas tienen <b>tinaco</b> (Censo 2020). Donde el agua llega a ratos, la gente la guarda.</p>
+            <Swatches rows={[...rows, { c: NO_DATA, label: t('no_data') }]} />
+          </>
+        ) : (
+          <p className="legend-sub">Los barrios van sin color: los tinacos se contaron en el Censo 2020, antes de ser municipio. Míralos en «{t('era_antes')}», modo Gente.</p>
+        )}
         {r && (
           <p className="legend-note">
             En todo el municipio hay permiso para sacar <b>{fmt(r.hm3)} millones de m³</b> al año. Es lo que permiten los títulos, no lo que se mide.
@@ -218,7 +225,7 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
       </>
     )
     source = [r && `CONAGUA, Registro Público de Derechos de Agua (corte ${r.snapshot.slice(5)}/${r.snapshot.slice(0, 4)})`,
-      d && `Monitor de Sequía de México (SMN), ${date(d.date)}`, 'Censo 2020 del INEGI (tinacos)'].filter(Boolean).join(' · ')
+      d && `Monitor de Sequía de México (SMN), ${date(d.date)}`, b.length > 0 && 'Censo 2020 del INEGI (tinacos)'].filter(Boolean).join(' · ')
   } else {
     const p = PLANNED[mode]
     body = <p className="legend-unavailable"><strong>{t('soon')}.</strong> {p.text}</p>

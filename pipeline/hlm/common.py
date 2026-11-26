@@ -18,12 +18,20 @@ CACHE = Path(os.environ.get("HLM_CACHE", PIPELINE / ".cache"))
 MANUAL = PIPELINE / "manual"  # hand-downloaded files when a portal blocks scripts
 OUT = Path(os.environ.get("HLM_OUT", ROOT / "public" / "data"))
 
-ENT, MUN = "26", "030"
-# Hermosillo city bbox used for OSM / future iNaturalist queries (S, W, N, E)
-BBOX = (28.90, -111.15, 29.25, -110.85)
-CITY_CENTER = (29.073, -110.955)
+# Juan José Ríos, Sinaloa: municipio 25-020 since the 2021 decree (INEGI Marco Geoestadístico 2025).
+ENT, MUN = "25", "020"
+PLACE = "Juan José Ríos"
+# Municipio bbox (S, W, N, E) used for OSM, iNaturalist and satellite queries
+BBOX = (25.44, -109.13, 25.96, -108.64)
+CITY_CENTER = (25.757, -108.822)
 
-UA = "hermosillo-living-map-pipeline/0.1 (+open data pipeline)"
+# "Antes de ser Municipio": in the 2020 census the town belonged to Guasave (011) and El Estero to Ahome (001).
+# (municipio, localidad) pairs of the 2020 census / Marco Geoestadístico 2020.
+ANTES_LOCS = (("011", "0138"), ("001", "0136"))
+ANTES_CITY = "0138"
+OUT_ANTES = OUT / "antes"
+
+UA = "mapa-cherrios-pipeline/0.1 (+open data pipeline)"
 
 TODAY = dt.date.today().isoformat()
 
@@ -129,7 +137,7 @@ def round_coords(geom: dict, nd: int = 5) -> dict:
 
 def local_area_km2(geom) -> float:
     """Area of a lon/lat shapely geometry in km², via a local equirectangular
-    projection centred on Hermosillo (error < 0.5 % at city scale)."""
+    projection centred on the town (error < 0.5 % at city scale)."""
     from shapely.ops import transform
     lat0 = math.radians(CITY_CENTER[0])
     kx = 111.320 * math.cos(lat0)

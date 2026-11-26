@@ -1,4 +1,4 @@
-// Map interactions sent to Google Tag Manager's dataLayer (container GTM-M9MFZ7RP, loaded in index.html).
+// Map interactions sent to Google Tag Manager's dataLayer (container GTM-P3XKB934, loaded in index.html).
 // In GTM, use a "Custom Event" trigger with these event names and Data Layer Variables for the fields.
 type Ev =
   | { event: 'cambio_modo'; modo: string }

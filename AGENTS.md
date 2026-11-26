@@ -146,7 +146,7 @@ Repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, optional `PC_SDK_
 
 ## Analytics
 
-Google Tag Manager `GTM-M9MFZ7RP` in `index.html` (skipped on localhost) → GA4. Custom dataLayer events:
+Google Tag Manager `GTM-P3XKB934` in `index.html` (skipped on localhost) → GA4. Custom dataLayer events:
 `cambio_modo`, `abrir_barrio`, `ver_ficha_punto` (tipo animal | negocio | pozo), `cambio_estilo` (see `src/analytics.ts`).
 
 ## Commits

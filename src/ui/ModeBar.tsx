@@ -1,17 +1,19 @@
 import { Concho, LockIcon, ModeIcon, Seal } from '../art/icons'
 import type { Skin } from '../skin'
 import type { Manifest } from '../data'
+import type { Era } from '../era'
 import { t } from '../i18n'
 import { MODES, modeState, type ModeId } from '../modes'
 
 /** Map modes as silver conchos on a leather belt. */
-export function ModeBar({ manifest, mode, setMode, skin }: { manifest: Manifest; mode: ModeId; setMode: (m: ModeId) => void; skin: Skin }) {
+export function ModeBar({ manifest, era, mode, setMode, skin }: { manifest: Manifest; era: Era; mode: ModeId; setMode: (m: ModeId) => void; skin: Skin }) {
   return (
     <nav className="modebar" aria-label="Modos del mapa">
       {MODES.map((m, i) => {
-        const st = modeState(manifest, m.id)
+        const st = modeState(manifest, m.id, era)
         const label = t(m.label)
-        const sub = st === 'soon' ? t('soon') : st === 'unavailable' ? t('unavailable') : ''
+        const sub = st === 'soon' ? t('soon') : st === 'unavailable' ? t('unavailable')
+          : st === 'only_antes' ? `solo en «${t('era_antes')}»` : st === 'only_municipio' ? `solo en «${t('era_municipio')}»` : ''
         return (
           <button
             key={m.id}

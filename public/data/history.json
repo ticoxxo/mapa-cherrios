@@ -3,37 +3,26 @@
     {
       "week": "2026-W48",
       "date": "2026-11-26",
-      "wildlife_total": 12822,
-      "wildlife_new": 17,
+      "wildlife_total": 5208,
+      "wildlife_new": 1,
       "wildlife_groups": {
-        "ins": 11,
-        "ave": 4,
-        "mam": 2
+        "ave": 1
       },
-      "tmax_week": 27.6,
+      "tmax_week": 32.6,
       "tmax_week_date": "2026-11-19",
-      "city_ndvi": 0.181,
-      "realm_ndvi": {
-        "R10": 0.1439,
-        "L0535": 0.2967,
-        "R04": 0.1511,
-        "R03": 0.2077,
-        "R01": 0.1859,
-        "R02": 0.177,
-        "R00": 0.2231,
-        "R09": 0.187,
-        "R11": 0.1512,
-        "R07": 0.18,
-        "R05": 0.1403,
-        "R08": 0.12,
-        "R06": 0.2261
-      },
       "work_edition": "2026-11",
-      "work_total": 39145,
+      "work_total": 1756,
       "drought_level": 0,
       "drought_date": "2026-11-15",
       "water_snapshot": "2025-06",
-      "water_hm3": 731.8
+      "water_hm3": 5.7,
+      "city_ndvi": 0.305,
+      "realm_ndvi": {
+        "R00": 0.2733,
+        "L0011": 0.3688,
+        "L0043": 0.2842,
+        "R01": 0.3176
+      }
     }
   ]
 }

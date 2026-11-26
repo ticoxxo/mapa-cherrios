@@ -1,6 +1,6 @@
-"""'Territorios' (realms): a visual grouping of AGEBs into ~12 provinces for the zoomed-out view.
+"""'Territorios' (realms): a visual grouping of the town's AGEBs into a few provinces for the zoomed-out view.
 
-Hermosillo has no official open district layer, so realms are built by k-means on
+Juan José Ríos has no official open district layer, so realms are built by k-means on
 population-weighted AGEB centroids (deterministic seed). Each realm is named after the
 largest OSM neighbourhood inside it plus a Norteño compass title
 (Comarca / Frontera / El Corazón). This is a *game construct*,
@@ -17,7 +17,7 @@ from shapely.ops import polylabel, unary_union
 
 from .common import CITY_CENTER
 
-K_CITY = 12
+AGEBS_PER_REALM = 4  # a small town: about four barrios per territorio
 SECTORS = ["del Norte", "del Nordeste", "del Oriente", "del Sudeste",  # clockwise from north
            "del Sur", "del Suroeste", "del Poniente", "del Noroeste"]
 CENTER_TITLE = "El Corazón"
@@ -63,17 +63,23 @@ def _kmeans(pts, weights, k, seed=7, iters=60):
     return assign
 
 
-def build_realms(agebs: list[dict], loc_names: dict[str, str], places: list[dict]):
-    """Mutates each ageb dict with 'realm'; returns list of realm dicts with geometry."""
-    city = [a for a in agebs if a["loc"] == "0001"]
+def build_realms(agebs: list[dict], loc_names: dict[str, str], places: list[dict], city_loc: str = "0001"):
+    """Mutates each ageb dict with 'realm'; returns list of realm dicts with geometry.
+
+    Weights are population when the census covers the zones, otherwise area (the current 2025 zones have
+    no census figures yet)."""
+    city = [a for a in agebs if a["loc"] == city_loc]
     pts = [_km(a["geom"].centroid.coords[0]) for a in city]
-    w = [max(a.get("pop") or 0, 50) for a in city]
-    assign = _kmeans(pts, w, K_CITY)
+    w = [max(a.get("pop") or 0, 50) if any(c.get("pop") for c in city) else max(a["area_km2"], 0.01) for a in city]
+    k = max(1, min(len(city), round(len(city) / AGEBS_PER_REALM)))
+    assign = _kmeans(pts, w, k) if city else []
     for a, j in zip(city, assign):
         a["realm"] = f"R{j:02d}"
     for a in agebs:
-        if a["loc"] != "0001":
+        if a["loc"] != city_loc:
             a["realm"] = f"L{a['loc']}"
+    # compass titles scale with the town: centre = inner quarter, comarca = up to 60 % of its radius
+    radius = max((math.hypot(*p) for p in pts), default=1.0) or 1.0
 
     realms = {}
     for a in agebs:
@@ -96,12 +102,12 @@ def build_realms(agebs: list[dict], loc_names: dict[str, str], places: list[dict
         else:
             x, y = _km((label.x, label.y))
             dist = math.hypot(x, y)
-            if dist < 2.8:
+            if dist < 0.25 * radius or k == 1:
                 t = CENTER_TITLE
             else:
                 ang = (math.degrees(math.atan2(x, y)) + 360 + 22.5) % 360
                 # inner ring = comarca, outer ring = frontera (each AGEB is a "barrio")
-                t = ("Comarca " if dist < 6.5 else "Frontera ") + SECTORS[int(ang // 45)]
+                t = ("Comarca " if dist < 0.6 * radius else "Frontera ") + SECTORS[int(ang // 45)]
             n = used_titles.get(t, 0)
             used_titles[t] = n + 1
             r.update(title=t + ROMAN[min(n, 3)])

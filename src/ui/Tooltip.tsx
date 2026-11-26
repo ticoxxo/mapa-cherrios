@@ -6,7 +6,7 @@ import type { HoverInfo, Tier } from '../map/MapView'
 import type { ModeId } from '../modes'
 import { WEALTH_PLAIN } from './Legend'
 
-export function Tooltip({ h, mode, tier, skin }: { h: HoverInfo; mode: ModeId; tier: Tier; skin: Skin }) {
+export function Tooltip({ h, mode, tier, skin, era }: { h: HoverInfo; mode: ModeId; tier: Tier; skin: Skin; era: 'municipio' | 'antes' }) {
   const { ageb: a, realm: r } = h
   const zoneView = tier === 'realm'
   const atlas = skin === 'atlas'
@@ -32,7 +32,7 @@ export function Tooltip({ h, mode, tier, skin }: { h: HoverInfo; mode: ModeId; t
   } else if (mode === 'wildlife') {
     stat = a.w_n ? <><b>{fmt(a.w_n)}</b> {a.w_n === 1 ? 'animal reportado' : 'animales reportados'} aquí</> : <>Nadie ha reportado animales aquí todavía.</>
   } else if (!a.in_census) {
-    stat = <i>{t('no_census')}</i>
+    stat = <i>{era === 'antes' ? t('no_census') : 'Sin datos del censo en los barrios de hoy'}</i>
   } else {
     stat = <>Aquí viven <b>{fmt(a.pop)}</b> personas.</>
   }

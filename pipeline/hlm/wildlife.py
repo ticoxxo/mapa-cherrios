@@ -1,4 +1,4 @@
-"""Fauna: iNaturalist research-grade animal observations in the Hermosillo bbox.
+"""Fauna: iNaturalist research-grade animal observations in the municipio bbox.
 
 Rules:
 - Only observations with an open licence (CC0 / CC-BY*) are kept; each keeps its observer

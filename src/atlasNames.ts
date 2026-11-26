@@ -93,4 +93,4 @@ export function realmLabel(r: Realm, skin: Skin): RealmLabel {
 }
 
 /** Invented epithet for the whole map, shown with its Spanish meaning. */
-export const ATLAS_EPITHET = { name: inventName('hermosillo-sol'), gloss: 'Tierra del Sol Alto' }
+export const ATLAS_EPITHET = { name: inventName('juan-jose-rios-valle'), gloss: 'Tierra del Valle Fértil' }

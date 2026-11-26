@@ -22,13 +22,16 @@ import urllib.request
 
 import numpy as np
 
-from .common import BBOX, CITY_CENTER, OUT, TODAY, UA, Manifest, Provenance, write_json
+from .common import BBOX, CITY_CENTER, OUT, PLACE, TODAY, UA, Manifest, Provenance, write_json
 
 STAC = "https://planetarycomputer.microsoft.com/api/stac/v1/search"
 TOKEN = "https://planetarycomputer.microsoft.com/api/sas/v1/token/landsat-c2-l2"
 SUMMERS = (2023, 2024, 2025)
-MAX_CLOUD = 5
-PATH_ROW = ("035", "040")
+# Sinaloa's summer is the rainy season: allow cloudier scenes (clouds are masked per pixel with QA_PIXEL)
+# and use May–September, the hottest months.
+MAX_CLOUD = 30
+SEASON = ("05-01", "09-30")
+SEASON_ES = "may–sep"
 UTM = "EPSG:32612"
 RES = 30.0
 SCALE, OFFSET = 0.00341802, 149.0
@@ -52,14 +55,29 @@ def _scenes() -> list[dict]:
         d = _json(STAC, {
             "collections": ["landsat-c2-l2"],
             "bbox": [BBOX[1], BBOX[0], BBOX[3], BBOX[2]],
-            "datetime": f"{y}-06-01T00:00:00Z/{y}-08-31T23:59:59Z",
-            "query": {"eo:cloud_cover": {"lt": MAX_CLOUD}, "platform": {"in": ["landsat-8", "landsat-9"]},
-                      "landsat:wrs_path": {"eq": PATH_ROW[0]}, "landsat:wrs_row": {"eq": PATH_ROW[1]}},
-            "limit": 50,
+            "datetime": f"{y}-{SEASON[0]}T00:00:00Z/{y}-{SEASON[1]}T23:59:59Z",
+            "query": {"eo:cloud_cover": {"lt": MAX_CLOUD}, "platform": {"in": ["landsat-8", "landsat-9"]}},
+            "limit": 100,
         })
         items += d["features"]
+    # keep one WRS path/row (a consistent footprint): the one covering the town centre most often
+    from collections import Counter
+
+    from shapely.geometry import Point, shape
+    centre = Point(CITY_CENTER[1], CITY_CENTER[0])
+    pr = lambda f: (f["properties"].get("landsat:wrs_path"), f["properties"].get("landsat:wrs_row"))  # noqa: E731
+    covering = [f for f in items if shape(f["geometry"]).contains(centre)]
+    if not covering:
+        return []
+    best = Counter(pr(f) for f in covering).most_common(1)[0][0]
+    global PATH_ROW
+    PATH_ROW = best
+    items = [f for f in covering if pr(f) == best]
     items.sort(key=lambda f: f["properties"]["datetime"])
     return items
+
+
+PATH_ROW: tuple = ("?", "?")  # set by _scenes()
 
 
 def _grid():
@@ -111,7 +129,7 @@ def _build_heat(manifest: Manifest, agebs: list[dict]) -> dict:
     prov = Provenance(id="landsat_lst", name="Temperatura de la superficie, veranos " + "–".join(map(str, (SUMMERS[0], SUMMERS[-1]))),
                       url="https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2",
                       license="Dominio público (USGS)", publisher="USGS / NASA — Landsat 8 y 9 (vía Microsoft Planetary Computer)",
-                      vintage=f"jun–ago {SUMMERS[0]}–{SUMMERS[-1]}")
+                      vintage=f"{SEASON_ES} {SUMMERS[0]}–{SUMMERS[-1]}")
     try:
         items = _scenes()
         token = _json(TOKEN)["token"]
@@ -147,7 +165,7 @@ def _build_heat(manifest: Manifest, agebs: list[dict]) -> dict:
             bad = (st == 0) | ((qa & QA_BAD) != 0)
             lst[bad] = np.nan
             clear = 1 - np.isnan(lst).mean()
-            if clear < 0.8:  # the scene is cloudy over the city itself
+            if clear < 0.5:  # too cloudy over the map area
                 continue
             stack.append(lst)
             used.append(it["properties"]["datetime"][:10])
@@ -187,7 +205,7 @@ def _finish(manifest, agebs, prov, comp, used, transform, w, h) -> dict:
         "ageb_min": vals[0], "ageb_max": vals[-1], "ageb_median": float(np.median(vals)),
         "pixel_p95_urban": round(float(np.percentile(urban, 95)), 1),
         "hottest": [{"cvegeo": a["cvegeo"], "lst": a["lst"]} for a in sorted(
-            (a for a in agebs if a["lst"] is not None), key=lambda a: -a["lst"])[:12]],
+            (a for a in agebs if a["lst"] is not None), key=lambda a: -a["lst"])[:3]],
     }
 
     # ---- picture for close zoom: composite warped to lon/lat, coloured, transparent where empty ----
@@ -235,7 +253,7 @@ def _heat_png(comp, transform, stats):
 
 def build_weather(manifest: Manifest) -> dict:
     """NASA POWER daily max air temperature at the city centre (last 21 days available)."""
-    prov = Provenance(id="nasa_power", name="Temperatura máxima diaria del aire (T2M_MAX), centro de Hermosillo",
+    prov = Provenance(id="nasa_power", name="Temperatura máxima diaria del aire (T2M_MAX), centro de " + PLACE,
                       url="https://power.larc.nasa.gov/", license="Dominio público (NASA)", publisher="NASA POWER",
                       vintage="diario, con unos días de retraso", modeled=True,
                       notes="Producto de reanálisis (MERRA-2/GEOS) en celda de ~0.5°; es un valor para toda la ciudad.")

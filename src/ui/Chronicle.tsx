@@ -15,17 +15,11 @@ export function Chronicle({ data }: { data: CoreData }) {
     ...weekly,
         {
           date,
-          title: '¿Cuánta gente somos?',
-          text: `En 2020 vivían ${fmt(s.municipio.pop)} personas en el municipio de Hermosillo; ${fmt(s.city.pop)} de ellas en la ciudad.`,
-          source: 'INEGI, Censo 2020',
-        },
-        {
-          date,
-          title: 'Barrios nuevos',
-          text: `El mapa tiene ${fmt(s.n_ageb)} barrios. ${s.n_ageb_without_census} son nuevos y todavía no tienen cifras del censo.`,
+          title: 'Municipio nuevo',
+          text: `En 2021 el Congreso de Sinaloa creó el municipio de ${t('title')}; antes era parte de Guasave. El mapa tiene ${fmt(s.n_ageb)} barrios de hoy. Para ver los números del Censo 2020, usa «${t('era_antes')}».`,
           source: 'INEGI, Marco Geoestadístico dic. 2025',
         },
-        ...(weekly.length ? [] : [{ date, title: 'Se avisa', text: 'Cada semana aquí saldrán las noticias de la ciudad: animales, verdor y calor.', source: undefined }]),
+        ...(weekly.length ? [] : [{ date, title: 'Se avisa', text: 'Cada semana aquí saldrán las noticias del pueblo: animales, verdor, calor, chamba y agua.', source: undefined }]),
       ]
 
   return (

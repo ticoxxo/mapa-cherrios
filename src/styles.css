@@ -1,4 +1,4 @@
-/* Hermosillo: El Mapa Vivo — estilo norteño.
+/* Juan José Ríos: El Mapa Vivo — estilo norteño.
    Cuero repujado con costura, papel de gaceta asoleado, conchos de plata, turquesa,
    latón, franja de sarape y letras de imprenta de madera. */
 :root {
@@ -813,3 +813,25 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Agua: drought sparkline in the legend */
 .drought p:first-child { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .drought-spark { display: block; width: 100%; height: 26px; margin: 4px 0 2px; border-bottom: 1px solid var(--ink); }
+
+/* ---------- época: Municipio (hoy) / Antes de ser Municipio (2020) ---------- */
+.ledger-switches { flex: none; display: flex; align-items: center; gap: 8px; }
+.era-toggle .era-short { display: none; }
+@media (max-width: 1180px) {
+  .era-toggle .era-long { display: none; }
+  .era-toggle .era-short { display: inline; }
+}
+@media (max-width: 760px) {
+  .ledger-switches { gap: 4px; }
+}
+.era-banner { max-width: min(560px, calc(100vw - 16px)); }
+.era-banner .era-jump {
+  margin-left: 4px; border: 1px solid currentColor; background: none; color: inherit; font: inherit; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px; cursor: pointer;
+}
+.era-banner .era-jump:disabled { opacity: .5; cursor: wait; }
+.game.switching { cursor: progress; }
+.era-note .card-body p { margin: 0 0 8px; }
+.era-locs { margin: 0 0 8px; padding-left: 18px; }
+.era-locs li { margin: 2px 0; }
+[data-skin='sencillo'] .era-banner .era-jump { border-color: var(--acento); color: var(--acento); border-radius: 6px; }

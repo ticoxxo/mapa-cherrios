@@ -10,7 +10,8 @@ Sources
   In that table an EMPTY cell means "sin sequía" (see its NOTAS sheet), not missing data.
 
 Rules
-- Only points inside the municipio of Hermosillo (state 26, municipio 30) are kept.
+- Only points inside the outline of the municipio of Juan José Ríos (INEGI 2025) are kept. Older REPDA
+  releases file them under Guasave or Ahome, so the municipio code is not used to filter.
 - Privacy: holders that are companies, ejidos, associations or public bodies are named; holders that
   look like private people are shown as "Particular" and their points are rounded to ~100 m.
 - Volumes are the yearly volumes the titles AUTHORISE, not metered pumping. The UI says so.
@@ -25,13 +26,13 @@ import unicodedata
 import zipfile
 from collections import Counter, defaultdict
 
-from .common import OUT, Manifest, Provenance, SourceUnavailable, fetch, write_json
+from .common import BBOX, ENT, MUN, OUT, Manifest, Provenance, SourceUnavailable, fetch, write_json
 
 ZENODO = "https://zenodo.org/api/records/24183265/versions/latest"
 ZENODO_PAGE = "https://zenodo.org/records/24183265"
 SMN_URL = ("https://smn.conagua.gob.mx/tools/RESOURCES/Monitor%20de%20Sequia%20en%20Mexico/"
            "MunicipiosSequia.xlsx")
-CVE_HMO = "26030"
+CVE_MUN = ENT + MUN
 
 USES = ["agricola", "urbano", "industria", "ganado", "otros"]
 USE_OF = {"AGRICOLA": "agricola", "AGROINDUSTRIAL": "industria", "PUBLICO URBANO": "urbano",
@@ -99,7 +100,7 @@ def _read(z: zipfile.ZipFile, name: str):
     return csv.reader(io.TextIOWrapper(z.open(n), encoding="utf-8-sig", newline=""))
 
 
-def _repda(manifest: Manifest, agebs: list[dict]) -> dict:
+def _repda(manifest: Manifest, agebs: list[dict], area) -> dict:
     try:
         path, snap, meta = _latest_repda()
     except (SourceUnavailable, KeyError, StopIteration, json.JSONDecodeError) as e:
@@ -119,6 +120,9 @@ def _repda(manifest: Manifest, agebs: list[dict]) -> dict:
             titles[r[0]] = (USE_OF.get(_plain(r[i_uso]), "otros"), r[i_tit].strip(), r[i_fecha][:10])
 
     # annexes with locations: (file, kind). Column positions differ per file, so look them up by name.
+    from shapely.geometry import Point
+    from shapely.prepared import prep
+    inside = prep(area)
     pts = []
     for name, kind in (("ANEXOS_SUBTERRANEOS.csv", 0), ("ANEXOS_SUBTERRANEOS_DTTOS.csv", 0),
                        ("ANEXOS_SUPERFICIALES.csv", 1), ("ANEXOS_SUPERFICIALES_DTTOS.csv", 1)):
@@ -132,10 +136,12 @@ def _repda(manifest: Manifest, agebs: list[dict]) -> dict:
         i_aq = h.index("NOMBRE DE ACUIFERO HOMOLOGADO") if "NOMBRE DE ACUIFERO HOMOLOGADO" in h else None
         i_src = h.index("FUENTE DE ABASTECIMIENTO") if "FUENTE DE ABASTECIMIENTO" in h else None
         for r in rows:
-            if r[col["CLAVE DE ESTADO"]].strip().zfill(2) + r[col["CLAVE DE MUNICIPIO"]].strip().zfill(3) != CVE_HMO:
+            if r[col["CLAVE DE ESTADO"]].strip().zfill(2) != ENT:
                 continue
             lat = _dms(r[col["GRADOS LATITUD"]], r[col["MINUTOS LATITUD"]], r[col["SEGUNDOS LATITUD"]])
             lon = _dms(r[col["GRADOS LONGITUD"]], r[col["MINUTOS LONGITUD"]], r[col["SEGUNDOS LONGITUD"]])
+            if lat is None or lon is None or not inside.contains(Point(-lon, lat)):
+                continue  # no coordinates = cannot tell whether it is in the new municipio
             use, holder, date = titles.get(r[0], ("otros", "", ""))
             pts.append({"lat": lat, "lon": -lon if lon else None, "kind": kind, "use": use, "holder": holder,
                         "date": date, "vol": _f(r[col["VOLUMEN ANUAL EN M3"]]) or 0.0,
@@ -145,10 +151,9 @@ def _repda(manifest: Manifest, agebs: list[dict]) -> dict:
     if not pts:
         manifest.add(Provenance(id="conagua_repda", name="REPDA (títulos de agua)", url=ZENODO_PAGE,
                                 license="Términos de Libre Uso MX", publisher="CONAGUA", vintage=snap,
-                                status="unavailable", notes="no rows for municipio 26030"))
+                                status="unavailable", notes=f"no rows inside municipio {CVE_MUN}"))
         return {}
 
-    from shapely.geometry import Point
     from shapely.strtree import STRtree
     geoms = [a["geom"] for a in agebs]
     tree = STRtree(geoms)
@@ -168,7 +173,7 @@ def _repda(manifest: Manifest, agebs: list[dict]) -> dict:
             k = holder_key(p["holder"])
             holders[k] += p["vol"]
             spelling[k][re.sub(r"\s+", " ", p["holder"]).strip(" ,")] += 1
-        if p["lat"] is None or not (27.5 < p["lat"] < 30.5 and -113.5 < p["lon"] < -109.5):
+        if p["lat"] is None or not (BBOX[0] < p["lat"] < BBOX[2] and BBOX[1] < p["lon"] < BBOX[3]):
             unplaced += 1
             continue
         nd = 4 if named else 3  # private people: ~100 m, never the exact spot
@@ -194,7 +199,7 @@ def _repda(manifest: Manifest, agebs: list[dict]) -> dict:
         license="Términos de Libre Uso MX (datos de CONAGUA); documentación del archivo CC BY 4.0",
         publisher="CONAGUA (copia íntegra en Zenodo, Gómez-Arias y Moctezuma)",
         vintage=f"corte {snap} (último registro {last_reg})",
-        notes=f"{len(pts)} pozos y tomas en el municipio 030, {unplaced} sin coordenadas válidas. Volúmenes = lo que "
+        notes=f"{len(pts)} pozos y tomas dentro del municipio {CVE_MUN}, {unplaced} sin coordenadas válidas. Volúmenes = lo que "
               "autoriza cada título al año, no lo que se bombea. Personas físicas sin nombre y con ubicación redondeada."))
     print(f"  REPDA {snap}: {len(pts)} points ({kinds[0]} wells, {kinds[1]} intakes), {total / 1e6:.1f} hm³/year, "
           f"{unplaced} without coordinates")
@@ -214,7 +219,7 @@ def _drought(manifest: Manifest) -> dict:
         ws = openpyxl.load_workbook(path, read_only=True)["MUNICIPIOS"]
         it = ws.iter_rows(values_only=True)
         head = next(it)
-        row = next(r for r in it if str(r[0]).strip().zfill(5) == CVE_HMO)
+        row = next(r for r in it if str(r[0]).strip().zfill(5) == CVE_MUN)
     except (SourceUnavailable, StopIteration, KeyError, ValueError, zipfile.BadZipFile) as e:
         print(f"  ! drought monitor unavailable: {e}")
         manifest.add(Provenance(id="smn_sequia", name="Monitor de Sequía de México", url=SMN_URL,
@@ -248,12 +253,12 @@ def _drought(manifest: Manifest) -> dict:
             "worst_ever": worst, "series": series[-72:]}  # last ~3 years for the sparkline
 
 
-def build_water(manifest: Manifest, agebs: list[dict]) -> dict:
-    rights = _repda(manifest, agebs)
+def build_water(manifest: Manifest, agebs: list[dict], area) -> dict:
+    rights = _repda(manifest, agebs, area)
     drought = _drought(manifest)
     if not rights and not drought:
         manifest.layer("water", "unavailable", ["conagua_repda", "smn_sequia"])
         return {}
-    srcs = [s for s, ok in (("conagua_repda", rights), ("smn_sequia", drought)) if ok] + ["inegi_censo2020"]
+    srcs = [s for s, ok in (("conagua_repda", rights), ("smn_sequia", drought)) if ok]
     manifest.layer("water", "ok" if rights and drought else "partial", srcs)
     return {"rights": rights or None, "drought": drought or None}

@@ -1,5 +1,5 @@
-"""Chamba: INEGI DENUE (Directorio Estadístico Nacional de Unidades Económicas), Sonora file,
-filtered to the municipio of Hermosillo (CVE_MUN 030).
+"""Chamba: INEGI DENUE (Directorio Estadístico Nacional de Unidades Económicas), state file (ENT),
+filtered to the municipio (CVE_ENT + CVE_MUN in common.py).
 
 Rules:
 - DENUE gives each business's size only as a range of people employed (PER_OCU). The number
@@ -18,8 +18,8 @@ from collections import Counter, defaultdict
 
 from .common import ENT, MUN, OUT, Manifest, Provenance, SourceUnavailable, fetch, write_json
 
-URL = "https://www.inegi.org.mx/contenidos/masiva/denue/denue_26_csv.zip"
-ZIP_NAME = "denue_26_csv.zip"
+URL = f"https://www.inegi.org.mx/contenidos/masiva/denue/denue_{ENT}_csv.zip"
+ZIP_NAME = f"denue_{ENT}_csv.zip"
 
 SIZES = ["0 a 5", "6 a 10", "11 a 30", "31 a 50", "51 a 100", "101 a 250", "251 y m"]
 JOBS_MID = [3, 8, 20, 40, 75, 175, 300]  # 251+ is open-ended: a deliberately low guess

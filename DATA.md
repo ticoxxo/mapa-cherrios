@@ -1,54 +1,55 @@
-# Datos — Hermosillo: El Mapa Vivo
+# Datos — Juan José Ríos: El Mapa Vivo
 
 Every number in the app comes from an open, citable source. Each pipeline run writes
 `public/data/manifest.json` with the source URL, license, vintage, retrieval date and status of
 every input; the in-app "Créditos de datos" table is rendered from it. When a source fails, its
 layer is marked `unavailable` and the UI says **"Datos no disponibles"**: no placeholder values.
 
-Spatial unit: INEGI **AGEB urbana** (key `CVEGEO`, 13 characters). Sonora = `26`, Hermosillo = `030`.
+Spatial unit: INEGI **AGEB urbana** (key `CVEGEO`, 13 characters). Sinaloa = `25`.
+
+## Two views and why the census is only in one
+
+Juan José Ríos became municipio `25-020` by the 2021 decree of the Sinaloa Congress (amended 2023). In the 2020
+census the town was localidad `0138` of **Guasave** (`011`) and El Estero (Juan José Ríos) was localidad `0136` of
+**Ahome** (`001`). INEGI re-keyed every AGEB for the new municipio: none of the 19 + 1 census AGEBs share a key
+with the 15 AGEBs of the Dec 2025 framework. So:
+
+- **Municipio** (`public/data/`): Dec 2025 AGEBs of `25/020` with every live layer. Census-based figures are
+  *not* shown there (no re-apportioning of 2020 blocks into new zones); the app points to the other view.
+- **Antes de ser Municipio** (`public/data/antes/`): AGEBs and blocks of the Marco Geoestadístico 2020 census
+  edition, joined to the Censo 2020 by their own `CVEGEO` (20 of 20 AGEBs, 324 of 329 blocks with an outline).
+  Only 2020 data is shown there.
 
 ## Status of each dataset
 
 | Mode / layer | Dataset | Publisher | Vintage | Update frequency | License | Status |
 |---|---|---|---|---|---|---|
-| Base: AGEB boundaries | Marco Geoestadístico, AGEB urbanas (`wscatgeo/v2/geo/agebu/26/030`) | INEGI | Dec 2025 | Yearly (Dec) | INEGI Términos de libre uso | **Built** |
-| Base: blocks | Marco Geoestadístico, manzanas (`…/mza/26/030`) | INEGI | Dec 2025 | Yearly | INEGI Términos de libre uso | **Built** (loaded lazily at zoom ≥ 13.4) |
-| Base: streets | Marco Geoestadístico, vialidades (`…/vialidades/26/030`) | INEGI | Dec 2025 | Yearly | INEGI Términos de libre uso | **Built** (major roads up front, minor roads lazy) |
-| Base: landmarks, water, river, parks, neighbourhood names | OpenStreetMap via Overpass API (bbox 28.90–29.25 N, −111.15 to −110.85) | OSM contributors | live | Weekly | ODbL 1.0 | **Built** |
-| Base: sea (Gulf of California) | Natural Earth 1:10m ocean polygons (`ne_10m_ocean.geojson`), clipped to −113.2…−109.7, 27.8…30.2 | Natural Earth | v5.1 | Static (cached a year) | Public domain | **Built**. Shoreline is approximate up close (1:10 M scale); drawn under the barrios |
-| Base: hillshade | AWS Terrain Tiles (Terrarium; SRTM, ETOPO1, USGS NED) | Mapzen / AWS Open Data | static | — | Attribution | **Live tiles** (fetched by the browser) |
-| Territorios | k-means of population-weighted AGEB centroids | derived | — | Per run | CC-BY 4.0 (derived) | **Built — a visual grouping, not official districts** |
-| People | Censo de Población y Vivienda 2020, AGEB y manzana urbana (CSV) | INEGI | 2020 | Decennial (next: 2030) | INEGI Términos de libre uso | **Built** |
-| People (optional) | WorldPop 2023, 100 m grid | WorldPop | 2023 | Yearly | CC-BY 4.0 | Not built (would be labelled *modelled*) |
-| Wealth | Índice de Marginación Urbana 2020 by AGEB (`imu_2020.csv`, dataset `indices_marginacion`) | CONAPO | 2020 | Each census | CC-BY 4.0 | **Built** from a hand-downloaded copy (`pipeline/manual/`). 530 AGEBs, 99.4 % of residents. Primary colour of the Bienestar mode |
-| Wealth | Grado de Rezago Social 2020 by AGEB (`grs_ageb_2020.csv`, dataset `rezago_social`) | CONEVAL | 2020 | Each census | CC-BY 4.0 | **Built** from a hand-downloaded copy. 621 AGEBs, 99.6 % of residents. Five grades. Shown in the ficha |
-| Heat | Landsat 8/9 Collection 2 Level-2 surface temperature (ST_B10), via Microsoft Planetary Computer STAC | USGS / NASA | 22 clear scenes, Jun–Aug 2023–2025, path/row 035/040 | Yearly (add a new summer) | Public domain | **Built**: per-pixel median composite → per-AGEB mean, plus `heat.png` |
-| Heat (HUD) | NASA POWER daily T2M_MAX at 29.073, −110.955 | NASA | daily, a few days' lag | Weekly | Public domain | **Built** (reanalysis, labelled *modelado*) |
-| Green | Sentinel-2 L2A NDVI per AGEB, via Planetary Computer (tiles 12RVT + 12RWT) | Copernicus / ESA | last 30 days, plus the same window a year earlier | Weekly | Copernicus open licence | **Built** (14 clear passes now, 20 a year ago on the first run) |
-| Green | ESA WorldCover 2021 v200, tiles N27W111 + N27W114 | ESA | 2021 | Static (cached) | CC-BY 4.0 | **Built**: % tree cover per AGEB and 6,030 cartoon-tree points. Labelled as a satellite estimate |
-| Wildlife | iNaturalist observations, research grade, animals only (`iconic_taxa` = Aves, Reptilia, Mammalia, Amphibia, Insecta, Arachnida, Mollusca, Actinopterygii, Animalia), same bbox | iNaturalist | live | Weekly | Per observation: only CC0 / CC BY / CC BY-NC (and -SA/-ND variants) kept, observer credited | **Built**: 12,822 licensed of 17,505; 12,456 drawn; 6,082 inside urban AGEBs |
-| Work | DENUE Sonora (`denue_26_csv.zip`, filtered to `CVE_MUN = 030`) | INEGI | edition 11/2026 (published 2026-11-25) | Twice a year (May / Nov); checked weekly | INEGI Términos de libre uso | **Built**: 39,145 businesses; 38,943 in urban AGEBs. Jobs per AGEB are *estimated* |
-| Water | REPDA — Registro Público de Derechos de Agua (CSV release: titles + location annexes, incl. irrigation districts), filtered to state 26 / municipio 30 | CONAGUA (unmodified releases preserved on Zenodo, record 24183265) | release 2025-06 (last registration 2025-06-11) | CONAGUA replaces its archive irregularly; the Zenodo record is checked weekly | Términos de Libre Uso MX (data); CC BY 4.0 (archive docs) | **Built**: 2,146 wells and intakes, 732 hm³/year authorised. Volumes are what titles allow, not metered |
-| Water | Monitor de Sequía de México, municipal table (`MunicipiosSequia.xlsx`) | SMN / CONAGUA | every 15 days since 2003 | Twice a month; checked weekly | Términos de Libre Uso MX | **Built**: current level, since when, and a 3-year sparkline |
-| Water | Censo 2020 `VPH_TINACO`, `VPH_CISTER`, `VPH_AGUADV` | INEGI | 2020 | Decennial | INEGI Términos de libre uso | **Built**: map colour = % of homes with a tinaco |
-| Water (not built) | Dam levels (Abelardo L. Rodríguez, El Novillo) — SINA | CONAGUA | — | — | — | **Blocked for scripts** (Incapsula bot wall). Free alternative: water area seen by Sentinel-2 |
-| Water (not built) | Aquifer availability (DOF 9 Nov 2023) | CONAGUA / DOF | 2023 | Every few years | — | Not built: would need a small hand-made table in `pipeline/manual/` |
-| Work (HUD) | Formal jobs, IMSS | IMSS | monthly | Monthly | Datos abiertos IMSS | Not built (the HUD shows the DENUE business count instead) |
+| Base (Municipio): AGEBs, blocks, streets, municipio outline | Marco Geoestadístico (`wscatgeo/v2/geo/{agebu,mza,vialidades,mgem}/25/020`) | INEGI | Dec 2025 | Yearly | INEGI Términos de libre uso | **Built**: 15 AGEBs, 761 blocks, 1,988 street segments |
+| Base (Antes): AGEBs, blocks | Marco Geoestadístico 2020, census edition (`889463807469/25_sinaloa.zip`, shapefiles `25a`, `25m`) | INEGI | 2020 | Static | INEGI Términos de libre uso | **Built**: 20 AGEBs, 324 blocks |
+| Locality names | Catálogo Único de Claves Geoestadísticas (`wscatgeo/v2/localidades/25/020`) | INEGI | 2025 | Yearly | INEGI Términos de libre uso | **Built** |
+| Base: landmarks, water, parks, place names | OpenStreetMap via Overpass (bbox 25.44–25.96 N, −109.13 to −108.64) | OSM contributors | live | Weekly | ODbL 1.0 | **Built**: 91 landmarks; OSM has no named neighbourhoods here |
+| Base: sea | Natural Earth 1:10m ocean, clipped to the map area **minus INEGI's municipio outline** (at 1:10 M the nearby bays spill onto farmland) | Natural Earth | v5.1 | Static | Public domain | **Built** |
+| Base: hillshade | AWS Terrain Tiles | Mapzen / AWS Open Data | static | — | Attribution | **Live tiles** |
+| Territorios | k-means of AGEB centroids (population-weighted in the 2020 view, area-weighted today) | derived | — | Per run | CC-BY 4.0 (derived) | **Built — a visual grouping, not official districts** |
+| People (Antes) | Censo 2020, AGEB y manzana urbana (`ageb_mza_urbana_25_cpv2020_csv.zip`), Guasave 0138 + Ahome 0136 | INEGI | 2020 | Decennial (next: 2030) | INEGI Términos de libre uso | **Built**: 26,664 people (22,421 + 4,243) |
+| People (Municipio) | — | — | — | — | — | **Not shown**: no census yet with the new keys |
+| Wealth (Antes) | CONAPO IMU 2020 and CONEVAL GRS 2020 by AGEB | CONAPO / CONEVAL | 2020 | Each census | CC-BY 4.0 | **Built** from hand-downloaded copies in `pipeline/manual/` (portals answer 403 to scripts), trimmed to the two localities: IMU for 14 of 20 AGEBs, GRS for 17 |
+| Heat | Landsat 8/9 C2 L2 surface temperature via Planetary Computer; path/row chosen automatically (033/042); **May–Sep** 2023–2025; scene cloud < 30 %, per-pixel QA mask | USGS / NASA | 35 scenes | Yearly | Public domain | **Built**: AGEB means 44.4–48.8 °C |
+| Heat (HUD) | NASA POWER daily T2M_MAX at 25.757, −108.822 | NASA | daily | Weekly | Public domain | **Built** (reanalysis, *modelado*) |
+| Green | Sentinel-2 L2A NDVI, last 30 days and the same window a year earlier | Copernicus / ESA | weekly | Weekly | Copernicus open licence | **Built**: 15 passes now, 22 a year ago; 44 % of the town looks green |
+| Green | ESA WorldCover 2021 v200 | ESA | 2021 | Static | CC-BY 4.0 | **Built**: 11.7 % tree cover, 481 cartoon trees |
+| Wildlife | iNaturalist research-grade animals in the bbox, open licences only | iNaturalist | live | Weekly | Per observation | **Built**: 5,208 licensed, 4,968 drawn, 26 inside urban AGEBs |
+| Work | DENUE Sinaloa (`denue_25_csv.zip`, `CVE_MUN = 020`; DENUE already uses the new municipio) | INEGI | edition 11/2026 | Twice a year; checked weekly | INEGI Términos de libre uso | **Built**: 1,756 businesses, ~9,456 jobs (*estimate*); 97 outside urban AGEBs |
+| Water | REPDA (Zenodo copy of CONAGUA's releases); points kept by the **2025 municipio outline** (older releases file them under Guasave / Ahome) | CONAGUA | release 2025-06 | Irregular; checked weekly | Términos de Libre Uso MX | **Built**: 72 points (40 wells, 32 intakes), 5.7 hm³/year authorised |
+| Water | Monitor de Sequía, municipal table, row `25020` | SMN / CONAGUA | every 15 days | Twice a month | Términos de Libre Uso MX | **Built**: sin sequía since 2026-06-15 |
+| Water (tinacos) | Censo 2020 `VPH_TINACO` | INEGI | 2020 | Decennial | INEGI Términos de libre uso | **Antes only**: in the Municipio view zones stay uncoloured and the legend says why |
 
 ## How figures are handled
 
-- **Boundaries vs. statistics:** boundaries are from Dec 2025 and figures from the 2020 census; they are joined
-  by `CVEGEO`. 673 AGEBs exist in the 2025 framework and 665 have census rows. The 11 AGEBs without a match
-  (created after 2020, or re-keyed) are drawn with a dashed outline and flagged "Barrio nuevo", never filled
-  with estimates.
-- **Confidential cells:** INEGI replaces small counts with `*`. They are stored as `null` and shown as "—",
-  never as 0. A block with a real `0` residents is shown as 0.
-- **Derived ratios** (density, % of homes with internet, etc.) are computed only from census counts. Areas
-  use a local equirectangular projection (error < 0.5 % at city scale).
-- **Territorios** are a game construct for the zoomed-out view. Their names combine the nearest OSM
-  neighbourhood inside the territory with a compass title (*Comarca* = inner ring, *Frontera* = outer ring,
-  *El Corazón* = centre). The UI says so in the legend.
-- **Province descriptions and vignettes** are generated only from that AGEB's census values, and are labelled as illustrations.
+- **Confidential cells:** INEGI `*` → `null`, shown as "—", never 0. A real `0` stays 0.
+- **Derived ratios** come only from census counts (see below); areas use a local equirectangular projection.
+- **Territorios** are a game construct; compass titles scale to the town (centre = inner quarter of its radius).
+- **Descriptions** of a barrio use only that AGEB's own values; today's zones are described only with live data.
 
 ## Census percentages (audited 2026-11-26)
 
@@ -66,13 +67,12 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
 
 ## Fauna rules
 
-- **Only openly licensed observations** are used (4,683 "all rights reserved" observations are excluded). Each point keeps
+- **Only openly licensed observations** are used ("all rights reserved" observations are excluded). Each point keeps
   its observer's iNaturalist username and licence, shown on the sighting card with a link to the original.
 - **Hidden locations stay hidden.** iNaturalist blurs coordinates of threatened species and private observations
-  (366 here). They count in city totals but are never drawn or assigned to a barrio.
+  . They count in totals but are never drawn or assigned to a barrio.
 - Positions less precise than 500 m are drawn but not counted for a barrio.
-- **Counts measure observer effort, not wildlife abundance.** Parks, the university and the river get more reports
-  because more people photograph there. The legend says so in plain words.
+- **Counts measure observer effort, not wildlife abundance.** Places where more people take photos get more reports. The legend says so in plain words.
 - "New this week" = observations **uploaded** in the last 7 days (an upload can be of an older sighting).
 - La Gaceta's weekly entries come from `public/data/history.json` (one snapshot per ISO week) and are only
   generated from those numbers.
@@ -80,13 +80,11 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
 ## Calor rules
 
 - Landsat measures **land-surface temperature** (ground, roofs, pavement) at the ~10:40 local overpass, **not air
-  temperature**. Values of 50–60 °C are normal for Hermosillo summers. The UI says "suelo y techos, no del aire".
-- Clouds, cloud shadows and cirrus are removed per pixel with `QA_PIXEL`. Scenes less than 80 % clear over the city
-  are dropped. The composite is the per-pixel median of the remaining scenes, so a single odd day does not dominate.
+  temperature**. Values in the mid-40s °C are normal here in summer. The UI says "suelo y techos, no del aire".
+- Clouds, cloud shadows and cirrus are removed per pixel with `QA_PIXEL`. Scenes less than 50 % clear over the map area
+  are dropped (the Sinaloa summer is the rainy season). The composite is the per-pixel median of the remaining scenes, so a single odd day does not dominate.
 - Per AGEB: mean of composite pixels whose centre falls inside the AGEB (at least 3 pixels).
-- Finding, checked in numbers: urban AGEBs average 53.6 °C while the surrounding desert averages 58.1 °C. Hermosillo
-  behaves as a summer "cool island" relative to bare desert. The hottest barrios are new, bare developments at the edge.
-- The HUD's "Máxima" is NASA POWER reanalysis at a ~0.5° cell: one value for the whole city, arriving a few days late.
+- The HUD's "Máxima" is NASA POWER reanalysis at a ~0.5° cell: one value for the whole town, arriving a few days late.
 
 ## Verde rules
 
@@ -98,13 +96,11 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
 - **"Se ve verde"** = share of pixels with NDVI ≥ 0.3 (living, irrigated vegetation or trees in this climate).
 - **Trees** = WorldCover 2021 class 10. One cartoon tree per 60 m cell that is ≥ 25 % tree cover, inside barrios,
   sized by that spot's current NDVI. It is **not a tree inventory**; the UI says so.
-- The outlying towns (Bahía de Kino, Miguel Alemán, San Pedro) are outside the city bbox, so Calor and Verde show
-  "sin datos" there (79 AGEBs).
 
 ## Chamba rules
 
 - **Businesses** come from DENUE and are assigned to an AGEB by DENUE's own `CVE_LOC` + `CVE_AGEB`, not by geometry.
-  202 businesses have no urban AGEB; they are still drawn on the map.
+  97 businesses have no urban AGEB; they are still drawn on the map.
 - **Jobs are an estimate.** DENUE only gives a size range (`PER_OCU`). Each business counts as the midpoint:
   0–5 → 3, 6–10 → 8, 11–30 → 20, 31–50 → 40, 51–100 → 75, 101–250 → 175, 251+ → 300 (a deliberately low
   guess for the open range). The legend, ficha and Gaceta all say "cerca de" / "cálculo".
@@ -122,16 +118,16 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
   pipeline reads the newest release in the Zenodo record that preserves CONAGUA's own archives unmodified
   (`repda_zenodo_record.json` is re-checked every 6 days; each `REPDA_YYYY-MM.zip` is cached for good). Don't
   try to get past the bot wall; a hand-downloaded `pipeline/manual/REPDA_YYYY-MM.zip` is the fallback.
-- Points are wells (`ANEXOS_SUBTERRANEOS*`) and surface intakes (`ANEXOS_SUPERFICIALES*`) whose state/municipio
-  keys are 26/30. The 450 wells of Distrito de Riego 051 (Costa de Hermosillo) come from the `*_DTTOS` files and
-  belong to the users' association. 4 points without valid coordinates are counted but not drawn.
+- Points are wells (`ANEXOS_SUBTERRANEOS*`) and surface intakes (`ANEXOS_SUPERFICIALES*`) in state 25 whose
+  coordinates fall inside INEGI's 2025 outline of municipio 25-020. Points without coordinates cannot be
+  placed in the new municipio and are left out.
 - **Volumes are what each title authorises per year, not what is pumped.** Legend, card, ficha and Gaceta say so.
   "Albercas olímpicas" = volume ÷ 2,500 m³, rounded.
 - **Uses**: AGRÍCOLA → campo; PÚBLICO URBANO → ciudad; INDUSTRIAL, AGROINDUSTRIAL, GENERACIÓN DE ENERGÍA → industria;
   PECUARIO → ganado; everything else (DIFERENTES USOS, SERVICIOS, DOMÉSTICO…) → otros.
 - **Privacy**: a holder is named only if it looks like a company, ejido, association or public body
   (`water.is_entity`: legal suffixes S.A., S.P.R., S. de R.L., A.C., SAPI…, or words like EJIDO, MUNICIPIO,
-  COMISIÓN, AGUA DE HERMOSILLO). Everyone else is "Particular" and their point is rounded to 3 decimals
+  COMISIÓN). Everyone else is "Particular" and their point is rounded to 3 decimals
   (~100 m). Top-holder lists merge spellings of the same company (`water.holder_key`).
 - **Drought**: in the SMN table an empty cell means *sin sequía* (its NOTAS sheet says so), so it is level 0,
   not missing. Levels: sin, D0 anormalmente seco, D1–D4 moderada → excepcional. Missing reports (Aug 2003,
@@ -142,16 +138,10 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
 
 ## Known gaps
 
-- **No public tree inventory** for Hermosillo. The Green mode will draw trees as an NDVI proxy and say so.
-- **No open zoning or parcel (catastro) GIS.** Land use is limited to OSM tags and ESA WorldCover classes.
-- **IMSS formal jobs and weather are city-wide only**, so they appear in the HUD and not per AGEB.
-- **No official district layer**, hence the derived *territorios*.
-- **CONAPO / CONEVAL downloads are blocked for scripts** from some networks (Akamai 403). The CSVs were
-  downloaded in a browser and placed in `pipeline/manual/` (see `pipeline/README.md`). The weekly Action does
-  not refetch them.
-- **IMU skips very small AGEBs** (143 of 673, almost all with few or no residents). They show "sin datos".
-  One CONEVAL AGEB (`260300001017A`) has no match in the Dec 2025 boundaries.
-- The 2020 census is getting old: fast-growing outer AGEBs (north-west, south) are under-counted
-  relative to today.
-- OSM coverage of named neighbourhoods is uneven (29 named places in the bbox), so several territories
-  carry only a compass title.
+- **No census for the new municipio yet.** The next one (2030) will use the new keys; until then census figures
+  live only in "Antes de ser Municipio".
+- **CONAPO / CONEVAL** answer 403 to scripts: the committed copies in `pipeline/manual/` were downloaded in a
+  browser and trimmed to Guasave 0138 + Ahome 0136. Zones with very few people carry no index.
+- **No public tree inventory**; Verde draws trees from WorldCover and says so.
+- **No named neighbourhoods in OSM** for the town, so territorios carry only compass titles.
+- **NASA POWER weather** is one value for the whole town (HUD only).

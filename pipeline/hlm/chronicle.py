@@ -7,7 +7,7 @@ import json
 import re
 from collections import Counter
 
-from .common import OUT, TODAY, write_json
+from .common import OUT, PLACE, TODAY, write_json
 
 GROUP_ES = {"ave": ("ave", "aves"), "rep": ("reptil", "reptiles"), "mam": ("mamífero", "mamíferos"),
             "ins": ("insecto o araña", "insectos y arañas"), "otr": ("otro animal", "otros animales")}
@@ -89,7 +89,7 @@ def _work_entries(work, agebs, realms, prev_weeks, week_key):
     else:
         g, n = max(work["groups"].items(), key=lambda kv: kv[1])
         text += f". Lo que más hay: {WORK_ES[g]} ({_fmt(n)})."
-    out = [{"week": week_key, "date": TODAY, "kind": "work", "title": "La chamba en Hermosillo", "es": text, "source": src}]
+    out = [{"week": week_key, "date": TODAY, "kind": "work", "title": f"La chamba en {PLACE}", "es": text, "source": src}]
     ny = work.get("new_year") or {}
     if ny.get("total"):
         g, n = max(ny["groups"].items(), key=lambda kv: kv[1])
@@ -132,7 +132,7 @@ def _water_entries(water, prev_weeks, chron, week_key):
     if dr:
         last = next((w.get("drought_level") for w in reversed(prev_weeks) if w.get("drought_level") is not None), None)
         if last != dr["level"] or not any(e.get("kind") == "water_drought" for e in chron["entries"]):
-            text = f"El Monitor de Sequía dice que Hermosillo está {DROUGHT_ES[dr['level']]} (reporte del {_mx_date(dr['date'])})."
+            text = f"El Monitor de Sequía dice que {PLACE} está {DROUGHT_ES[dr['level']]} (reporte del {_mx_date(dr['date'])})."
             if last is not None and last != dr["level"]:
                 text += " Antes estaba " + DROUGHT_ES[last].split(" (")[0] + "."
             elif dr["since"] != dr["date"]:
@@ -231,7 +231,7 @@ def update(wild: dict, heat: dict | None = None, weather: dict | None = None, ag
         return
     w = wild["week"]
     parts = [_plural(g, n) for g, n in sorted(w["groups"].items(), key=lambda kv: -kv[1])]
-    text = f"Esta semana la gente reportó {_fmt(w['new'])} {'animal' if w['new'] == 1 else 'animales'} en Hermosillo"
+    text = f"Esta semana la gente reportó {_fmt(w['new'])} {'animal' if w['new'] == 1 else 'animales'} en {PLACE}"
     text += f": {', '.join(parts[:-1]) + ' y ' + parts[-1] if len(parts) > 1 else parts[0]}." if parts else "."
     if prev:
         d = w["new"] - prev.get("wildlife_new", w["new"])

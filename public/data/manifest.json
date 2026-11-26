@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-26T17:40:12+00:00",
+  "generated": "2026-11-26T23:22:54+00:00",
   "sources": {
     "inegi_mg_ageb": {
       "id": "inegi_mg_ageb",
       "name": "Marco Geoestadístico — AGEB urbanas",
-      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/agebu/26/030",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/agebu/25/020",
       "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
       "publisher": "INEGI",
       "vintage": "INEGI. Marco Geoestadístico, diciembre de 2025",
@@ -13,16 +13,196 @@
       "notes": "Boundaries are Dec 2025; census statistics are 2020 and joined by CVEGEO. AGEBs created after 2020 have no census figures.",
       "modeled": false
     },
+    "inegi_mg_mun": {
+      "id": "inegi_mg_mun",
+      "name": "Marco Geoestadístico — Municipio",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/mgem/25/020",
+      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
+      "publisher": "INEGI",
+      "vintage": "Marco Geoestadístico, diciembre 2025",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "",
+      "modeled": false
+    },
     "inegi_censo2020": {
       "id": "inegi_censo2020",
       "name": "Censo de Población y Vivienda 2020 — AGEB y manzana urbana",
-      "url": "https://www.inegi.org.mx/contenidos/programas/ccpv/2020/datosabiertos/ageb_manzana/ageb_mza_urbana_26_cpv2020_csv.zip",
+      "url": "https://www.inegi.org.mx/contenidos/programas/ccpv/2020/datosabiertos/ageb_manzana/ageb_mza_urbana_25_cpv2020_csv.zip",
       "license": "INEGI Términos de libre uso de la información",
       "publisher": "INEGI",
       "vintage": "2020",
       "retrieved": "2026-11-26",
       "status": "ok",
       "notes": "'*' cells (confidentiality, < 3 dwellings) are treated as missing, never as zero.",
+      "modeled": false
+    },
+    "naturalearth_ocean": {
+      "id": "naturalearth_ocean",
+      "name": "Natural Earth — océanos 1:10m",
+      "url": "https://www.naturalearthdata.com/",
+      "license": "Dominio público",
+      "publisher": "Natural Earth",
+      "vintage": "5.1",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Contorno aproximado de la costa (escala 1:10 millones).",
+      "modeled": false
+    },
+    "osm": {
+      "id": "osm",
+      "name": "OpenStreetMap (Overpass API)",
+      "url": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL 1.0 — © OpenStreetMap contributors",
+      "publisher": "OpenStreetMap contributors",
+      "vintage": "live",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "bbox (25.44, -109.13, 25.96, -108.64)",
+      "modeled": false
+    },
+    "inaturalist": {
+      "id": "inaturalist",
+      "name": "Observaciones de fauna, grado de investigación",
+      "url": "https://www.inaturalist.org/observations?swlat=25.44&swlng=-109.13&nelat=25.96&nelng=-108.64&quality_grade=research&iconic_taxa=Aves%2CReptilia%2CMammalia%2CAmphibia%2CInsecta%2CArachnida%2CMollusca%2CActinopterygii%2CAnimalia",
+      "license": "Por observación: CC0 / CC BY / CC BY-NC (se excluyen las de todos los derechos reservados)",
+      "publisher": "iNaturalist",
+      "vintage": "en vivo",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "8,399 observaciones; 3,191 sin licencia abierta excluidas; 240 con ubicación oculta (no se dibujan).",
+      "modeled": false
+    },
+    "landsat_lst": {
+      "id": "landsat_lst",
+      "name": "Temperatura de la superficie, veranos 2023–2025",
+      "url": "https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2",
+      "license": "Dominio público (USGS)",
+      "publisher": "USGS / NASA — Landsat 8 y 9 (vía Microsoft Planetary Computer)",
+      "vintage": "may–sep 2023–2025",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Mediana por píxel de 35 escenas despejadas (2023-05-25 a 2025-09-19), path/row 033/042; nubes y sombras quitadas con QA_PIXEL. Es temperatura del suelo, no del aire.",
+      "modeled": false
+    },
+    "nasa_power": {
+      "id": "nasa_power",
+      "name": "Temperatura máxima diaria del aire (T2M_MAX), centro de Juan José Ríos",
+      "url": "https://power.larc.nasa.gov/",
+      "license": "Dominio público (NASA)",
+      "publisher": "NASA POWER",
+      "vintage": "diario, con unos días de retraso",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Producto de reanálisis (MERRA-2/GEOS) en celda de ~0.5°; es un valor para toda la ciudad.",
+      "modeled": true
+    },
+    "sentinel2_ndvi": {
+      "id": "sentinel2_ndvi",
+      "name": "Verdor (NDVI) de los últimos 30 días y de hace un año",
+      "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+      "license": "Copernicus Sentinel data (uso libre con atribución)",
+      "publisher": "Copernicus / ESA — Sentinel-2 (vía Microsoft Planetary Computer)",
+      "vintage": "2026-10-27 a 2026-11-26",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Mediana por píxel de 15 pasadas despejadas (2026-10-27 a 2026-11-26); hace un año: 22 pasadas. Nubes quitadas con la clasificación SCL.",
+      "modeled": false
+    },
+    "inegi_denue": {
+      "id": "inegi_denue",
+      "name": "DENUE (directorio de negocios)",
+      "url": "https://www.inegi.org.mx/contenidos/masiva/denue/denue_25_csv.zip",
+      "license": "Términos de Libre Uso de la Información del INEGI",
+      "publisher": "INEGI",
+      "vintage": "edición 2026-11 (publicada 2026-11-25)",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "1756 establecimientos en el municipio 030; 97 sin AGEB urbana. Empleos por AGEB estimados con el punto medio del rango PER_OCU (251+ = 300).",
+      "modeled": false
+    },
+    "conagua_repda": {
+      "id": "conagua_repda",
+      "name": "REPDA — Registro Público de Derechos de Agua",
+      "url": "https://zenodo.org/records/24183265",
+      "license": "Términos de Libre Uso MX (datos de CONAGUA); documentación del archivo CC BY 4.0",
+      "publisher": "CONAGUA (copia íntegra en Zenodo, Gómez-Arias y Moctezuma)",
+      "vintage": "corte 2025-06 (último registro 2018-11-30)",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "72 pozos y tomas dentro del municipio 25020, 0 sin coordenadas válidas. Volúmenes = lo que autoriza cada título al año, no lo que se bombea. Personas físicas sin nombre y con ubicación redondeada.",
+      "modeled": false
+    },
+    "smn_sequia": {
+      "id": "smn_sequia",
+      "name": "Monitor de Sequía de México — tabla municipal",
+      "url": "https://smn.conagua.gob.mx/tools/RESOURCES/Monitor%20de%20Sequia%20en%20Mexico/MunicipiosSequia.xlsx",
+      "license": "Términos de Libre Uso MX",
+      "publisher": "SMN / CONAGUA",
+      "vintage": "al 2026-11-15",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Cada 15 días desde 2003. Celda vacía = sin sequía (según la hoja NOTAS del archivo).",
+      "modeled": false
+    },
+    "inegi_catalogo_loc": {
+      "id": "inegi_catalogo_loc",
+      "name": "Catálogo Único de Claves Geoestadísticas — localidades",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/localidades/25/020",
+      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
+      "publisher": "INEGI",
+      "vintage": "2025",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "",
+      "modeled": false
+    },
+    "hlm_realms": {
+      "id": "hlm_realms",
+      "name": "Territorios (agrupación visual)",
+      "url": "pipeline/hlm/realms.py",
+      "license": "CC-BY 4.0 (derived)",
+      "publisher": "Mapa Cherrios",
+      "vintage": "derived",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "k-means of AGEB centroids (population-weighted when the census covers them, area-weighted otherwise); not an official district.",
+      "modeled": true
+    },
+    "inegi_mg_vial": {
+      "id": "inegi_mg_vial",
+      "name": "Marco Geoestadístico — Vialidades",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/vialidades/25/020",
+      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
+      "publisher": "INEGI",
+      "vintage": "Marco Geoestadístico, diciembre 2025",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "",
+      "modeled": false
+    },
+    "inegi_mg_mza": {
+      "id": "inegi_mg_mza",
+      "name": "Marco Geoestadístico — Manzanas",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/mza/25/020",
+      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
+      "publisher": "INEGI",
+      "vintage": "Marco Geoestadístico, diciembre 2025",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "",
+      "modeled": false
+    },
+    "inegi_mg2020": {
+      "id": "inegi_mg2020",
+      "name": "Marco Geoestadístico 2020 (edición del Censo)",
+      "url": "https://www.inegi.org.mx/app/biblioteca/ficha.html?upc=889463807469",
+      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
+      "publisher": "INEGI",
+      "vintage": "Censo de Población y Vivienda 2020",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "File: https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/geografia/marcogeo/889463807469/25_sinaloa.zip. Outlines as they were in 2020, when Juan José Ríos belonged to Guasave and El Estero to Ahome; they share CVEGEO with the 2020 census tables.",
       "modeled": false
     },
     "conapo_imu2020": {
@@ -49,102 +229,6 @@
       "notes": "File: https://repodatos.atdt.gob.mx/api_update/coneval/rezago_social/grs_ageb_2020.csv",
       "modeled": false
     },
-    "osm": {
-      "id": "osm",
-      "name": "OpenStreetMap (Overpass API)",
-      "url": "https://www.openstreetmap.org/copyright",
-      "license": "ODbL 1.0 — © OpenStreetMap contributors",
-      "publisher": "OpenStreetMap contributors",
-      "vintage": "live",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "bbox (28.9, -111.15, 29.25, -110.85)",
-      "modeled": false
-    },
-    "hlm_realms": {
-      "id": "hlm_realms",
-      "name": "Territorios (agrupación visual)",
-      "url": "pipeline/hlm/realms.py",
-      "license": "CC-BY 4.0 (derived)",
-      "publisher": "Hermosillo: The Living Map",
-      "vintage": "derived",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "k-means of population-weighted AGEB centroids; not an official district.",
-      "modeled": true
-    },
-    "inegi_mg_vial": {
-      "id": "inegi_mg_vial",
-      "name": "Marco Geoestadístico — Vialidades",
-      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/vialidades/26/030",
-      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
-      "publisher": "INEGI",
-      "vintage": "Marco Geoestadístico, diciembre 2025",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "",
-      "modeled": false
-    },
-    "inegi_mg_mza": {
-      "id": "inegi_mg_mza",
-      "name": "Marco Geoestadístico — Manzanas",
-      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/mza/26/030",
-      "license": "INEGI Términos de libre uso de la información (compatible CC-BY 4.0)",
-      "publisher": "INEGI",
-      "vintage": "Marco Geoestadístico, diciembre 2025",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "",
-      "modeled": false
-    },
-    "inaturalist": {
-      "id": "inaturalist",
-      "name": "Observaciones de fauna, grado de investigación",
-      "url": "https://www.inaturalist.org/observations?swlat=28.9&swlng=-111.15&nelat=29.25&nelng=-110.85&quality_grade=research&iconic_taxa=Aves%2CReptilia%2CMammalia%2CAmphibia%2CInsecta%2CArachnida%2CMollusca%2CActinopterygii%2CAnimalia",
-      "license": "Por observación: CC0 / CC BY / CC BY-NC (se excluyen las de todos los derechos reservados)",
-      "publisher": "iNaturalist",
-      "vintage": "en vivo",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "17,505 observaciones; 4,683 sin licencia abierta excluidas; 366 con ubicación oculta (no se dibujan).",
-      "modeled": false
-    },
-    "landsat_lst": {
-      "id": "landsat_lst",
-      "name": "Temperatura de la superficie, veranos 2023–2025",
-      "url": "https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2",
-      "license": "Dominio público (USGS)",
-      "publisher": "USGS / NASA — Landsat 8 y 9 (vía Microsoft Planetary Computer)",
-      "vintage": "jun–ago 2023–2025",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "Mediana por píxel de 22 escenas despejadas (2023-06-16 a 2025-08-24), path/row 035/040; nubes y sombras quitadas con QA_PIXEL. Es temperatura del suelo, no del aire.",
-      "modeled": false
-    },
-    "nasa_power": {
-      "id": "nasa_power",
-      "name": "Temperatura máxima diaria del aire (T2M_MAX), centro de Hermosillo",
-      "url": "https://power.larc.nasa.gov/",
-      "license": "Dominio público (NASA)",
-      "publisher": "NASA POWER",
-      "vintage": "diario, con unos días de retraso",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "Producto de reanálisis (MERRA-2/GEOS) en celda de ~0.5°; es un valor para toda la ciudad.",
-      "modeled": true
-    },
-    "sentinel2_ndvi": {
-      "id": "sentinel2_ndvi",
-      "name": "Verdor (NDVI) de los últimos 30 días y de hace un año",
-      "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
-      "license": "Copernicus Sentinel data (uso libre con atribución)",
-      "publisher": "Copernicus / ESA — Sentinel-2 (vía Microsoft Planetary Computer)",
-      "vintage": "2026-10-27 a 2026-11-26",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "Mediana por píxel de 14 pasadas despejadas (2026-10-27 a 2026-11-26); hace un año: 20 pasadas. Nubes quitadas con la clasificación SCL.",
-      "modeled": false
-    },
     "esa_worldcover": {
       "id": "esa_worldcover",
       "name": "ESA WorldCover 2021 (cobertura de árboles, 10 m)",
@@ -156,93 +240,37 @@
       "status": "ok",
       "notes": "Clasificación por satélite; los árboles dibujados son un indicador, no un inventario.",
       "modeled": true
-    },
-    "inegi_denue": {
-      "id": "inegi_denue",
-      "name": "DENUE (directorio de negocios)",
-      "url": "https://www.inegi.org.mx/contenidos/masiva/denue/denue_26_csv.zip",
-      "license": "Términos de Libre Uso de la Información del INEGI",
-      "publisher": "INEGI",
-      "vintage": "edición 2026-11 (publicada 2026-11-25)",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "39145 establecimientos en el municipio 030; 202 sin AGEB urbana. Empleos por AGEB estimados con el punto medio del rango PER_OCU (251+ = 300).",
-      "modeled": false
-    },
-    "naturalearth_ocean": {
-      "id": "naturalearth_ocean",
-      "name": "Natural Earth — océanos 1:10m",
-      "url": "https://www.naturalearthdata.com/",
-      "license": "Dominio público",
-      "publisher": "Natural Earth",
-      "vintage": "5.1",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "Contorno aproximado de la costa (escala 1:10 millones).",
-      "modeled": false
-    },
-    "conagua_repda": {
-      "id": "conagua_repda",
-      "name": "REPDA — Registro Público de Derechos de Agua",
-      "url": "https://zenodo.org/records/24183265",
-      "license": "Términos de Libre Uso MX (datos de CONAGUA); documentación del archivo CC BY 4.0",
-      "publisher": "CONAGUA (copia íntegra en Zenodo, Gómez-Arias y Moctezuma)",
-      "vintage": "corte 2025-06 (último registro 2025-06-11)",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "2146 pozos y tomas en el municipio 030, 4 sin coordenadas válidas. Volúmenes = lo que autoriza cada título al año, no lo que se bombea. Personas físicas sin nombre y con ubicación redondeada.",
-      "modeled": false
-    },
-    "smn_sequia": {
-      "id": "smn_sequia",
-      "name": "Monitor de Sequía de México — tabla municipal",
-      "url": "https://smn.conagua.gob.mx/tools/RESOURCES/Monitor%20de%20Sequia%20en%20Mexico/MunicipiosSequia.xlsx",
-      "license": "Términos de Libre Uso MX",
-      "publisher": "SMN / CONAGUA",
-      "vintage": "al 2026-11-15",
-      "retrieved": "2026-11-26",
-      "status": "ok",
-      "notes": "Cada 15 días desde 2003. Celda vacía = sin sequía (según la hoja NOTAS del archivo).",
-      "modeled": false
     }
   },
   "layers": {
+    "sea": {
+      "status": "ok",
+      "sources": [
+        "naturalearth_ocean"
+      ],
+      "count": 1
+    },
     "landmarks": {
       "status": "ok",
       "sources": [
         "osm"
       ],
-      "count": 86
+      "count": 91
     },
     "water_parks": {
       "status": "ok",
       "sources": [
         "osm"
       ],
-      "count": 364
+      "count": 1399
     },
-    "realm": {
+    "wildlife": {
       "status": "ok",
       "sources": [
-        "inegi_mg_ageb",
-        "hlm_realms",
-        "osm"
-      ]
-    },
-    "people": {
-      "status": "ok",
-      "sources": [
-        "inegi_censo2020",
+        "inaturalist",
         "inegi_mg_ageb"
-      ]
-    },
-    "wealth": {
-      "status": "ok",
-      "sources": [
-        "conapo_imu2020",
-        "coneval_grs2020"
       ],
-      "primary": "imu"
+      "count": 4968
     },
     "heat": {
       "status": "ok",
@@ -258,14 +286,6 @@
         "esa_worldcover"
       ]
     },
-    "wildlife": {
-      "status": "ok",
-      "sources": [
-        "inaturalist",
-        "inegi_mg_ageb"
-      ],
-      "count": 12456
-    },
     "work": {
       "status": "ok",
       "sources": [
@@ -277,36 +297,84 @@
         "j_dens"
       ]
     },
+    "water": {
+      "status": "ok",
+      "sources": [
+        "conagua_repda",
+        "smn_sequia"
+      ]
+    },
+    "realm": {
+      "status": "ok",
+      "sources": [
+        "inegi_mg_ageb",
+        "hlm_realms",
+        "osm"
+      ]
+    },
+    "people": {
+      "status": "unavailable",
+      "sources": [
+        "inegi_censo2020",
+        "inegi_mg_ageb"
+      ],
+      "reason": "antes"
+    },
+    "wealth": {
+      "status": "unavailable",
+      "sources": [
+        "conapo_imu2020",
+        "coneval_grs2020"
+      ],
+      "reason": "antes",
+      "primary": null
+    },
     "roads": {
       "status": "ok",
       "sources": [
         "inegi_mg_vial"
       ],
-      "major": 13681,
-      "minor": 38228
+      "major": 590,
+      "minor": 1398
     },
     "blocks": {
       "status": "ok",
       "sources": [
-        "inegi_mg_mza",
-        "inegi_censo2020"
+        "inegi_mg_mza"
       ],
-      "count": 20445
+      "count": 761,
+      "with_pop": 0
     },
-    "sea": {
+    "antes_realm": {
       "status": "ok",
       "sources": [
-        "naturalearth_ocean"
-      ],
-      "count": 1
-    },
-    "water": {
-      "status": "ok",
-      "sources": [
-        "conagua_repda",
-        "smn_sequia",
-        "inegi_censo2020"
+        "inegi_mg2020",
+        "hlm_realms"
       ]
+    },
+    "antes_people": {
+      "status": "ok",
+      "sources": [
+        "inegi_censo2020",
+        "inegi_mg2020"
+      ]
+    },
+    "antes_wealth": {
+      "status": "ok",
+      "sources": [
+        "conapo_imu2020",
+        "coneval_grs2020"
+      ],
+      "primary": "imu"
+    },
+    "antes_blocks": {
+      "status": "ok",
+      "sources": [
+        "inegi_mg2020",
+        "inegi_censo2020"
+      ],
+      "count": 324,
+      "with_pop": 324
     }
   }
 }

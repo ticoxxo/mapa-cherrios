@@ -1,10 +1,22 @@
-# AGENTS.md — Hermosillo: El Mapa Vivo
+# AGENTS.md — Juan José Ríos: El Mapa Vivo (mapa-cherrios)
 
-A stylised, strategy-game-looking map of Hermosillo, Sonora (Civilization VI / Crusader Kings III feel, Norteño
+A stylised, strategy-game-looking map of Juan José Ríos, Sinaloa (Civilization VI / Crusader Kings III feel, Norteño
 look), built only from real, open data. Static site (Vite + React + MapLibre) fed by a Python pipeline that
 writes `public/data/`. A GitHub Action refreshes the data weekly and redeploys to Cloudflare.
+Forked from Hermosillo: El Mapa Vivo (jmsalcido/mapa-hermosillo).
 
-Live: https://hermosillo-mapa-vivo.vinc-fdb.workers.dev
+## Two views ("épocas")
+
+Juan José Ríos was part of Guasave (and El Estero part of Ahome) until the 2021 decree created municipio
+25-020. INEGI re-keyed every AGEB, so 2020 numbers cannot be joined to today's zones. The app has a switch
+next to the style switch (`src/era.ts`, `?era=antes`, localStorage `jjr-era`):
+
+- **Municipio** (default, `public/data/`): Marco Geoestadístico 2025 zones of 25-020 + every live layer
+  (Fauna, Calor, Verde, Chamba, Agua). Census-based modes (Gente, Bienestar) show "solo en «Antes de ser
+  Municipio»"; never fill them with re-apportioned 2020 numbers.
+- **Antes de ser Municipio** (`public/data/antes/`): Marco Geoestadístico 2020 (census edition, state
+  shapefile zip) for Guasave 011-0138 + Ahome 001-0136, with Censo 2020 and CONAPO / CONEVAL 2020. Only
+  modes in `ANTES_MODES` (Territorio, Gente, Bienestar); live modes say "solo en «Municipio»".
 
 ## Non-negotiable rules
 
@@ -62,7 +74,7 @@ uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife
 npm run build && CLOUDFLARE_ACCOUNT_ID=<vinc account id> npx wrangler deploy
 ```
 
-Run the pipeline with `--directory pipeline` (not `--project pipeline`): the `hlm` package must be importable.
+The full run builds both views (`run.py → build_antes`). Run the pipeline with `--directory pipeline` (not `--project pipeline`): the `hlm` package must be importable.
 There is no test suite; verify with `npm run build`, a pipeline run, and the app in a browser.
 
 ## Layout
@@ -93,6 +105,7 @@ src/
   describe.ts      plain-language one-line description of a barrio
   analytics.ts     dataLayer events for Google Tag Manager
   skin.ts          skin state (sencillo | norteno | atlas): ?skin=, localStorage, <html data-skin>
+  era.ts           view state (municipio | antes): ?era=, localStorage jjr-era, ANTES_MODES
   atlasNames.ts    invented realm names + Spanish glosses for the Atlas skin
   map/             MapView (layers, lazy loading, crossfade, interaction), base style
   art/             SVG art: heraldry, landmark tokens, critters, trees, business icons, portrait
@@ -135,8 +148,10 @@ Follow the existing pattern (Fauna / Calor / Verde / Chamba are good templates):
 - **Cloudflare Pages is now Workers static assets**: deploy with `wrangler deploy` and `wrangler.toml [assets]`;
   `public/_headers` sets caching (`/data/*` 1 h, `/assets/*` immutable).
 - The browser pane in a hidden tab throttles animation frames; slow first paint there is not a real bug.
-- 79 outlying-town AGEBs (Bahía de Kino, Miguel Alemán, San Pedro) are outside the satellite bbox: Calor and
-  Verde show "sin datos" there by design.
+- INEGI re-keys AGEBs when a municipio is created: join 2020 tables only to the 2020 census-edition
+  outlines (`base.load_agebs_2020`), never to the live `wscatgeo` service.
+- REPDA releases file wells under the old municipio codes: `water.py` keeps points by the 2025 municipio
+  outline, not by `CLAVE DE MUNICIPIO`.
 
 ## Weekly Action (`.github/workflows/weekly-refresh.yml`)
 
@@ -146,8 +161,8 @@ Repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, optional `PC_SDK_
 
 ## Analytics
 
-Google Tag Manager `GTM-M9MFZ7RP` in `index.html` (skipped on localhost) → GA4. Custom dataLayer events:
-`cambio_modo`, `abrir_barrio`, `ver_ficha_punto` (tipo animal | negocio | pozo), `cambio_estilo` (see `src/analytics.ts`).
+Google Tag Manager `GTM-P3XKB934` in `index.html` (skipped on localhost) → GA4. Custom dataLayer events:
+`cambio_modo`, `abrir_barrio`, `ver_ficha_punto` (tipo animal | negocio | pozo), `cambio_estilo`, `cambio_epoca` (see `src/analytics.ts`).
 
 ## Commits
 

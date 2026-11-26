@@ -14,7 +14,8 @@ import { realmLabel } from '../atlasNames'
 import { tokenMinZoom, tokenSVG } from '../art/tokens'
 
 export type Tier = 'realm' | 'county' | 'block'
-export const tierOf = (z: number): Tier => (z < 12 ? 'realm' : z < 14.2 ? 'county' : 'block')
+// a small town: territorios only when zoomed well out
+export const tierOf = (z: number): Tier => (z < 12.6 ? 'realm' : z < 14.2 ? 'county' : 'block')
 
 export interface SightingInfo {
   x: number
@@ -94,11 +95,11 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
     const map = new maplibregl.Map({
       container: el.current,
       style: baseStyle(skinRef.current),
-      center: [-110.975, 29.085],
-      zoom: window.innerWidth < 700 ? 10.4 : 11.3,
-      minZoom: 8,
+      center: [-108.822, 25.757], // Juan José Ríos, Sinaloa
+      zoom: window.innerWidth < 700 ? 12.3 : 13,
+      minZoom: 9,
       maxZoom: 17.5,
-      maxBounds: [[-112.6, 28.3], [-110.3, 29.75]],
+      maxBounds: [[-109.7, 25.05], [-108.05, 26.35]],
       attributionControl: false,
       dragRotate: false,
       pitchWithRotate: false,
@@ -217,7 +218,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
             const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates
             for (const p of polys) for (const c of p[0]) b.extend(c as [number, number])
           }
-          map.fitBounds(b, { padding: 60, duration: 1400, maxZoom: 13.2 })
+          map.fitBounds(b, { padding: 60, duration: 1400, maxZoom: 14 })
         })
         const m = new maplibregl.Marker({ element: div, anchor: 'bottom' }).setLngLat(r.label).addTo(map)
         banners.current.push({ m, r })
@@ -267,7 +268,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
       if (lazyLoaded || map.getZoom() < 13.4) return
       lazyLoaded = true
       map.addSource('roads-minor', { type: 'geojson', data: dataUrl('roads_minor.geojson') })
-      map.addSource('blocks', { type: 'geojson', data: dataUrl('blocks.geojson') })
+      map.addSource('blocks', { type: 'geojson', data: dataUrl(data.dir + 'blocks.geojson') })
       map.addLayer({
         id: 'blocks-people', type: 'fill', source: 'blocks', minzoom: 13.8,
         paint: { 'fill-color': blockPeopleColorExpr(data.stats) as never, 'fill-opacity': 0 },
@@ -528,7 +529,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
       const a = f.properties as unknown as Ageb
       if (tierOf(map.getZoom()) === 'realm') {
         // CK3-like: clicking a realm from afar zooms toward it first
-        map.flyTo({ center: e.lngLat, zoom: 12.4, duration: 1200 })
+        map.flyTo({ center: e.lngLat, zoom: 13.4, duration: 1200 })
       }
       cb.current.onSelect(a.cvegeo)
     })

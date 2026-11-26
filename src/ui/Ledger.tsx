@@ -4,6 +4,8 @@ import { fmt, fmtDate, t } from '../i18n'
 import { ATLAS_EPITHET } from '../atlasNames'
 import type { Skin } from '../skin'
 import { SkinToggle } from './SkinToggle'
+import { EraToggle } from './EraToggle'
+import type { Era } from '../era'
 
 function Item({ icon, label, value, note, muted }: { icon: React.ReactNode; label: string; value: string; note: string; muted?: boolean }) {
   return (
@@ -19,10 +21,12 @@ function Item({ icon, label, value, note, muted }: { icon: React.ReactNode; labe
 }
 
 /** Libro de cuentas: the top HUD, like a tooled-leather saddlebag strap. */
-export function Ledger({ data, skin, setSkin }: { data: CoreData; skin: Skin; setSkin: (s: Skin) => void }) {
-  const w = data.manifest.sources.inaturalist?.status === 'ok' ? data.stats.wildlife : null
-  const jb = data.manifest.sources.inegi_denue?.status === 'ok' ? data.stats.work : null
-  const wx = data.manifest.sources.nasa_power?.status === 'ok' ? data.stats.weather : null
+export function Ledger({ data, skin, setSkin, era, setEra }: { data: CoreData; skin: Skin; setSkin: (s: Skin) => void; era: Era; setEra: (e: Era) => void }) {
+  const antes = data.era === 'antes'
+  // the 2020 view shows only 2020 numbers: no weekly counters there
+  const w = !antes && data.manifest.sources.inaturalist?.status === 'ok' ? data.stats.wildlife : null
+  const jb = !antes && data.manifest.sources.inegi_denue?.status === 'ok' ? data.stats.work : null
+  const wx = !antes && data.manifest.sources.nasa_power?.status === 'ok' ? data.stats.weather : null
   return (
     <header className="ledger">
       <div className="crest" title={skin === 'atlas' ? `${ATLAS_EPITHET.name}: “${ATLAS_EPITHET.gloss}” (nombre inventado)` : undefined}>
@@ -30,15 +34,23 @@ export function Ledger({ data, skin, setSkin }: { data: CoreData; skin: Skin; se
         <span className="crest-sub">{t('subtitle')}</span>
       </div>
       <div className="ledger-items">
-        <Item icon={<ModeIcon id="people" size={22} />} label={t('l_pop')} value={fmt(data.stats.municipio.pop)}
-          note="Gente que vive en todo el municipio de Hermosillo, según el Censo 2020 del INEGI" />
+        {antes ? (
+          <Item icon={<ModeIcon id="people" size={22} />} label="Población en 2020" value={fmt(data.stats.municipio.pop)}
+            note="Gente que vivía en Juan José Ríos y El Estero en 2020, cuando eran parte de Guasave y Ahome (Censo 2020 del INEGI)" />
+        ) : (
+          <Item icon={<ModeIcon id="people" size={22} />} label={t('l_pop')} value={data.stats.municipio.pop == null ? t('no_data') : fmt(data.stats.municipio.pop)}
+            muted={data.stats.municipio.pop == null}
+            note={data.stats.municipio.pop == null
+              ? 'El municipio se creó después del Censo 2020: todavía no hay un conteo oficial del municipio. La cifra de 2020 está en «Antes de ser Municipio».'
+              : `Gente que vive en el municipio de ${t('title')}, según el INEGI`} />
+        )}
         {w && (
           <Item icon={<ModeIcon id="wildlife" size={22} />} label={t('l_wild')} value={fmt(w.week.new)}
             note={`Animales que la gente reportó en iNaturalist del ${fmtDate(w.week.from)} al ${fmtDate(w.week.to)}`} />
         )}
         {wx && (
           <Item icon={<ModeIcon id="heat" size={22} />} label={`Máxima del ${shortDay(wx.latest.date)}`} value={`${fmt(wx.latest.tmax, 0)} °C`}
-            note={`Temperatura máxima del aire en Hermosillo (NASA POWER). Llega con unos días de retraso. La más alta de la semana: ${fmt(wx.week_max.tmax, 0)} °C el ${shortDay(wx.week_max.date)}.`} />
+            note={`Temperatura máxima del aire en ${t('title')} (NASA POWER). Llega con unos días de retraso. La más alta de la semana: ${fmt(wx.week_max.tmax, 0)} °C el ${shortDay(wx.week_max.date)}.`} />
         )}
         {jb && (
           <Item icon={<ModeIcon id="work" size={22} />} label={skin === 'atlas' ? 'talleres y comercios' : skin === 'sencillo' ? 'negocios' : 'lugares de chamba'} value={fmt(jb.total)}
@@ -46,7 +58,10 @@ export function Ledger({ data, skin, setSkin }: { data: CoreData; skin: Skin; se
         )}
         <Item icon={<ScrollIcon />} label={t('l_refresh')} value={fmtDate(data.manifest.generated)} note="La última vez que se actualizaron los datos" />
       </div>
-      <SkinToggle skin={skin} setSkin={setSkin} />
+      <div className="ledger-switches">
+        <EraToggle era={era} setEra={setEra} />
+        <SkinToggle skin={skin} setSkin={setSkin} />
+      </div>
     </header>
   )
 }

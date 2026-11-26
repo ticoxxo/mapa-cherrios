@@ -4,7 +4,7 @@ import type { Skin } from '../skin'
 import { Portrait } from '../art/Portrait'
 import type { Ageb, CoreData, Realm } from '../data'
 import { describe } from '../describe'
-import { fmt, t } from '../i18n'
+import { fmt, t, PLACE } from '../i18n'
 import { GRS_RAMP, IMU_RAMP } from '../modes'
 import { critterSVG, GROUP_INFO, GROUPS } from '../art/critters'
 import { WEALTH_PLAIN } from './Legend'
@@ -12,10 +12,10 @@ import { GREEN_PLAIN, greenClass, WORK_PLAIN, workClass } from '../modes'
 import { WORK_GROUPS, WORK_INFO, workSVG } from '../art/work'
 import { pools } from '../art/water'
 
-/** `typ` = the median barrio of Hermosillo (Sencillo skin only); drawn as a tick on the bar. */
+/** `typ` = the median barrio of the town (Sencillo skin only); drawn as a tick on the bar. */
 function Bar({ label, value, color = '#8c5a3c', typ }: { label: string; value: number | null; color?: string; typ?: number }) {
   return (
-    <div className="bar" title={typ != null ? `Barrio típico de Hermosillo: ${fmt(typ)}%` : undefined}>
+    <div className="bar" title={typ != null ? `Barrio típico de ${PLACE}: ${fmt(typ)}%` : undefined}>
       <span className="bar-label">{label}</span>
       <span className="bar-track">
         <span className="bar-fill" style={{ width: `${value ?? 0}%`, background: color }} />
@@ -79,7 +79,7 @@ export function ProvincePanel({ data, ageb: a, realm: r, skin, onClose }: { data
         <p className="description">{plain ? describe(a, data.stats) : `“${describe(a, data.stats)}”`}</p>
 
         {!a.in_census ? (
-          <p className="legend-unavailable">{t('no_census')}</p>
+          <p className="legend-unavailable">{t(data.era === 'antes' ? 'no_census' : 'no_census_now')}</p>
         ) : (
           <>
             <div className="stats-grid">
@@ -90,7 +90,7 @@ export function ProvincePanel({ data, ageb: a, realm: r, skin, onClose }: { data
               <Stat label={t('per_km2')} value={fmt(a.dens)} typ={typS('dens')} />
               <Stat label={t('area')} value={fmt(a.area_km2, 2)} />
             </div>
-            {plain && <p className="wealth-note">«Típico» y la rayita en las barras = el barrio de en medio de Hermosillo: la mitad de los barrios está arriba y la mitad abajo.</p>}
+            {plain && <p className="wealth-note">«Típico» y la rayita en las barras = el barrio de en medio de {PLACE}: la mitad de los barrios está arriba y la mitad abajo.</p>}
 
             <h3>{t('ages')}</h3>
             <Bar label={t('a0_14')} value={pct(a.a0_14, a.pop)} color="#c7962f" typ={typ('p_young')} />

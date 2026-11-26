@@ -5,8 +5,11 @@ import { getSkin } from './skin'
 //   Comarca     = territorio del anillo interior · Frontera = anillo exterior
 //   Barrio      = una AGEB urbana · Manzana = una manzana del INEGI
 
+/** The town this map is about (Sinaloa, municipio 25-020 since 2021). */
+export const PLACE = 'Juan José Ríos'
+
 export const T = {
-  title: 'Hermosillo',
+  title: PLACE,
   subtitle: 'El Mapa Vivo',
   // modos
   m_realm: 'Territorio',
@@ -74,6 +77,18 @@ export const T = {
   skin_norteno: 'Norteño',
   skin_atlas: 'Atlas antiguo',
   welcome_go: '¡Órale, vamos!',
+  // épocas: municipio de hoy vs. antes de ser municipio (Censo 2020, parte de Guasave)
+  era_label: 'Época del mapa',
+  era_municipio: 'Municipio',
+  era_antes: 'Antes de ser Municipio',
+  era_municipio_hint: 'Juan José Ríos como municipio: barrios de hoy y datos que se actualizan',
+  era_antes_hint: 'Cómo era en 2020, cuando Juan José Ríos era parte de Guasave (Censo 2020)',
+  only_antes: 'Estos datos son del Censo 2020, de cuando Juan José Ríos todavía era parte de Guasave. El INEGI cambió los barrios al hacerse municipio, así que esos números no se pueden poner en los barrios de hoy.',
+  only_municipio: 'Estos son datos de hoy. En la vista de 2020 solo va lo que se midió en 2020.',
+  see_antes: 'Ver «Antes de ser Municipio»',
+  see_municipio: 'Ver el Municipio de hoy',
+  antes_note: 'Así era en 2020: Juan José Ríos era parte del municipio de Guasave y El Estero, de Ahome. Los barrios son los del Censo 2020.',
+  no_census_now: 'Este barrio es de cuando ya era municipio. El último censo (2020) usaba otros barrios: sus números están en «Antes de ser Municipio».',
 } as const
 
 export type Key = keyof typeof T

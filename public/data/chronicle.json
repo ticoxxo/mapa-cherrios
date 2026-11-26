@@ -3,73 +3,17 @@
     {
       "week": "2026-W48",
       "date": "2026-11-26",
-      "kind": "water_drought",
-      "title": "¿Hay sequía?",
-      "es": "El Monitor de Sequía dice que Hermosillo está sin sequía (reporte del 15 de noviembre de 2026). Así sigue desde el 15 de septiembre de 2026.",
-      "source": "Monitor de Sequía de México (SMN / CONAGUA)"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "water",
-      "title": "¿Quién tiene el agua?",
-      "es": "En el municipio hay permiso para sacar 732 millones de m³ de agua al año, de 2,146 pozos y tomas. El 62% es para el campo y el 33% para la ciudad (agua potable).",
-      "source": "CONAGUA, Registro Público de Derechos de Agua (corte junio 2025)"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "water_top",
-      "title": "Los que más agua pueden sacar",
-      "es": "Quien tiene permiso para más agua: Asociacion de Usuarios del Distrito de Riego n.º 051 Costa de Hermosillo, A.C. (321 millones de m³ al año). Le sigue Agua de Hermosillo (237.6 millones).",
-      "source": "CONAGUA, Registro Público de Derechos de Agua (corte junio 2025)"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "wildlife",
-      "title": "Animales de la semana",
-      "es": "Esta semana la gente reportó 17 animales en Hermosillo: 11 insectos y arañas, 4 aves y 2 mamíferos.",
-      "source": "iNaturalist"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
       "kind": "green_year",
       "title": "¿Qué tan verde está la ciudad?",
-      "es": "La ciudad está 4% más verde que en estas mismas fechas del año pasado. Donde más bajó: Balderrama (-2%). Donde más subió: Frontera del Poniente (+16%).",
+      "es": "La ciudad está 1% más verde que en estas mismas fechas del año pasado. Donde más bajó: Comarca del Oriente (-2%). Donde más subió: Bachoco (+6%).",
       "source": "Satélites Sentinel-2 (Copernicus)"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "work",
-      "title": "La chamba en Hermosillo",
-      "es": "Según el directorio de negocios de INEGI, en el municipio hay 39,145 lugares de chamba. Lo que más hay: tiendas y comercios (13,715).",
-      "source": "INEGI, directorio de negocios (DENUE 2026-11)"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "work_new",
-      "title": "Negocios nuevos en la lista",
-      "es": "En 2026 se agregaron 1,165 negocios al directorio. Los más: tiendas y comercios (427).",
-      "source": "INEGI, directorio de negocios (DENUE 2026-11)"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "work_top",
-      "title": "Donde más se chambea",
-      "es": "Balderrama es la zona con más trabajo: cerca de 71,000 empleos (calculado con el tamaño de cada negocio).",
-      "source": "INEGI, directorio de negocios (DENUE 2026-11)"
     },
     {
       "week": "2026-W48",
       "date": "2026-11-26",
       "kind": "weather",
       "title": "El calor de la semana",
-      "es": "El día más caliente de la semana fue el jueves 19 de noviembre, con 28 °C de máxima.",
+      "es": "El día más caliente de la semana fue el jueves 19 de noviembre, con 33 °C de máxima.",
       "source": "NASA POWER (temperatura del aire, toda la ciudad)"
     },
     {
@@ -77,23 +21,71 @@
       "date": "2026-11-26",
       "kind": "heat",
       "title": "El barrio más caliente",
-      "es": "En verano, el suelo de un barrio de Frontera del Noroeste III llega a 60 °C en promedio. El más fresco de la ciudad se queda en 50 °C.",
+      "es": "En verano, el suelo de un barrio de Comarca del Oriente llega a 49 °C en promedio. El más fresco de la ciudad se queda en 44 °C.",
       "source": "Satélites Landsat, veranos 2023–2025"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "wildlife",
+      "title": "Animales de la semana",
+      "es": "Esta semana la gente reportó 1 animal en Juan José Ríos: 1 ave.",
+      "source": "iNaturalist"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "work",
+      "title": "La chamba en Juan José Ríos",
+      "es": "Según el directorio de negocios de INEGI, en el municipio hay 1,756 lugares de chamba. Lo que más hay: tiendas y comercios (675).",
+      "source": "INEGI, directorio de negocios (DENUE 2026-11)"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "work_new",
+      "title": "Negocios nuevos en la lista",
+      "es": "En 2026 se agregaron 46 negocios al directorio. Los más: tiendas y comercios (35).",
+      "source": "INEGI, directorio de negocios (DENUE 2026-11)"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "work_top",
+      "title": "Donde más se chambea",
+      "es": "Comarca del Oriente es la zona con más trabajo: cerca de 4,000 empleos (calculado con el tamaño de cada negocio).",
+      "source": "INEGI, directorio de negocios (DENUE 2026-11)"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "water_drought",
+      "title": "¿Hay sequía?",
+      "es": "El Monitor de Sequía dice que Juan José Ríos está sin sequía (reporte del 15 de noviembre de 2026). Así sigue desde el 15 de junio de 2026.",
+      "source": "Monitor de Sequía de México (SMN / CONAGUA)"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "water",
+      "title": "¿Quién tiene el agua?",
+      "es": "En el municipio hay permiso para sacar 6 millones de m³ de agua al año, de 72 pozos y tomas. El 51% es para el campo y el 47% para la ciudad (agua potable).",
+      "source": "CONAGUA, Registro Público de Derechos de Agua (corte junio 2025)"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
+      "kind": "water_top",
+      "title": "Los que más agua pueden sacar",
+      "es": "Quien tiene permiso para más agua: Junta Municipal de Agua Potable y Alcantarillado de Guasave (2 millones de m³ al año). Le sigue Cadena Agricola, S. de R.L. de C.V. (0.3 millones).",
+      "source": "CONAGUA, Registro Público de Derechos de Agua (corte junio 2025)"
     },
     {
       "week": "2026-W48",
       "date": "2026-11-26",
       "kind": "wildlife_top",
       "title": "Los más vistos",
-      "es": "Lo más fotografiado esta semana: Mariposa pasionaria motas blancas, Rayadora vigilante negra, Mariposa cara de perro sureña.",
-      "source": "iNaturalist"
-    },
-    {
-      "week": "2026-W48",
-      "date": "2026-11-26",
-      "kind": "wildlife_first",
-      "title": "¡Primera vez en el mapa!",
-      "es": "Por primera vez aparece en el mapa: Saltarín cubano (Chiomara mithrax).",
+      "es": "Lo más fotografiado esta semana: Gorrión común.",
       "source": "iNaturalist"
     }
   ]

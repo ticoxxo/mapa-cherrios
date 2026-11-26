@@ -10,7 +10,7 @@ Method
 - Per AGEB: mean NDVI, and % of pixels with NDVI ≥ GREEN_NDVI ("se ve verde").
 - Trees: WorldCover 2021 class 10 (tree cover), 10 m. % of each AGEB, and one cartoon tree per 60 m
   cell that is ≥ 25 % tree cover, sized by that spot's NDVI. This is a satellite estimate, not a tree
-  inventory (Hermosillo has no public one). The UI says so.
+  inventory (the town has no public one). The UI says so.
 """
 from __future__ import annotations
 
@@ -123,13 +123,14 @@ def build_green(manifest: Manifest, agebs: list[dict]) -> dict:
     end = dt.date.fromisoformat(TODAY)
     start = end - dt.timedelta(days=WINDOW_DAYS)
     try:
-        tok_s2 = _json(TOKEN.format("sentinel-2-l2a"))["token"]
-        tok_wc = _json(TOKEN.format("esa-worldcover"))["token"]
+        # SAS tokens expire (about an hour): ask for a fresh one right before each long read
+        tok = lambda c: _json(TOKEN.format(c))["token"]  # noqa: E731
         T, w, h = _grid(RES)
-        now, used_now = _ndvi_composite(start, end, T, w, h, tok_s2)
-        ago, used_ago = _ndvi_composite(start.replace(year=start.year - 1), end.replace(year=end.year - 1), T, w, h, tok_s2)
+        now, used_now = _ndvi_composite(start, end, T, w, h, tok("sentinel-2-l2a"))
+        ago, used_ago = _ndvi_composite(start.replace(year=start.year - 1), end.replace(year=end.year - 1), T, w, h,
+                                        tok("sentinel-2-l2a"))
         T10, w10, h10 = _grid(10.0)
-        lc = _worldcover(T10, w10, h10, tok_wc)
+        lc = _worldcover(T10, w10, h10, tok("esa-worldcover"))
     except Exception as e:  # noqa: BLE001
         p_s2.status, p_s2.notes = "unavailable", str(e)
         manifest.add(p_s2)

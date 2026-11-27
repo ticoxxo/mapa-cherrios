@@ -3,9 +3,9 @@ import { critterSVG, GROUP_INFO, GROUPS, type Group } from '../art/critters'
 import { treeSVG } from '../art/trees'
 import { WORK_GROUPS, WORK_INFO, workSVG, type WorkGroup } from '../art/work'
 import { WATER_INFO, WATER_USES, waterSVG, type WaterUse } from '../art/water'
-import type { CoreData } from '../data'
+import type { CoreData, SiapMun, SiapStats } from '../data'
 import { PLACE, fmt, t } from '../i18n'
-import { DROUGHT_PLAIN, DROUGHT_RAMP, GREEN_PLAIN, GREEN_RAMP, GRS_RAMP, HEAT_RAMP, IMU_RAMP, NO_DATA, PEOPLE_RAMP, WATER_RAMP, WILD_RAMP, WORK_PLAIN, WORK_RAMP, modeState, type ModeId } from '../modes'
+import { CAMPO_BREAKS, CAMPO_CROP, CAMPO_KIND, CAMPO_RAMP, DROUGHT_PLAIN, DROUGHT_RAMP, GREEN_PLAIN, GREEN_RAMP, GRS_RAMP, HEAT_RAMP, IMU_RAMP, NO_DATA, PEOPLE_RAMP, WATER_RAMP, WILD_RAMP, WORK_PLAIN, WORK_RAMP, modeState, type ModeId } from '../modes'
 
 // Plain-language legends: written for people who have never used a map app like this.
 export const WEALTH_PLAIN = ['Le falta muy poco', 'Le falta poco', 'Regular', 'Le falta mucho', 'Le falta muchísimo']
@@ -16,6 +16,7 @@ const PLANNED: Record<string, { text: string; src: string }> = {
   wildlife: { text: '', src: 'iNaturalist' },
   work: { text: 'Dónde están los negocios y las empresas grandes.', src: 'Directorio de negocios DENUE (INEGI)' },
   water: { text: 'Quién tiene permiso para sacar agua, y si hay sequía.', src: 'CONAGUA (REPDA) y Monitor de Sequía (SMN)' },
+  campo: { text: 'Dónde está el campo y qué se siembra.', src: 'INEGI, ESA WorldCover y SIAP' },
 }
 
 interface Props {
@@ -226,6 +227,56 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
     )
     source = [r && `CONAGUA, Registro Público de Derechos de Agua (corte ${r.snapshot.slice(5)}/${r.snapshot.slice(0, 4)})`,
       d && `Monitor de Sequía de México (SMN), ${date(d.date)}`, b.length > 0 && 'Censo 2020 del INEGI (tinacos)'].filter(Boolean).join(' · ')
+  } else if (mode === 'campo' && st === 'ok' && antes) {
+    // «Antes de ser Municipio»: SIAP still counts the town inside Guasave and Ahome — whole-municipio tables
+    const s = data.stats.campo?.siap
+    body = s ? (
+      <>
+        <p><b>¿Qué se siembra?</b> El SIAP todavía cuenta las siembras de {PLACE} dentro de Guasave (y las de El Estero dentro de Ahome).</p>
+        <SiapPicker siap={s} muns={['011', '001']} />
+        <p className="legend-note">Son cifras de <b>todo el municipio</b> de Guasave o de Ahome, no solo de {PLACE}. No se pueden repartir por barrio ni por parcela.</p>
+      </>
+    ) : <p className="legend-unavailable"><strong>{t('unavailable')}.</strong></p>
+    source = s ? `SIAP, Cierre de la producción agrícola ${s.years[0]}–${s.latest}` : 'SIAP'
+  } else if (mode === 'campo' && st === 'ok' && data.stats.campo) {
+    const { usv, cropland: cr, siap } = data.stats.campo
+    const own = siap?.mun['020'] ?? null
+    const kinds = Object.keys(CAMPO_KIND).filter(k => usv?.kinds[k])
+    body = (
+      <>
+        <p><b>¿Dónde está el campo?</b> Casi todo el campo está fuera del pueblo: aléjate para verlo completo.</p>
+        <ul className="swatches one-col">
+          {cr && (
+            <li><span className="sw" style={{ background: CAMPO_CROP }} />Sembrado, visto desde satélite ({cr.year}) · {fmt(cr.ha)} ha</li>
+          )}
+          {kinds.map(k => (
+            <li key={k}>
+              <span className={`sw${CAMPO_KIND[k].hatch ? ' hatch' : ''}`} style={{ background: CAMPO_KIND[k].color }} />
+              {CAMPO_KIND[k].label} (INEGI) · {fmt(usv!.kinds[k])} ha
+            </li>
+          ))}
+        </ul>
+        {cr && (
+          <p className="legend-note">
+            El satélite ve sembrado el <b>{fmt(cr.p_mun)}%</b> del municipio. Es una clasificación automática de imágenes de satélite
+            (<b>visto desde satélite</b>), no un registro de parcelas. Las zonas del INEGI son de escala 1:250 000: sus orillas son aproximadas.
+          </p>
+        )}
+        <p className="legend-sub">Color del barrio: qué parte del barrio se ve sembrada.</p>
+        <Swatches rows={[...CAMPO_RAMP.map((c, i) => ({
+          c, label: i === 0 ? `menos del ${CAMPO_BREAKS[0]}%` : i === CAMPO_BREAKS.length ? `${CAMPO_BREAKS[i - 1]}% o más` : `${CAMPO_BREAKS[i - 1]} a ${CAMPO_BREAKS[i]}%`,
+        })), { c: NO_DATA, label: t('no_data') }]} />
+        <p><b>¿Qué se siembra?</b></p>
+        {own && siap ? <SiapTable m={own} /> : (
+          <p className="legend-note">
+            Sin datos del SIAP para {PLACE} todavía: el cierre agrícola{siap ? ` ${siap.latest}` : ''} sigue contando sus siembras dentro de Guasave y Ahome.
+            Míralas en «{t('era_antes')}», modo {t('m_campo')}.
+          </p>
+        )}
+      </>
+    )
+    source = [usv && 'INEGI, Uso del Suelo y Vegetación Serie VII (1:250 000)', cr && `ESA WorldCover ${cr.year}`,
+      siap && `SIAP, Cierre de la producción agrícola ${siap.latest}`].filter(Boolean).join(' · ')
   } else {
     const p = PLANNED[mode]
     body = <p className="legend-unavailable"><strong>{t('soon')}.</strong> {p.text}</p>
@@ -256,6 +307,60 @@ export function Legend({ data, mode, wealthPrimary, groups, setGroups, workGroup
         </div>
       )}
     </aside>
+  )
+}
+
+const millones = (pesos: number) => fmt(pesos / 1e6)
+
+/** SIAP 'Cierre agrícola' of one municipio, exactly as published: the crops with most hectares harvested. */
+function SiapTable({ m }: { m: SiapMun }) {
+  const tt = m.totals
+  const riego = tt.riego != null && tt.sem ? Math.round((100 * tt.riego) / tt.sem) : null
+  return (
+    <div className="siap">
+      <p className="legend-sub">
+        En {m.year}, {m.name} sembró <b>{fmt(tt.sem)} ha</b>{riego != null ? <> ({fmt(riego)}% de riego)</> : null} y su cosecha valió
+        <b> ${millones(tt.val)} millones</b>.
+      </p>
+      <table className="siap-table">
+        <thead>
+          <tr><th>Cultivo</th><th>Hectáreas cosechadas</th><th>Toneladas</th><th>Millones de pesos</th></tr>
+        </thead>
+        <tbody>
+          {m.crops.slice(0, 6).map(([name, , cos, , prod, unit, val]) => (
+            <tr key={name}>
+              <td>{name}</td>
+              <td>{fmt(cos)}</td>
+              <td>{unit === 'Tonelada' ? fmt(prod) : `${fmt(prod)} ${unit.toLowerCase()}`}</td>
+              <td>{millones(val)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {m.series.length > 1 && (
+        <p className="legend-note">Hectáreas sembradas por año: {m.series.map(([y, sem]) => `${y}: ${fmt(sem)}`).join(' · ')}.</p>
+      )}
+    </div>
+  )
+}
+
+function SiapPicker({ siap, muns }: { siap: SiapStats; muns: string[] }) {
+  const have = muns.filter(m => siap.mun[m])
+  const [cur, setCur] = useState(have[0])
+  if (!have.length) return <p className="legend-note">{t('no_data')}</p>
+  return (
+    <>
+      {have.length > 1 && (
+        <div className="chips" role="group" aria-label="Qué municipio mostrar">
+          {have.map(m => (
+            <button key={m} className={`chip${cur === m ? ' on' : ''}`} aria-pressed={cur === m} onClick={() => setCur(m)}>
+              {siap.mun[m]!.name}
+            </button>
+          ))}
+        </div>
+      )}
+      <SiapTable m={siap.mun[cur]!} />
+    </>
   )
 }
 

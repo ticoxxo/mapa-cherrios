@@ -19,11 +19,12 @@ Options:
 ```bash
 uv run --directory pipeline python -m hlm.run --skip blocks,streets   # faster: AGEBs, census, wealth, OSM, territorios
 uv run --directory pipeline python -m hlm.run --skip osm,wildlife     # no Overpass / iNaturalist calls (uses cached names)
-uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green   # only Chamba
-uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green,work   # only Agua
+uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green,water,campo   # only Chamba
+uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green,work,campo   # only Agua
+uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green,work,water   # only Campo
 ```
 
-Skipping `wildlife`, `heat`, `green`, `work` or `water` keeps that mode's numbers from the previous run (they are not
+Skipping `wildlife`, `heat`, `green`, `work`, `water` or `campo` keeps that mode's numbers from the previous run (they are not
 blanked), and La Gaceta only writes entries for steps that actually ran.
 
 Downloads are cached in `pipeline/.cache/`; static sources are reused for years and OSM for 6 days.
@@ -45,6 +46,7 @@ Delete a cached file to force a fresh download. `HLM_CACHE` and `HLM_OUT` overri
 | `history.json`, `chronicle.json` | Weekly snapshots and La Gaceta entries |
 | `work.json` | DENUE businesses as compact rows `[lon, lat, group, size, name, SCIAN, alta]` plus the activity names (loaded the first time Chamba is opened) |
 | `water.json` | REPDA wells and intakes as compact rows `[lon, lat, kind, use, m³/year, aquifer, holder, year, district]` (holder `""` = private person; loaded the first time Agua is opened) |
+| `campo.geojson`, `campo.png` | INEGI USV Serie VII farmland polygons clipped to the municipio (`tipo` riego / temporal / humedad, `ha`) and the WorldCover 2021 cropland picture (bounds in `stats.json → campo.cropland.image`); loaded the first time Campo is opened |
 | `stats.json` | City totals, density class breaks and medians used by legends and descriptions |
 | `manifest.json` | Provenance and status of every source and layer (2020-view layers are prefixed `antes_`) |
 | `antes/agebs.geojson`, `antes/realms.geojson`, `antes/blocks.geojson`, `antes/stats.json` | "Antes de ser Municipio": the 20 AGEBs of the 2020 census edition (Guasave 011-0138, Ahome 001-0136) with Censo 2020 fields and CONAPO / CONEVAL grades, their territorios, 2020 blocks and totals |
@@ -62,6 +64,7 @@ Delete a cached file to force a fresh download. `HLM_CACHE` and `HLM_OUT` overri
 - `hlm/green.py`: Sentinel-2 NDVI (now and a year ago), WorldCover tree cover (cached `.npy`), `trees.geojson`
 - `hlm/work.py`: INEGI DENUE (Sinaloa zip, municipio 020), per-AGEB business counts and estimated jobs, compact `work.json` points
 - `hlm/water.py`: CONAGUA REPDA (newest release from the Zenodo copy), privacy filter for holders, per-AGEB well counts, `water.json`; SMN drought monitor
+- `hlm/campo.py`: INEGI USV Serie VII farmland (CONABIO copy of the national shapefile, clipped), WorldCover cropland share per AGEB and `campo.png`, SIAP cierre agrícola for 25-020 / Guasave / Ahome (last 3 years)
 - `hlm/chronicle.py`: weekly snapshot (`history.json`) and La Gaceta entries (`chronicle.json`)
 - `hlm/realms.py`: k-means *territorios*, names, colours and brands
 - `hlm/run.py`: orchestration; `build_antes()` writes the 2020 view into `public/data/antes/`

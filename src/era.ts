@@ -9,8 +9,9 @@ import type { ModeId } from './modes'
 export type Era = 'municipio' | 'antes'
 export const ERAS: Era[] = ['municipio', 'antes']
 
-/** Modes that have 2020 data on the 2020 zones. Everything else is current data only. */
-export const ANTES_MODES: ModeId[] = ['realm', 'people', 'wealth']
+/** Modes that have 2020 data on the 2020 zones (Campo: only the SIAP tables of Guasave and Ahome).
+ *  Everything else is current data only. */
+export const ANTES_MODES: ModeId[] = ['realm', 'people', 'wealth', 'campo']
 
 const KEY = 'jjr-era'
 const isEra = (x: unknown): x is Era => ERAS.includes(x as Era)

@@ -3,6 +3,7 @@ import type { SightingInfo } from '../map/MapView'
 import { SIZE_LABEL, WORK_INFO, workSVG } from '../art/work'
 import { pools, WATER_INFO, waterSVG } from '../art/water'
 import { fmt } from '../i18n'
+import { CAMPO_KIND } from '../modes'
 
 const MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
 
@@ -15,6 +16,7 @@ const LICENSE: Record<string, string> = {
 export function SightingCard({ info, onClose }: { info: SightingInfo; onClose: () => void }) {
   if (info.b) return <BizCard info={info} onClose={onClose} />
   if (info.well) return <WellCard info={info} onClose={onClose} />
+  if (info.field) return <FieldCard info={info} onClose={onClose} />
   const { pinned } = info
   const s = info.s!
   const g = GROUP_INFO[s.g]
@@ -92,9 +94,31 @@ function WellCard({ info, onClose }: { info: SightingInfo; onClose: () => void }
         Tiene permiso para sacar <b>{fmt(w.v)} m³</b> de agua al año{p >= 1 ? <> (como <b>{fmt(p)}</b> {p === 1 ? 'alberca olímpica' : 'albercas olímpicas'})</> : null}.
       </div>
       <div className="sighting-credit">
-        {w.aq ? `Acuífero ${w.aq}. ` : ''}{w.d ? 'Dentro del Distrito de Riego 051. ' : ''}{w.y ? `Título registrado en ${w.y}. ` : ''}
+        {w.aq ? `Acuífero ${w.aq}. ` : ''}{w.d ? 'Título de un distrito de riego. ' : ''}{w.y ? `Título registrado en ${w.y}. ` : ''}
         Es lo que permite el título, no lo que se mide.{!w.h ? ' Ubicación aproximada (unos 100 m).' : ''}
       </div>
+    </div>
+  )
+}
+
+/** Card for one INEGI farmland polygon (Uso del Suelo y Vegetación, Serie VII). Only what INEGI says about it. */
+function FieldCard({ info, onClose }: { info: SightingInfo; onClose: () => void }) {
+  const f = info.field!
+  const k = CAMPO_KIND[f.tipo]
+  const left = Math.min(info.x + 16, window.innerWidth - 290)
+  const top = Math.min(Math.max(info.y - 30, 70), window.innerHeight - 200)
+  return (
+    <div className={`sighting card${info.pinned ? ' pinned' : ''}`} style={{ left, top }} role={info.pinned ? 'dialog' : 'status'}>
+      <div className="sighting-head">
+        <span className={`field-swatch${k?.hatch ? ' hatch' : ''}`} style={{ background: k?.color }} aria-hidden="true" />
+        <div>
+          <div className="tt-title">{k?.label ?? f.desc}</div>
+          <div className="tt-sub">{f.desc}</div>
+        </div>
+        {info.pinned && <button className="close" onClick={onClose} aria-label="Cerrar">✕</button>}
+      </div>
+      <div className="tt-stat">Esta mancha de campo mide unas <b>{fmt(f.ha)} hectáreas</b>.</div>
+      <div className="sighting-credit">Carta de Uso del Suelo y Vegetación del INEGI (Serie VII, escala 1:250 000): las orillas son aproximadas.</div>
     </div>
   )
 }

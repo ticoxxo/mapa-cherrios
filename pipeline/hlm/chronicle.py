@@ -161,6 +161,28 @@ def _water_entries(water, prev_weeks, chron, week_key):
 
 
 
+def _campo_entries(campo, prev_weeks, chron, week_key):
+    """One entry per new SIAP 'cierre' year: what the municipio (or, while SIAP has no rows for it, Guasave) grew."""
+    siap = (campo or {}).get("siap")
+    if not siap:
+        return []
+    last = next((w.get("campo_year") for w in reversed(prev_weeks) if w.get("campo_year")), None)
+    if last == siap["latest"] and any(e.get("kind") == "campo" for e in chron["entries"]):
+        return []
+    y = siap["latest"]
+    own = siap["mun"].get("020")
+    m = own or siap["mun"].get("011")
+    if not m or not m["crops"]:
+        return []
+    c1, *rest = m["crops"]
+    where = PLACE if own else "Guasave (el SIAP todavía cuenta ahí las siembras de " + PLACE + ")"
+    text = (f"Según el cierre agrícola {y}, en {where} se sembraron {_fmt(m['totals']['sem'])} hectáreas. "
+            f"Lo que más: {c1[0].lower()}, con {_fmt(c1[1])} hectáreas")
+    text += f", y le sigue {rest[0][0].lower()} ({_fmt(rest[0][1])} ha)." if rest else "."
+    return [{"week": week_key, "date": TODAY, "kind": "campo", "title": "¿Qué se siembra?", "es": text,
+             "source": f"SIAP, Cierre de la producción agrícola {y}"}]
+
+
 def _keep(entries, new_entries, week_key):
     """Entries to keep when re-running a week: only the families just rewritten (wildlife, heat, green,
     weather, work, water) are replaced, so a partial run never deletes the rest of this week's Gaceta."""
@@ -170,11 +192,12 @@ def _keep(entries, new_entries, week_key):
 
 
 def update(wild: dict, heat: dict | None = None, weather: dict | None = None, agebs: list | None = None,
-           realms: list | None = None, green: dict | None = None, work: dict | None = None, water: dict | None = None):
+           realms: list | None = None, green: dict | None = None, work: dict | None = None, water: dict | None = None,
+           campo: dict | None = None):
     hist_path, chron_path = OUT / "history.json", OUT / "chronicle.json"
     history = json.loads(hist_path.read_text(encoding="utf-8")) if hist_path.exists() else {"weeks": []}
     chron = json.loads(chron_path.read_text(encoding="utf-8")) if chron_path.exists() else {"entries": []}
-    if not (wild or weather or green or work or water):
+    if not (wild or weather or green or work or water or campo):
         return
     week_key = "%d-W%02d" % dt.date.fromisoformat(TODAY).isocalendar()[:2]
     same = next((w for w in history["weeks"] if w["week"] == week_key), {})
@@ -201,6 +224,10 @@ def update(wild: dict, heat: dict | None = None, weather: dict | None = None, ag
             snap.update(drought_level=water["drought"]["level"], drought_date=water["drought"]["date"])
         if water.get("rights"):
             snap.update(water_snapshot=water["rights"]["snapshot"], water_hm3=water["rights"]["hm3"])
+    if campo:
+        new_entries += _campo_entries(campo, prev_weeks, chron, week_key)
+        if campo.get("siap"):
+            snap.update(campo_year=campo["siap"]["latest"])
     weeks = sorted(prev_weeks + [snap], key=lambda w: w["week"])
     history["weeks"] = weeks[-104:]
     write_json(hist_path, history, compact=False)

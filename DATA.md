@@ -42,6 +42,9 @@ with the 15 AGEBs of the Dec 2025 framework. So:
 | Work | DENUE Sinaloa (`denue_25_csv.zip`, `CVE_MUN = 020`; DENUE already uses the new municipio) | INEGI | edition 11/2026 | Twice a year; checked weekly | INEGI Términos de libre uso | **Built**: 1,756 businesses, ~9,456 jobs (*estimate*); 97 outside urban AGEBs |
 | Water | REPDA (Zenodo copy of CONAGUA's releases); points kept by the **2025 municipio outline** (older releases file them under Guasave / Ahome) | CONAGUA | release 2025-06 | Irregular; checked weekly | Términos de Libre Uso MX | **Built**: 72 points (40 wells, 32 intakes), 5.7 hm³/year authorised |
 | Water | Monitor de Sequía, municipal table, row `25020` | SMN / CONAGUA | every 15 days | Twice a month | Términos de Libre Uso MX | **Built**: sin sequía since 2026-06-15 |
+| Campo | Uso del Suelo y Vegetación 1:250 000 Serie VII, national shapefile (CONABIO copy `usv250s7gw.zip`), agricultural classes clipped to 25-020 | INEGI | 2018 imagery, pub. 2021 | Static (Serie VIII when published) | INEGI Términos de libre uso | **Built**: 4 polygons, 40,549 ha (riego 37,190, temporal 3,360) |
+| Campo | ESA WorldCover 2021 v200, class 40 (cropland) | ESA | 2021 | Static | CC-BY 4.0 | **Built** (*visto desde satélite*): 34,084 ha = 46 % of the municipio |
+| Campo | SIAP Cierre de la producción agrícola por municipio (open-data CSV), last 3 years | SIAP / SADER | cierres 2023–2025 | Yearly; checked monthly | Términos de Libre Uso MX | **Built** for Guasave and Ahome (shown in «Antes»); **no rows for 25-020 yet** |
 | Water (tinacos) | Censo 2020 `VPH_TINACO` | INEGI | 2020 | Decennial | INEGI Términos de libre uso | **Antes only**: in the Municipio view zones stay uncoloured and the legend says why |
 
 ## How figures are handled
@@ -136,6 +139,33 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
   (median 2 %) to colour the map; they are shown in the ficha.
 - La Gaceta writes Agua entries when the drought level changes or a new REPDA release appears (or the first time).
 
+## Campo rules
+
+- **Where the farmland is**: two independent sources, drawn on top of each other and never mixed:
+  - INEGI **Uso del Suelo y Vegetación, Serie VII** (1:250 000, 2018 imagery, published 2021). INEGI's own page
+    serves it only through a JavaScript catalogue, so `campo.py` reads the unchanged national shapefile that
+    CONABIO's geoportal redistributes (`usv250s7gw.zip`, geographic coordinates, 317 MB, cached for years).
+    Polygons whose `DESCRIPCIO` says *agricultura* are kept and grouped by water regime (riego, temporal,
+    humedad), clipped to INEGI's 2025 outline of 25-020, simplified to ≈ 20 m. At 1:250 000 the edges are
+    approximate and small plots don't show: the card and legend say so. Fallback: the committed clip
+    `pipeline/manual/usv7_25020.geojson`.
+  - ESA **WorldCover 2021 class 40** (cropland, 10 m), the same raster `green.py` caches. Drawn as `campo.png`
+    (share of cropland pixels per ≈ 30 m cell, inside the municipio only). It is a satellite classification, so the
+    UI says «visto desde satélite» and the manifest marks it `modeled`.
+- **Per zone** there is only `c_crop`: % of the barrio's WorldCover pixels that are cropland (≥ 5 pixels, else
+  `null`). Barrios are town, so the colour uses fixed breaks 1 / 5 / 15 / 40 % instead of quantiles.
+- **What is grown**: SIAP *Cierre de la producción agrícola por municipio* (open-data CSV from
+  `nube.agricultura.gob.mx`; the old `*.siap.gob.mx` hosts no longer resolve). The last three published years
+  are read; the newest is refreshed monthly. Per municipio and year: sown / harvested / lost hectares, production
+  and value (pesos) by crop, summed over cycles (otoño-invierno, primavera-verano, perennes) and water regimes.
+  Production is summed only in the crop's most common unit. Figures are shown **exactly as published**.
+- **SIAP has no rows for 25-020** (checked up to the 2025 cierre): it still counts the town inside Guasave (011)
+  and Ahome (001). The Municipio view then says «sin datos» and points to «Antes de ser Municipio», where Campo shows
+  only Guasave's and Ahome's tables, labelled as **whole municipios**. The map stays on the plain zones there.
+  The tables are never split over zones or fields: there is no per-field crop map.
+- La Gaceta writes a Campo entry when a new SIAP cierre year appears (or the first time), from 25-020 if it exists,
+  otherwise from Guasave, saying so.
+
 ## Known gaps
 
 - **No census for the new municipio yet.** The next one (2030) will use the new keys; until then census figures
@@ -143,5 +173,7 @@ information, and showed values up to 540 %. The pipeline now stops if any share 
 - **CONAPO / CONEVAL** answer 403 to scripts: the committed copies in `pipeline/manual/` were downloaded in a
   browser and trimmed to Guasave 0138 + Ahome 0136. Zones with very few people carry no index.
 - **No public tree inventory**; Verde draws trees from WorldCover and says so.
+- **No crop map per field.** SIAP publishes crops only per municipio, and not yet for 25-020; INEGI's farmland
+  polygons say only riego / temporal. Campo shows each source as it is and never spreads one over the other.
 - **No named neighbourhoods in OSM** for the town, so territorios carry only compass titles.
 - **NASA POWER weather** is one value for the whole town (HUD only).

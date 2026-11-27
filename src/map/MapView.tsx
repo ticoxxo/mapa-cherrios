@@ -3,8 +3,8 @@ import maplibregl, { type Map as MLMap, type MapGeoJSONFeature } from 'maplibre-
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { baseStyle, PALETTES, SKIN_PAINT } from './style'
 import type { Skin } from '../skin'
-import { dataUrl, type Ageb, type Biz, type CoreData, type Realm, type Sighting, type Well } from '../data'
-import { blockPeopleColorExpr, greenColorExpr, heatColorExpr, peopleColorExpr, waterColorExpr, wealthColorExpr, wildlifeColorExpr, workColorExpr, type ModeId } from '../modes'
+import { dataUrl, type Ageb, type Biz, type CoreData, type Field, type Realm, type Sighting, type Well } from '../data'
+import { blockPeopleColorExpr, CAMPO_KIND, campoColorExpr, greenColorExpr, heatColorExpr, peopleColorExpr, waterColorExpr, wealthColorExpr, wildlifeColorExpr, workColorExpr, type ModeId } from '../modes'
 import { addCritterImages, critterSVG, type Group } from '../art/critters'
 import { addTreeImage } from '../art/trees'
 import { addWorkImages, WORK_GROUPS, type WorkGroup } from '../art/work'
@@ -23,6 +23,7 @@ export interface SightingInfo {
   s?: Sighting
   b?: Biz
   well?: Well
+  field?: Field
   pinned: boolean
 }
 
@@ -48,7 +49,7 @@ interface Props {
   onSighting: (s: SightingInfo | null, explicit?: boolean) => void
 }
 
-const FILL_MODES: ModeId[] = ['realm', 'people', 'wealth', 'wildlife', 'heat', 'green', 'work', 'water']
+const FILL_MODES: ModeId[] = ['realm', 'people', 'wealth', 'wildlife', 'heat', 'green', 'work', 'water', 'campo']
 // per-mode opacity at zoom 9 / 12 / 15 (multiplied by the crossfade weight)
 const OPACITY: Record<string, [number, number, number]> = {
   realm: [0.78, 0.5, 0.22],
@@ -59,6 +60,7 @@ const OPACITY: Record<string, [number, number, number]> = {
   green: [0.85, 0.75, 0.4],
   work: [0.88, 0.8, 0.35],
   water: [0.85, 0.75, 0.35],
+  campo: [0.7, 0.6, 0.35],
 }
 const opacityExpr = (m: string, k: number) =>
   ['interpolate', ['linear'], ['zoom'], 9, OPACITY[m][0] * k, 12, OPACITY[m][1] * k, 15, OPACITY[m][2] * k] as unknown as number
@@ -66,7 +68,7 @@ const opacityExpr = (m: string, k: number) =>
 export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, onSelect, onTier, groups, workGroups, waterUses, onSighting }: Props) {
   const el = useRef<HTMLDivElement>(null)
   const mapRef = useRef<MLMap | null>(null)
-  const weights = useRef<Record<string, number>>({ realm: 1, people: 0, wealth: 0, wildlife: 0, heat: 0, green: 0, work: 0, water: 0 })
+  const weights = useRef<Record<string, number>>({ realm: 1, people: 0, wealth: 0, wildlife: 0, heat: 0, green: 0, work: 0, water: 0, campo: 0 })
   const anim = useRef<number>(0)
   const banners = useRef<{ m: maplibregl.Marker; r: Realm }[]>([])
   const cb = useRef({ onHover, onSelect, onTier, onSighting })
@@ -122,6 +124,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
       map.addLayer({ id: 'fill-green', type: 'fill', source: 'agebs', paint: { 'fill-color': greenColorExpr(data.stats) as never, 'fill-opacity': 0 } }, before)
       map.addLayer({ id: 'fill-work', type: 'fill', source: 'agebs', paint: { 'fill-color': workColorExpr(data.stats) as never, 'fill-opacity': 0 } }, before)
       map.addLayer({ id: 'fill-water', type: 'fill', source: 'agebs', paint: { 'fill-color': waterColorExpr(data.stats) as never, 'fill-opacity': 0 } }, before)
+      map.addLayer({ id: 'fill-campo', type: 'fill', source: 'agebs', paint: { 'fill-color': campoColorExpr() as never, 'fill-opacity': 0 } }, before)
       map.addLayer({ id: 'fill-heat', type: 'fill', source: 'agebs', paint: { 'fill-color': heatColorExpr(data.stats) as never, 'fill-opacity': 0 } }, before)
       // satellite heat picture: shown close-up in Calor mode, under the barrio borders
       const img = data.stats.heat?.image
@@ -260,6 +263,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
       if (modeRef.current === 'green') loadTrees()
       if (modeRef.current === 'work') loadWork()
       if (modeRef.current === 'water') loadWater()
+      if (modeRef.current === 'campo') loadCampo()
     })
 
     // lazy layers for the "block" tier
@@ -289,6 +293,52 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
     mapFns.current.loadTrees = loadTrees
     mapFns.current.loadWork = loadWork
     mapFns.current.loadWater = loadWater
+    mapFns.current.loadCampo = loadCampo
+    // Campo: INEGI farmland polygons + the WorldCover cropland picture, fetched the first time Campo is opened.
+    // The farms are outside the town, so the first opening also zooms out to show them.
+    let campoState: 'none' | 'loading' | 'ready' = 'none'
+    async function loadCampo() {
+      const cs = data.stats.campo
+      if (campoState !== 'none' || !map.getLayer('fill-realm') || !cs || (!cs.usv && !cs.cropland)) return
+      campoState = 'loading'
+      const fc: GeoJSON.FeatureCollection | null = cs.usv
+        ? await fetch(dataUrl('campo.geojson')).then(r => (r.ok ? r.json() : null)).catch(() => null)
+        : null
+      if (mapRef.current !== map) return
+      const under = 'fill-realm' // below every barrio fill: the town stays on top of the fields
+      if (fc) {
+        if (!map.hasImage('hatch')) map.addImage('hatch', hatchImage(), { pixelRatio: 2 })
+        map.addSource('campo', { type: 'geojson', data: fc })
+        const color = ['match', ['get', 'tipo'], ...Object.entries(CAMPO_KIND).flatMap(([k, v]) => [k, v.color]), '#e6dcaa']
+        map.addLayer({ id: 'campo-fill', type: 'fill', source: 'campo', paint: { 'fill-color': color as never, 'fill-opacity': 0 } }, under)
+        map.addLayer({
+          id: 'campo-hatch', type: 'fill', source: 'campo',
+          filter: ['in', ['get', 'tipo'], ['literal', Object.keys(CAMPO_KIND).filter(k => CAMPO_KIND[k].hatch)]],
+          paint: { 'fill-pattern': 'hatch', 'fill-opacity': 0 },
+        }, under)
+        map.addLayer({
+          id: 'campo-line', type: 'line', source: 'campo',
+          paint: { 'line-color': PALETTES[skinRef.current].ink, 'line-width': ['interpolate', ['linear'], ['zoom'], 9, 0.4, 14, 1.2] as never, 'line-opacity': 0 },
+        }, under)
+      }
+      const img = cs.cropland?.image
+      if (img) {
+        const [w, s, e, n] = img.bounds
+        map.addSource('campo-img', { type: 'image', url: dataUrl(img.file), coordinates: [[w, n], [e, n], [e, s], [w, s]] })
+        map.addLayer({ id: 'campo-img', type: 'raster', source: 'campo-img', paint: { 'raster-opacity': 0, 'raster-fade-duration': 0, 'raster-resampling': 'nearest' } }, under)
+      }
+      campoState = 'ready'
+      applyWeights()
+      if (modeRef.current === 'campo' && map.getZoom() > 11.4) {
+        const b = new maplibregl.LngLatBounds()
+        for (const f of fc?.features ?? []) {
+          const g = f.geometry as GeoJSON.Polygon | GeoJSON.MultiPolygon
+          for (const poly of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) for (const c of poly[0]) b.extend(c as [number, number])
+        }
+        if (b.isEmpty() && img) b.extend([img.bounds[0], img.bounds[1]]).extend([img.bounds[2], img.bounds[3]])
+        if (!b.isEmpty()) map.fitBounds(b, { padding: { top: 70, bottom: 130, left: 20, right: 20 }, duration: 1400, maxZoom: 11 })
+      }
+    }
     // REPDA wells and intakes are fetched the first time Agua is opened (compact rows → GeoJSON here)
     let waterState: 'none' | 'loading' | 'ready' = 'none'
     async function loadWater() {
@@ -478,8 +528,14 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
     }
     const pick = (pt: maplibregl.PointLike): MapGeoJSONFeature | undefined =>
       !map.getLayer('fill-realm') ? undefined : map.queryRenderedFeatures(pt, { layers: FILL_MODES.map(m => `fill-${m}`) })[0]
-    const pickCritter = (pt: maplibregl.Point): Pick<SightingInfo, 's' | 'b' | 'well'> | undefined => {
+    const pickCritter = (pt: maplibregl.Point): Pick<SightingInfo, 's' | 'b' | 'well' | 'field'> | undefined => {
       const box: [maplibregl.PointLike, maplibregl.PointLike] = [[pt.x - 8, pt.y - 8], [pt.x + 8, pt.y + 8]]
+      if (modeRef.current === 'campo' && map.getLayer('campo-fill')) {
+        // a barrio under the pointer wins: the fields card is for the farmland around the town
+        if (pick(pt)) return undefined
+        const p = map.queryRenderedFeatures(pt, { layers: ['campo-fill'] })[0]?.properties as Field | undefined
+        return p ? { field: p } : undefined
+      }
       if (modeRef.current === 'water' && map.getLayer('water-small')) {
         const p = map.queryRenderedFeatures(box, { layers: ['water-big', 'water-small'] })[0]?.properties as Well | undefined
         return p ? { well: { ...p, aq: (p.aq as unknown) === 'null' ? null : p.aq } } : undefined
@@ -547,7 +603,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
   }, [data])
 
   // ---------- fauna visibility & group filter ----------
-  const mapFns = useRef<{ loadWildlife?: () => void; loadTrees?: () => void; loadWork?: () => void; loadWater?: () => void }>({})
+  const mapFns = useRef<{ loadWildlife?: () => void; loadTrees?: () => void; loadWork?: () => void; loadWater?: () => void; loadCampo?: () => void }>({})
   const bizActs = useRef<Record<string, string>>({})
   function showWork() {
     const map = mapRef.current
@@ -572,6 +628,9 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
       map.setFilter(id, ['all', f, ['in', ['get', 'u'], ['literal', us.length ? us : WATER_USES]]] as never)
     }
   }
+  useEffect(() => {
+    if (mode === 'campo') mapFns.current.loadCampo?.()
+  }, [mode])
   useEffect(() => {
     if (mode === 'water') mapFns.current.loadWater?.()
     showWater()
@@ -608,6 +667,12 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
       map.setPaintProperty('heat-img', 'raster-opacity', ['interpolate', ['linear'], ['zoom'], 11.8, 0, 13, 0.8 * w.heat] as never)
       map.setPaintProperty('fill-heat', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 9, 0.88 * w.heat, 12, 0.8 * w.heat, 13, 0.08 * w.heat] as never)
     }
+    if (map.getLayer('campo-fill')) {
+      map.setPaintProperty('campo-fill', 'fill-opacity', 0.55 * w.campo)
+      map.setPaintProperty('campo-hatch', 'fill-opacity', 0.8 * w.campo)
+      map.setPaintProperty('campo-line', 'line-opacity', 0.45 * w.campo)
+    }
+    if (map.getLayer('campo-img')) map.setPaintProperty('campo-img', 'raster-opacity', 0.75 * w.campo)
     if (map.getLayer('blocks-people')) {
       map.setPaintProperty('blocks-people', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 13.8, 0, 14.6, 0.85 * w.people] as never)
       map.setPaintProperty('fill-people', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 9, 0.88 * w.people, 12, 0.82 * w.people, 13.8, 0.7 * w.people, 14.6, 0.12 * w.people] as never)
@@ -615,7 +680,7 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
   }
 
   useEffect(() => {
-    const target: Record<string, number> = { realm: 0, people: 0, wealth: 0, wildlife: 0, heat: 0, green: 0, work: 0, water: 0 }
+    const target: Record<string, number> = { realm: 0, people: 0, wealth: 0, wildlife: 0, heat: 0, green: 0, work: 0, water: 0, campo: 0 }
     // modes without a fill of their own (not built yet) keep the realm map underneath, dimmed
     if (FILL_MODES.includes(mode)) target[mode] = 1
     else target.realm = 0.35
@@ -674,6 +739,18 @@ export function MapView({ data, mode, skin, wealthPrimary, selected, onHover, on
   }, [skin])
 
   return <div ref={el} className="map" data-mode={mode} />
+}
+
+/** 16×16 diagonal hatching (drawn at 2×) for rain-fed farmland: told apart by texture, not only colour. */
+function hatchImage(): ImageData {
+  const n = 16
+  const d = new Uint8ClampedArray(n * n * 4)
+  for (let y = 0; y < n; y++)
+    for (let x = 0; x < n; x++) {
+      if ((x + y) % 8 > 1) continue
+      d.set([92, 84, 30, 200], (y * n + x) * 4)
+    }
+  return new ImageData(d, n, n)
 }
 
 function escapeHtml(s: string) {

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Manifest } from '../data'
 import { fmtDate, t } from '../i18n'
 
-const ALWAYS = ['INEGI', 'CONAPO', 'CONEVAL', 'CONAGUA', 'SMN', '© colaboradores de OpenStreetMap (ODbL)', 'ESA', 'USGS/NASA', 'Copernicus', 'iNaturalist', 'Natural Earth']
+const ALWAYS = ['INEGI', 'CONAPO', 'CONEVAL', 'CONAGUA', 'SMN', 'SIAP', 'CONABIO', '© colaboradores de OpenStreetMap (ODbL)', 'ESA', 'USGS/NASA', 'Copernicus', 'iNaturalist', 'Natural Earth']
 
 export function Credits({ manifest }: { manifest: Manifest }) {
   const [open, setOpen] = useState(false)

@@ -45,7 +45,7 @@ _ENTITY = re.compile(
     r"(\bS\.?\s?A\.?(\s|,|$)|\bS\.?\s?DE\s?R\.?\s?L|\bS\.?\s?P\.?\s?R\b|\bSPR\b|\bS\.?\s?C\.?(\s|,|$)|\bA\.?\s?C\.?$|"
     r"\bA\.\s?C\.|\bSAPI\b|\bS\.?\s?A\.?\s?P\.?\s?I\b|\bS\.?\s?A\.?\s?S\b|\bDE\s+C\.?\s?V\b|\bSOCIEDAD\b|\bASOCIACION\b|"
     r"\bCOOPERATIVA\b|\bEJIDO\b|\bEJIDOS\b|\bCOMUNIDAD\b|\bMUNICIPIO\b|\bAYUNTAMIENTO\b|\bGOBIERNO\b|\bCOMISION\b|"
-    r"\bORGANISMO\b|\bAGUA DE HERMOSILLO\b|\bUNIVERSIDAD\b|\bINSTITUTO\b|\bSECRETARIA\b|\bJUNTA\b|\bDISTRITO\b|"
+    r"\bORGANISMO\b|\bUNIVERSIDAD\b|\bINSTITUTO\b|\bSECRETARIA\b|\bJUNTA\b|\bDISTRITO\b|"
     r"\bUNION\b|\bGRUPO\b|\bINMOBILIARIA\b|\bFRACCIONADORA\b|\bCORPORATIVO\b|\bCOLEGIO\b|\bPATRONATO\b|"
     r"\bFIDEICOMISO\b|\bIMSS\b|\bISSSTE\b|\bCFE\b|\bPEMEX\b|\bSEDENA\b|\bCOMPANIA\b|\bINDUSTRIAS?\b|\bCLUB\b)")
 

@@ -216,6 +216,20 @@ export function ProvincePanel({ data, ageb: a, realm: r, skin, onClose }: { data
           </>
         )}
 
+        {data.stats.campo?.cropland && (
+          <>
+            <h3>{t('m_campo')}</h3>
+            {a.c_crop == null ? (
+              <p className="legend-note">{t('no_data')}</p>
+            ) : (
+              <>
+                <Bar label="Se ve sembrado (2021)" value={a.c_crop} color="#5c541e" />
+                <p className="wealth-note">Visto desde satélite (ESA WorldCover 2021): qué parte del barrio parece campo sembrado. No es un registro de parcelas.</p>
+              </>
+            )}
+          </>
+        )}
+
         <h3>{t('wildlife')}</h3>
         {a.w_n == null ? (
           <p className="legend-note">{t('unavailable')}</p>
@@ -238,7 +252,7 @@ export function ProvincePanel({ data, ageb: a, realm: r, skin, onClose }: { data
 
         <p className="panel-sources">
           De dónde salen estos datos: Censo 2020 del INEGI (gente y casas), CONAPO y CONEVAL 2020 (qué tanto le falta a la gente),
-          iNaturalist (animales), satélites Landsat (calor), satélites Sentinel-2 y ESA WorldCover (verde), directorio de negocios DENUE del INEGI (chamba), registro de derechos de agua de CONAGUA (agua). Un “—” quiere decir que el INEGI guardó ese dato para proteger la privacidad de pocas familias.
+          iNaturalist (animales), satélites Landsat (calor), satélites Sentinel-2 y ESA WorldCover (verde), directorio de negocios DENUE del INEGI (chamba), registro de derechos de agua de CONAGUA (agua), ESA WorldCover (campo). Un “—” quiere decir que el INEGI guardó ese dato para proteger la privacidad de pocas familias.
           <br />Clave INEGI del barrio: {a.cvegeo}
         </p>
       </div>

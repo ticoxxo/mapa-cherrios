@@ -186,6 +186,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .swatches li { display: flex; align-items: center; gap: 6px; }
 .swatches .unit { grid-column: 1 / -1; color: var(--ink-2); font-style: italic; }
 .sw { width: 20px; height: 13px; border: 1.4px solid var(--ink); border-radius: 2px; flex: none; }
+/* Campo: rain-fed farmland is hatched on the map, so its swatch is too */
+.sw.hatch, .field-swatch.hatch { background-image: repeating-linear-gradient(135deg, rgba(92, 84, 30, .8) 0 1.5px, transparent 1.5px 5px) !important; }
+.field-swatch { width: 38px; height: 28px; border: 1.4px solid var(--ink); border-radius: 4px; flex: none; }
+.swatches.one-col { grid-template-columns: 1fr; }
+.siap-table { width: 100%; border-collapse: collapse; font-family: var(--f-ui); font-size: 12.5px; margin: 4px 0 6px; }
+.siap-table th { font-weight: 600; text-align: right; font-size: 11px; line-height: 1.15; padding: 2px 4px; border-bottom: 1px solid currentColor; opacity: .85; }
+.siap-table td { text-align: right; padding: 2px 4px; font-variant-numeric: tabular-nums; }
+.siap-table th:first-child, .siap-table td:first-child { text-align: left; }
+.siap-table tbody tr:nth-child(odd) { background: rgba(0, 0, 0, .04); }
 
 /* ---------- cinturón de conchos (modos) ---------- */
 .modebar {
@@ -308,9 +317,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .concho > svg:not(.concho-svg) { width: 19px; height: 19px; }
   .mode-btn { padding: 0 1px; }
   .mode-label { font-size: 9.5px; }
-  /* 8 modes must fit a 375 px phone: equal-width buttons, smaller conchos and labels */
-  .modebar { width: calc(100vw - 10px); padding: 7px 4px 4px; }
-  .mode-btn { flex: 1 1 0; min-width: 0; padding: 0; }
+  /* 9 modes do not fit a 375 px phone: the belt scrolls sideways (the cut-off button at the edge hints at it),
+     fixed-width buttons, smaller conchos and labels. ModeBar keeps the active mode scrolled into view. */
+  .modebar { width: calc(100vw - 10px); padding: 7px 4px 4px; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity; scrollbar-width: none; }
+  .modebar::-webkit-scrollbar { display: none; }
+  .modebar::before { display: none; } /* the stitching would scroll away with the buttons */
+  .mode-btn { flex: 0 0 46px; min-width: 0; padding: 0; scroll-snap-align: start; }
   .concho { width: 38px; height: 38px; }
   .concho > svg:not(.concho-svg) { width: 17px; height: 17px; }
   .mode-label { font-size: 8.5px; letter-spacing: -.01em; white-space: nowrap; }

@@ -72,6 +72,7 @@ export interface Stats {
   green?: GreenStats | null
   wildlife?: WildStats | null
   heat?: HeatStats | null
+  campo?: CampoStats | null
   weather?: { latest: { date: string; tmax: number }; week_max: { date: string; tmax: number }; series: { date: string; tmax: number }[] } | null
   ranges: Record<string, [number, number, number]>
 }
@@ -142,6 +143,8 @@ export interface Ageb {
   j_escuela?: number
   a_n?: number
   a_vol?: number
+  /** % of the barrio that ESA WorldCover 2021 sees as cropland (satellite, modelled) */
+  c_crop?: number | null
 }
 
 /** INEGI DENUE summary for the municipio (see pipeline/hlm/work.py). */
@@ -179,6 +182,37 @@ export interface WaterStats {
     worst_ever: [string, number]
     series: [string, number][]
   } | null
+}
+
+/** One municipio in the SIAP 'Cierre agrícola' (see pipeline/hlm/campo.py). Hectares, pesos. */
+export interface SiapMun {
+  name: string
+  year: number
+  totals: { sem: number; cos: number; sin: number; val: number; riego?: number; temporal?: number; oi?: number; pv?: number; per?: number }
+  n_crops: number
+  /** [crop, sown ha, harvested ha, lost ha, production, unit, value in pesos, % sown under irrigation] */
+  crops: [string, number, number, number, number, string, number, number | null][]
+  /** [year, sown ha, harvested ha, value in pesos] */
+  series: [number, number, number, number][]
+}
+export interface SiapStats {
+  years: number[]
+  latest: number
+  /** '020' Juan José Ríos (null while SIAP files it inside Guasave/Ahome), '011' Guasave, '001' Ahome */
+  mun: Record<string, SiapMun | null>
+}
+/** Campo: INEGI USV Serie VII farmland + ESA WorldCover cropland + SIAP (see pipeline/hlm/campo.py). */
+export interface CampoStats {
+  usv?: { ha: number; kinds: Record<string, number>; n: number } | null
+  cropland?: { ha: number; p_mun: number; year: number; image: { file: string; bounds: [number, number, number, number] } } | null
+  siap?: SiapStats | null
+}
+
+/** One INEGI farmland polygon as drawn on the map. */
+export interface Field {
+  tipo: string
+  desc: string
+  ha: number
 }
 
 /** One well or surface intake from REPDA as drawn on the map. */

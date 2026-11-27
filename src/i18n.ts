@@ -20,6 +20,7 @@ export const T = {
   m_wildlife: 'Fauna',
   m_work: 'Chamba',
   m_water: 'Agua',
+  m_campo: 'Campo',
   soon: 'Próximamente',
   unavailable: 'Datos no disponibles',
   // libro de cuentas (HUD)
@@ -102,6 +103,7 @@ const T_ATLAS: Partial<Record<Key, string>> = {
   m_green: 'Verdor',
   m_work: 'Oficios',
   m_water: 'Aguas',
+  m_campo: 'Labranzas',
   car: 'Carro',
   territory: 'Reino',
   chronicle: 'Los Anales',

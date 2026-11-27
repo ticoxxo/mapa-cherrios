@@ -13,7 +13,7 @@ import statistics
 
 from shapely.geometry import mapping
 
-from . import base, chronicle, coast, green, heat, osm, people, realms, wealth, water, wildlife, work
+from . import base, campo, chronicle, coast, green, heat, osm, people, realms, wealth, water, wildlife, work
 from .common import ANTES_CITY, ANTES_LOCS, OUT, OUT_ANTES, PLACE, Manifest, Provenance, round_coords, write_json
 
 
@@ -90,7 +90,7 @@ def _join_census(agebs, census, imu, grs):
     people.check_ratios(agebs)
 
 
-def build_antes(m: Manifest, places, skip):
+def build_antes(m: Manifest, places, skip, farm=None):
     """'Antes de ser Municipio': 2020 zones + 2020 census + 2020 marginalization, nothing live."""
     print("• antes de ser municipio (2020)")
     agebs = base.load_agebs_2020(m)
@@ -112,7 +112,9 @@ def build_antes(m: Manifest, places, skip):
     stats = {"era": "antes", **_census_stats(agebs, totals, ANTES_CITY),
              "parent": {"011": "Guasave", "001": "Ahome"},
              "breaks": {"dens": quantile_breaks([a["dens"] for a in agebs if a.get("pop")], 7),
-                        "p_tinaco": quantiles([a.get("p_tinaco") for a in agebs], 6, 1)}}
+                        "p_tinaco": quantiles([a.get("p_tinaco") for a in agebs], 6, 1)},
+             # SIAP still files the town inside Guasave / Ahome: their whole-municipio tables belong here
+             "campo": {"siap": siap} if (siap := campo.antes_siap(m, farm)) else None}
     write_json(OUT_ANTES / "stats.json", stats, compact=False)
     if "blocks" not in skip:
         base.build_blocks_2020(m, block_pop)
@@ -122,7 +124,8 @@ CARRY = {"wildlife": (("wildlife",), lambda k: k.startswith("w_")),
          "heat": (("heat", "weather"), lambda k: k == "lst"),
          "green": (("green",), lambda k: k in ("ndvi", "p_green", "ndvi_ago", "p_tree")),
          "work": (("work",), lambda k: k.startswith("j_")),
-         "water": (("water",), lambda k: k in ("a_n", "a_vol"))}
+         "water": (("water",), lambda k: k in ("a_n", "a_vol")),
+         "campo": (("campo",), lambda k: k == "c_crop")}
 
 
 def _carry_over(agebs, skip):
@@ -147,7 +150,7 @@ def _carry_over(agebs, skip):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--skip", default="", help="comma list: blocks,streets,osm,wildlife,heat,green,work,water")
+    ap.add_argument("--skip", default="", help="comma list: blocks,streets,osm,wildlife,heat,green,work,water,campo")
     args = ap.parse_args(argv)
     skip = set(filter(None, args.skip.split(",")))
 
@@ -199,15 +202,21 @@ def main(argv=None):
         print("• water (CONAGUA REPDA + Monitor de Sequía)")
         wat = water.build_water(m, agebs, area)
 
+    farm = {}
+    if "campo" not in skip:
+        print("• campo (INEGI USV VII + WorldCover + SIAP)")
+        farm = campo.build_campo(m, agebs, area)
+
     # A skipped data step keeps last run's numbers instead of blanking its map mode.
     carried = _carry_over(agebs, skip)
-    fresh = (wild, lst, weather, veg, jobs, wat)  # La Gaceta only reports what this run actually measured
+    fresh = (wild, lst, weather, veg, jobs, wat, farm)  # La Gaceta only reports what this run actually measured
     wild = wild or carried.get("wildlife", {})
     lst = lst or carried.get("heat", {})
     weather = weather or carried.get("weather", {})
     veg = veg or carried.get("green", {})
     jobs = jobs or carried.get("work", {})
     wat = wat or carried.get("water", {})
+    farm = farm or carried.get("campo", {})
 
     print("• realms")
     loc_names = base.locality_names(m)
@@ -223,7 +232,7 @@ def main(argv=None):
     m.layer("people", "ok" if census else "unavailable", ["inegi_censo2020", "inegi_mg_ageb"],
             **({} if census else {"reason": "antes"}))
     m.layer("wealth", "unavailable", ["conapo_imu2020", "coneval_grs2020"], reason="antes", primary=None)
-    for mode in ("heat", "green", "wildlife", "work", "water"):
+    for mode in ("heat", "green", "wildlife", "work", "water", "campo"):
         m.layers.setdefault(mode, {"status": "not_built", "sources": []})
 
     stats = {
@@ -243,6 +252,7 @@ def main(argv=None):
         "green": veg or None,
         "weather": weather or None,
         "wildlife": wild or None,
+        "campo": farm or None,
     }
     write_json(OUT / "stats.json", stats, compact=False)
 
@@ -253,10 +263,10 @@ def main(argv=None):
         print("• blocks")
         base.build_blocks(m, block_pop)
 
-    build_antes(m, places, skip)
+    build_antes(m, places, skip, farm)
 
-    f_wild, f_lst, f_weather, f_veg, f_jobs, f_wat = fresh
-    chronicle.update(f_wild, f_lst, f_weather, agebs, rs, f_veg, f_jobs, f_wat)
+    f_wild, f_lst, f_weather, f_veg, f_jobs, f_wat, f_farm = fresh
+    chronicle.update(f_wild, f_lst, f_weather, agebs, rs, f_veg, f_jobs, f_wat, f_farm)
     write_json(OUT / "manifest.json", {"generated": m.generated, "sources": m.sources, "layers": m.layers},
                compact=False)
     print("done.")

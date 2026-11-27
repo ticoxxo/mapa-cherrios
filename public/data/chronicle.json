@@ -3,6 +3,14 @@
     {
       "week": "2026-W48",
       "date": "2026-11-26",
+      "kind": "campo",
+      "title": "¿Qué se siembra?",
+      "es": "Según el cierre agrícola 2025, en Guasave (el SIAP todavía cuenta ahí las siembras de Juan José Ríos) se sembraron 122,707 hectáreas. Lo que más: maíz grano, con 51,673 hectáreas, y le sigue frijol (27,864 ha).",
+      "source": "SIAP, Cierre de la producción agrícola 2025"
+    },
+    {
+      "week": "2026-W48",
+      "date": "2026-11-26",
       "kind": "green_year",
       "title": "¿Qué tan verde está la ciudad?",
       "es": "La ciudad está 1% más verde que en estas mismas fechas del año pasado. Donde más bajó: Comarca del Oriente (-2%). Donde más subió: Bachoco (+6%).",

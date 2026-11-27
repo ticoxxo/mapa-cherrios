@@ -2,7 +2,7 @@ import type { Key } from './i18n'
 import type { Manifest, Stats } from './data'
 import { ANTES_MODES, type Era } from './era'
 
-export type ModeId = 'realm' | 'people' | 'wealth' | 'heat' | 'green' | 'wildlife' | 'work' | 'water'
+export type ModeId = 'realm' | 'people' | 'wealth' | 'heat' | 'green' | 'wildlife' | 'work' | 'water' | 'campo'
 
 export const MODES: { id: ModeId; label: Key; hint: string }[] = [
   { id: 'realm', label: 'm_realm', hint: 'Los territorios del pueblo' },
@@ -13,6 +13,7 @@ export const MODES: { id: ModeId; label: Key; hint: string }[] = [
   { id: 'wildlife', label: 'm_wildlife', hint: '¿Qué animales se han visto?' },
   { id: 'work', label: 'm_work', hint: '¿Dónde está la chamba?' },
   { id: 'water', label: 'm_water', hint: '¿Quién tiene el agua?' },
+  { id: 'campo', label: 'm_campo', hint: '¿Dónde está el campo y qué se siembra?' },
 ]
 
 /** only_antes = this data exists only for 2020 (see "Antes de ser Municipio");
@@ -109,3 +110,18 @@ export function waterColorExpr(stats: Stats): unknown {
 export const DROUGHT_PLAIN = ['Sin sequía', 'Anormalmente seco', 'Sequía moderada', 'Sequía severa', 'Sequía extrema', 'Sequía excepcional']
 // drought colours: pale → dark brown, monotonic lightness
 export const DROUGHT_RAMP = ['#d9e6d0', '#f3e3a1', '#e8bd73', '#cf8a4a', '#9c5530', '#5e2b1c']
+
+// Campo: farmland. One olive hue family with monotonic lightness (CVD-safe):
+//   satellite cropland pixels = darkest; INEGI riego = mid; temporal = light + hatching (shape, not only colour).
+export const CAMPO_CROP = '#5c541e' // same colour as public/data/campo.png (pipeline/hlm/campo.py CROP_RGB)
+export const CAMPO_KIND: Record<string, { color: string; label: string; hatch: boolean }> = {
+  riego: { color: '#c9b458', label: 'Agricultura de riego', hatch: false },
+  temporal: { color: '#e6dcaa', label: 'Agricultura de temporal (de lluvia)', hatch: true },
+  humedad: { color: '#d8cc86', label: 'Agricultura de humedad', hatch: true },
+}
+// zone fill: % of the barrio the satellite sees as cropland. Fixed breaks: barrios are town, so most are near 0.
+export const CAMPO_RAMP = ['#f2eedd', '#e6dcaa', '#c9b458', '#8f8233', '#5c541e']
+export const CAMPO_BREAKS = [1, 5, 15, 40]
+export function campoColorExpr(): unknown {
+  return ['case', ['==', ['get', 'c_crop'], null], NO_DATA, stepExpr(['get', 'c_crop'], CAMPO_RAMP, CAMPO_BREAKS)]
+}

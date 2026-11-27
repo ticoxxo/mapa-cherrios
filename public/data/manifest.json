@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T23:22:54+00:00",
+  "generated": "2026-11-27T00:06:25+00:00",
   "sources": {
     "inegi_mg_ageb": {
       "id": "inegi_mg_ageb",
@@ -240,6 +240,42 @@
       "status": "ok",
       "notes": "Clasificación por satélite; los árboles dibujados son un indicador, no un inventario.",
       "modeled": true
+    },
+    "inegi_usv7": {
+      "id": "inegi_usv7",
+      "name": "Uso del Suelo y Vegetación, escala 1:250 000, Serie VII (zonas agrícolas)",
+      "url": "http://geoportal.conabio.gob.mx/metadatos/doc/html/usv250s7gw.html",
+      "license": "Términos de Libre Uso de la Información del INEGI",
+      "publisher": "INEGI (copia del continuo nacional en el geoportal de CONABIO)",
+      "vintage": "Serie VII (2018), publicada 2021",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Solo las clases de agricultura (riego, temporal), recortadas al municipio 25-020. Escala 1:250 000: las orillas son aproximadas y las parcelas chicas no se ven.",
+      "modeled": false
+    },
+    "esa_worldcover_cultivos": {
+      "id": "esa_worldcover_cultivos",
+      "name": "ESA WorldCover 2021 — cultivos (clase 40, 10 m)",
+      "url": "https://planetarycomputer.microsoft.com/dataset/esa-worldcover",
+      "license": "CC-BY 4.0",
+      "publisher": "ESA WorldCover consortium (vía Microsoft Planetary Computer)",
+      "vintage": "2021",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "Clasificación automática de imágenes de satélite: lo que se ve sembrado, no un registro de parcelas.",
+      "modeled": true
+    },
+    "siap_cierre_agricola": {
+      "id": "siap_cierre_agricola",
+      "name": "Cierre de la producción agrícola por municipio (datos abiertos)",
+      "url": "https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php",
+      "license": "Términos de Libre Uso MX",
+      "publisher": "SIAP — Secretaría de Agricultura y Desarrollo Rural",
+      "vintage": "cierres 2023–2025",
+      "retrieved": "2026-11-26",
+      "status": "ok",
+      "notes": "El SIAP todavía no publica a Juan José Ríos (25-020) por separado: sus siembras van dentro de Guasave y Ahome. Esos totales son de los municipios completos y se muestran en «Antes de ser Municipio».",
+      "modeled": false
     }
   },
   "layers": {
@@ -375,6 +411,19 @@
       ],
       "count": 324,
       "with_pop": 324
+    },
+    "campo": {
+      "status": "partial",
+      "sources": [
+        "inegi_usv7",
+        "esa_worldcover_cultivos"
+      ]
+    },
+    "antes_campo": {
+      "status": "ok",
+      "sources": [
+        "siap_cierre_agricola"
+      ]
     }
   }
 }

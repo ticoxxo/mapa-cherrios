@@ -27,6 +27,8 @@ export function Tooltip({ h, mode, tier, skin, era }: { h: HoverInfo; mode: Mode
       : <>{t('no_data')}</>
   } else if (mode === 'green') {
     stat = a.p_green != null ? <>Hoy se ve verde el <b>{fmt(a.p_green)}%</b> del barrio</> : <>{t('no_data')}</>
+  } else if (mode === 'campo') {
+    stat = a.c_crop != null ? <>Se ve sembrado el <b>{fmt(a.c_crop)}%</b> del barrio (visto desde satélite)</> : <>{t('no_data')}</>
   } else if (mode === 'heat') {
     stat = a.lst != null ? <>En verano el suelo llega a <b>{fmt(a.lst)} °C</b></> : <>{t('no_data')}</>
   } else if (mode === 'wildlife') {

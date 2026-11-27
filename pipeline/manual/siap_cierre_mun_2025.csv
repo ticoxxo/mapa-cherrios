@@ -1,0 +1,699 @@
+Anio,Idestado,Nomestado,Idddr,Nomddr,Idcader,Nomcader,Idmunicipio,Nommunicipio,Idciclo,Nomcicloproductivo,Idmodalidad,Nommodalidad,Idunidadmedida,Nomunidad,Idcultivo,Nomcultivo,Sembrada,Cosechada,Siniestrada,Volumenproduccion,Rendimiento,Preciomediorural,Valorproduccion
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,5000,5000,0,4400,0.88,20864.71,91804724
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,3000,3000,0,6000,2,22607.5,135645000
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,50,50,0,21,0.42,25000,525000
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,500,500,0,666.67,1.33,5833.42,3888966.67
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,8710000,Sandía,2000,2000,0,18550,9.28,4017.79,74529970
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,1500,1500,0,800,0.53,4600,3680000
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,2,Primavera-Verano,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,2000,2000,0,14215,7.11,300,4264500
+2025,25,Sinaloa,133,Los Mochis,1,Choix,7,Choix,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,6350,6350,0,298217.16,46.96,400,119286864
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,5510000,Avena grano,6.69,6.69,0,21.94,3.28,8501.24,186517.2
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,398.7,398.7,0,9957.96,24.98,4150.32,41328720.55
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,169.88,169.88,0,1019,6,7086.85,7221500.15
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,768.99,768.99,0,6995.91,9.1,8859.5,61980256.76
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,183.41,183.41,0,230,1.25,22317.81,5133096.3
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,857.27,857.27,0,10973.06,12.8,6000,65838360
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,144,144,0,5332.32,37.03,8692.46,46350978.31
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,63.6,63.6,0,318,5,5100,1621800
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),917.3,917.3,0,22004.4,23.99,7615.85,167582209.7
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,283.35,283.35,0,3750,13.23,4101.33,15379987.5
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1912.22,1912.22,0,12429.43,6.5,4467,55522263.81
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,800,800,0,320,0.4,21000,6720000
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,300,300,0,360,1.2,16000,5760000
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,5870000,Cártamo,20,20,0,40,2,8000,320000
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,20,20,0,20,1,23000,460000
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,100,100,0,218.36,2.18,4000,873440.66
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,8710000,Sandía,2,2,0,24.25,12.13,4000,97000
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,300,300,0,1800,6,4176,7516800
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,2,Primavera-Verano,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,250,250,0,1803.75,7.22,300,541125
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,169,169,0,8570,50.71,892.69,7650353.3
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,1080,1080,0,13137.6,12.16,46969.84,617070905.7
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,136,136,0,952,7,23435.29,22310396.08
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,10,10,0,179.5,17.95,8500,1525750
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,139.71,129.71,0,1915.94,14.77,5816.37,11143810.16
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,9310000,Zarzamora,51,51,0,255,5,22000,5610000
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,18.5,18.5,0,842.43,45.54,400,336972
+2025,25,Sinaloa,133,Los Mochis,2,El Fuerte,10,El Fuerte,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,1950,1950,0,88822.5,45.55,386.21,34304137.73
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,305,305,0,4800,15.74,7205,34584000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,2004.4,2004.4,0,4549.99,2.27,7300,33214912.4
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,7.5,7.5,0,120,16,6517.99,782158.8
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,214.67,214.67,0,9772.11,45.52,20293.11,198306520.1
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,32.75,32.75,0,458,13.98,4275.82,1958325.56
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,575.79,575.79,0,1000.5,1.74,21609.85,21620654.93
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,3331.64,3331.64,0,6071.91,1.82,16000.01,97150622.4
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,130.74,130.74,0,1452,11.11,6099.11,8855907.72
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,794.91,794.91,0,21620,27.2,7698.18,166434651.6
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,10.43,10.43,0,193.45,18.55,687.85,133064.87
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),5,5,0,110,22,8500,935000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,774.01,774.01,0,9255.2,11.96,4053.1,37512251.12
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,18156.1,18156.1,0,113284.44,6.24,5468.98,619550667.8
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,121.29,121.29,0,788,6.5,8500,6698000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,3.5,0.5,0,19.5,39,7000,136500
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,220,220,0,9719.8,44.18,877.17,8525916.97
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,11,11,0,132,12,22000,2904000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,136,136,0,952,7,41940,39926880
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,18,18,0,36,2,54000,1944000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,32.56,32.56,0,582.01,17.88,8500,4947085
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,10,10,0,180,18,5882,1058760
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,57.4,57.4,0,861,15,8500,7318500
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,15.34,15.34,0,306.8,20,6139,1883445.2
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,1,1,0,27.5,27.5,6200,170500
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,1,1,0,25,25,6000,150000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,8340000,Pitahaya,1,1,0,7,7,25000,175000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,1,1,0,12,12,9500,114000
+2025,25,Sinaloa,133,Los Mochis,3,El Carrizo,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,20,20,0,420,21,400,168000
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,11.38,11.38,0,171.72,15.09,7900,1356588
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,64.55,64.55,0,146.53,2.27,7217.74,1057614.87
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.64,5.64,0,116.96,20.74,8200,959072
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6070000,Chícharo,93.86,93.86,0,433.63,4.62,11527.04,4998470.99
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,118.99,118.99,0,3074.84,25.84,5167.52,15889303.55
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,242.53,242.53,0,1455.18,6,11730.89,17070556.51
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,366.43,366.43,0,3410,9.31,8579.24,29255198.95
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,2200.36,2200.36,0,4056,1.84,21856.48,88649882.88
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1048.36,1048.36,0,2096.72,2,17288.65,36249458.23
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2640.04,2640.04,0,30360.46,11.5,6000,182162760
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1008.52,1008.52,0,35378.89,35.08,8087.89,286140570.6
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,70.66,70.66,0,459,6.5,5100,2340900
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),393.85,393.85,0,9846.25,25,7467.76,73529431.9
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,46.55,46.55,0,560,12.03,4002.38,2241332.81
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,13.82,13.82,0,89.83,6.5,4467,401270.61
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,138,138,0,5499.68,39.85,864.02,4751833.51
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,20,20,0,240,12,22000,5280000
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,2.5,2.5,0,44.63,17.85,8500,379355
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,470,453,0,6370.43,14.06,6900.46,43958914.69
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,2.25,2.25,0,42.75,19,4388.13,187592.56
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,0.57,0.57,0,15,26.32,6200,93000
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,7.39,7.39,0,7.39,1,70000,517300
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200206,Planta,8620000,Rosa (planta),0.6,0.6,0,757.5,1262.5,12,9090
+2025,25,Sinaloa,133,Los Mochis,4,San Blas,10,El Fuerte,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,25.28,25.28,0,1149.99,45.49,400,459996
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,177.08,177.08,0,4295.76,24.26,6203.69,26649563.35
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,73.28,73.28,0,1831.46,24.99,6737.5,12339461.75
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,30,30,0,207,6.9,7321.26,1515500.82
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,40.89,40.89,0,379.6,9.28,6695.05,2541440.98
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,8597.46,8597.46,0,17000,1.98,22445.69,381576730
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,67.88,67.88,0,131.54,1.94,21430.25,2818935.09
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,236.89,236.89,0,2531.83,10.69,6000,15190980
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,20,20,0,135.2,6.76,5200,703040
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),40,40,0,1000,25,7470,7470000
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,38.48,38.48,0,491,12.76,4000,1964000
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,533.64,533.64,0,3375.27,6.32,4756.57,16054708.02
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,1400,1400,0,980,0.7,19764.29,19369004.2
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,2780,2780,0,2780,1,11560,32136800
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,2980,2980,0,2980,1,22973.15,68459987
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,2,Primavera-Verano,2,Temporal,200201,Tonelada,8710000,Sandía,900,900,0,4500,5,4000,18000000
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,21.71,20.3,0,208.08,10.25,9241.05,1922877.26
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,983,983,0,53082,54,850.65,45154203.3
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,60,60,0,720,12,21915.66,15779275.2
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,11.5,11.5,0,21,1.83,22000,462000
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,66.18,66.18,0,1187.93,17.95,12000,14255160
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,5833.47,3333.47,0,37158.6,11.15,7139.57,265296404.7
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,5,5,0,98,19.6,6500,637000
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,3.5,3.5,0,126,36,6000,756000
+2025,25,Sinaloa,133,Los Mochis,5,Higueras de Zar,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,1092,1092,0,14196,13,395.6,5615937.6
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,1,1,0,18,18,6000,108000
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,222.42,222.42,0,3369.67,15.15,7900,26620393
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,565.91,565.91,0,1284.62,2.27,7921.97,10176725.58
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,110.7,110.7,0,2970.63,26.83,5544.23,16469847.93
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,1861.71,1861.71,0,25093.06,13.48,4671.23,117215469.8
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,14411,14411,0,27772.2,1.93,22109.15,614019735.6
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6850000,Semilla de frijol,82.79,82.79,0,159.78,1.93,23000,3674940
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,610.74,610.74,0,1221.48,2,18545.86,22653397.07
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1369.72,1369.72,0,14068.61,10.27,6000,84411680
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,727.47,727.47,0,22573.4,31.03,7776.96,175552428.9
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,99,99,0,665,6.72,3500,2327500
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),9.75,9.75,0,235.4,24.14,6000,1412400
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,131.06,131.06,0,1808.63,13.8,6500,11756095
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,15.12,13,0,133.25,10.25,8500,1132625
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,865,865,0,29000,33.53,860.31,24948990
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,228,228,0,2824.8,12.39,29621.09,83673661.85
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,26,26,0,182,7,27065.93,4925999.26
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,4.5,4.5,0,9,2,13000,117000
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,38.86,38.86,0,582.9,15,8539.96,4977942.68
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,15,15,0,240,16,6000,1440000
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,2672,1652,0,23128,14,5706.54,131980857.1
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,7,7,0,100.03,14.29,4200,420126
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,9.82,5.21,0,129.98,24.95,6130.79,796880.08
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,9310000,Zarzamora,6,6,0,36,6,22000,792000
+2025,25,Sinaloa,133,Los Mochis,6,Ahome,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,201,201,0,9000,44.78,378.67,3408030
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,34.55,34.55,0,503.62,14.58,7000,3525340
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,75.4,75.4,0,171.16,2.27,6999.92,1198106
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,18.16,18.16,0,290.02,15.97,6019.21,1745691.39
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,315.33,315.33,0,21938.06,69.57,20918.67,458914983
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,168.38,168.38,0,1006,5.97,11730.89,11801275.34
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,2885,2885,0,25653,8.89,8994.41,230733599.7
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,9991.03,9991.03,0,19982.06,2,22955.92,458706570.8
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,5413.21,5413.21,0,9743.78,1.8,16000,155900480
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,7170000,Hortalizas,147.43,147.43,0,1326.06,8.99,4499.6,5966739.58
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,5382.55,5382.55,0,65667.11,12.2,6000,394002660
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,7500000,Semilla de maíz grano,411.98,411.98,0,1647,4,5900,9717300
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,8162.03,8162.03,0,285671.05,35,7935.08,2266822635
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,148.07,148.07,0,5348.66,36.12,7025.61,37577589.17
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,52.37,52.37,0,317.88,6.07,3700,1176156
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),54.34,54.34,0,1358.5,25,6003.13,8155252.11
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,440.24,440.24,0,5382.1,12.23,6500,34983650
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,32,32,0,201.18,6.29,4467,898671.06
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,380,380,0,14900.9,39.21,853.08,12711659.77
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,200,200,0,2400,12,27000,64800000
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,105,105,0,735,7,32832.96,24132225.6
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,1.2,1.2,0,2.4,2,25000,60000
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,34,34,0,612,18,8500,5202000
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,509.7,509.7,0,7135,14,3693.81,26355339.6
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,10,10,0,175,17.5,9850.05,1723758.75
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,3.42,3.42,0,81.14,23.73,6000.26,486861
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,4,4,0,88,22,6000,528000
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200206,Planta,8620000,Rosa (planta),3.4,3.4,0,4545,1336.76,12,54540
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,9310000,Zarzamora,42,42,0,273,6.5,26000,7098000
+2025,25,Sinaloa,133,Los Mochis,7,Los Mochis,1,Ahome,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,120,120,0,3000,25,400,1200000
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,37.29,37.29,0,599.63,16.08,7474.55,4481964.42
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,418.25,418.25,0,13114.49,31.36,13106.92,171890584.3
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,45,45,0,315.56,7.01,9585.99,3024955
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,900.73,900.73,0,9293.57,10.32,7893.13,73355396.54
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,7980.63,7980.63,0,15991.26,2,22335.8,357177585.1
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,4615.66,4615.66,0,9231.32,2,17926.51,165485350.3
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,5881.48,5881.48,0,58814.8,10,6028.72,354577961.1
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,2846.21,2846.21,0,99994.93,35.13,7864.46,786406127.2
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,512.51,512.51,0,3331.32,6.5,4291.29,14295660.21
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),260.26,260.26,0,6506.5,25,7368.16,47940933.04
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,638.44,638.44,0,7961.35,12.47,4233.93,33707785.06
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,126,126,0,6550,51.98,845.56,5538418
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,356,356,0,4272,12,22000,93984000
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,10,10,0,20,2,25000,500000
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,9310000,Zarzamora,269,269,0,1614,6,70846.28,114345895.9
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,5.6,5.6,0,145.47,25.98,502.24,73060.85
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,15,15,0,350,23.33,6545.83,2291040.5
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,411.17,411.17,0,933.36,2.27,6999.97,6533491.3
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,91.36,91.36,0,1425,15.6,7153.96,10194393
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6070000,Chícharo,105.02,105.02,0,364.42,3.47,21999.96,8017226.8
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,649.71,649.71,0,24644.1,37.93,15771.2,388667047.3
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,333,333,0,2430.9,7.3,9061.01,22026409.21
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,120.82,120.82,0,1127.38,9.33,8994.41,10140117.95
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,4294.93,4294.93,0,8880,2.07,22614.04,200812675.2
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,4279,4279,0,8558,2,14564.27,124641022.7
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,6577.55,6577.55,0,65775.5,10,6000,394653000
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1785.72,1785.72,0,62928.78,35.24,7842.87,493542240.8
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,389.71,389.71,0,2533.12,6.5,3545.37,8980847.65
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),422.03,422.03,0,10650.75,25.24,7020.49,74773483.87
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,560.34,560.34,0,6824.08,12.18,4648.71,31723168.94
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,53.4,53.4,0,347,6.5,4467,1550049
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,67,67,0,3749.99,55.97,1398.87,5245748.51
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,62.6,62.6,0,751.2,12,22000,16526400
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,41,41,0,287,7,21500,6170500
+2025,25,Sinaloa,133,Los Mochis,8,Ruíz Cortinez,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,2,2,0,90,45,637.03,57332.7
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,18,18,0,623,34.61,7514.61,4681600
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,15,15,0,165,11,4178.18,689399.7
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,3033,3033,0,6066,2,22726.51,137859009.7
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1142,1142,0,2284,2,19169.4,43782909.6
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,165,165,0,1452,8.8,4950,7187400
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),100,100,0,4000,40,6154.63,24618500
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,40,40,0,760,19,5408.73,4110634.8
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,299,299,0,185.38,0.62,18534.04,3435840.34
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,180,180,0,117,0.65,22000,2574000
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,119,119,0,340.74,2.86,5173.62,1762859.07
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,320,320,0,7040,22,294.53,2073491.2
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,480,480,0,480,1,3202.92,1537401.6
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,150,150,0,10899,72.66,514.98,5612767.02
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,75,75,0,1350,18,4762.49,6429361.5
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,56,39,0,202,5.18,5276.24,1065800
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,27,27,0,351,13,7662.28,2689460.28
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),75,75,0,1125,15,6100,6862500
+2025,25,Sinaloa,134,Guasave,1,Ocoroni,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,125.5,125.5,0,2149.82,17.13,297.45,639463.96
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,21,21,0,483,23,5210.99,2516908.17
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,12,12,0,566,47.17,22142.76,12532802.6
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1000,1000,0,1800,1.8,22076.8,39738240
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1049,1049,0,2360.25,2.25,19962.22,47115829.76
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,6020,6020,0,57189.5,9.5,5496.92,314366296.9
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),50,50,0,2000,40,7996.13,15992260
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,55,55,0,1909.33,34.72,5928.11,11318726.81
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,2609,2609,0,14600,5.6,4476.78,65360988
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,651,651,0,423.15,0.65,18212.69,7706699.77
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,750,750,0,465,0.62,21974.19,10217998.35
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,440,440,0,982.67,2.23,5190.14,5100197.23
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,533,533,0,11726,22,551.13,6462550.38
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,6800,6800,0,6868,1.01,3867.46,26561715.28
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,67,67,0,5200,77.61,673.65,3502980
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,150,150,0,2700,18,5094.01,13753827
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,71,50,0,268,5.36,5347.76,1433200
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,55,55,0,715,13,7706.35,5510040.25
+2025,25,Sinaloa,134,Guasave,2,Sinaloa de Leyva,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,200,200,0,3400,17,331.31,1126454
+2025,25,Sinaloa,134,Guasave,3,Bacubirito,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,450,450,0,261,0.58,18919.54,4937999.94
+2025,25,Sinaloa,134,Guasave,3,Bacubirito,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,120,120,0,78,0.65,21025.64,1639999.92
+2025,25,Sinaloa,134,Guasave,3,Bacubirito,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,120,120,0,358.03,2.98,5129.38,1836472.45
+2025,25,Sinaloa,134,Guasave,3,Bacubirito,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,347,347,0,7335.58,21.14,290.37,2130032.36
+2025,25,Sinaloa,134,Guasave,3,Bacubirito,17,Sinaloa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,320,320,0,320,1,3796.88,1215001.6
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,150,150,0,3750,25,7210.03,27037612.5
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,51,51,0,73.5,1.44,9000,661500
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,52,52,0,1352,26,7592.65,10265262.8
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,86,86,0,3045,35.41,9701.14,29539966.15
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,156,156,0,1972,12.64,4024.44,7936195.68
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,5117.92,5117.92,0,11771.22,2.3,22445.09,264206120.2
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,5520,5520,0,11200,2.03,18723.81,209706672
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,9927,9927,0,100152.78,10.09,5600,560855568
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,13.56,13.56,0,583,42.99,5822.07,3394266.81
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,2,2,0,50,25,5500,275000
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,201,201,0,1250,6.22,3200,4000000
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),86,86,0,7004,81.44,7765.05,54386399.61
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,165,165,0,3135,19,4684.92,14687224.2
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,200,200,0,1400,7,4473.17,6262438
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,1200,1200,0,13420.32,11.18,5162.33,69280130.76
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,210,210,0,15750,75,488.37,7691827.5
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,35,35,0,409.85,11.71,4824.54,1977337.72
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,4,4,0,46,11.5,7732.36,355688.56
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,25,25,0,150,6,5400,810000
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,45,45,0,770,17.11,7538.58,5804710.1
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,17.5,17.5,0,324.98,18.57,322.77,104893.79
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,23.12,23.12,0,541,23.4,6579.93,3559742.13
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,62.47,62.47,0,89.96,1.44,8999.68,809611.2
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,22.46,22.46,0,495.02,22.04,5746.46,2844613.34
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,63.67,63.67,0,2492,39.14,7711.57,19217242.82
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,111.11,111.11,0,1667,15,3677.56,6130492.52
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,5350,5350,0,10850,2.03,22518.67,244327569.5
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,3627.74,3627.74,0,7255.48,2,19000,137854120
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,8247,8247,0,83229.7,10.09,5596.56,465800320
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,69.81,69.81,0,2722.59,39,8213.84,22362918.65
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,60.23,60.23,0,1929,32.03,6984.36,13472830.44
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,37.94,37.94,0,265.58,7,3200,849856
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),112.7,112.7,0,4250,37.71,6640.62,28222635.5
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,80,80,0,1520,19,4470.59,6795296.8
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,886.07,886.07,0,6202.49,7,4479.5,27784053.96
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,1100,1100,0,12301.96,11.18,5162.33,63506786.53
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,135,135,0,9720,72,675.29,6563818.8
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,40,40,0,600,15,4760.5,2856300
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,9,9,0,117,13,7594.54,888561.18
+2025,25,Sinaloa,134,Guasave,4,La Trinidad,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,29.75,29.75,0,505.75,17,334.53,169188.55
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,235,235,0,5170,22,5857.37,30282602.9
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,62.06,62.06,0,89.5,1.44,10000,895000
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,124.46,124.46,0,3111.5,25,5951.62,18518465.63
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,357,357,0,16428.66,46.02,12018.05,197440492.8
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,1115,1115,0,12555,11.26,11855.43,148844984
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,55,55,0,660,12,3855.3,2544498
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,7643.49,7643.49,0,13958.46,1.83,22431.51,313109335.1
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,12665.17,12665.17,0,29763.15,2.35,16425.87,488885632.7
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,21191.72,21191.72,0,213748.18,10.09,5596.2,1196176510
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1432,1432,0,60860,42.5,7440.81,452847696.6
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,158,158,0,8061.28,51.02,4995.14,40267245.45
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,212.59,212.59,0,3086.6,14.52,5898.37,18205920.01
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,300,300,0,2100,7,3234.52,6792492
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),307,307,0,19790.95,64.47,7578.19,149979648.5
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,580,580,0,19891.1,34.3,4648.71,92467955.48
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1250,1250,0,8125,6.5,4502.07,36579318.75
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,302,302,0,21900,72.52,647.18,14173242
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,55,55,0,825,15,5912.08,4877466
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,105,105,0,630,6,5978.36,3766368.6
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,75,75,0,975,13,7706.35,7513691.25
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,40,40,0,449.5,11.24,6800,3056600
+2025,25,Sinaloa,134,Guasave,5,El Burrión,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,123,123,0,4500.57,36.59,325.08,1463045.3
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,83.5,83.5,0,2087,24.99,6250.07,13043896.09
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,65,65,0,1430,22,6997.86,10006939.8
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,126.72,126.72,0,3709,29.27,8229.42,30522917.51
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,22,22,0,253,11.5,4511.86,1141500.58
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1200,1200,0,2400,2,22545.64,54109536
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1600,1600,0,3200,2,17213.76,55084032
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2762,2762,0,27876,10.09,5600,156105600
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),100,100,0,4100,41,6583.98,26994328
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,105.56,105.56,0,3518.31,33.33,4097.36,14415767.15
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,624.1,624.1,0,4056,6.5,4483.48,18184994.88
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,51,51,0,3700,72.55,633.71,2344727
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,10,10,0,160,16,5422.75,867640
+2025,25,Sinaloa,134,Guasave,5,El Burrión,17,Sinaloa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,28,28,0,168,6,5200,873600
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,11.87,11.87,0,261.14,22,7485.31,1954713.85
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,230.92,230.92,0,8434.7,36.53,15440.38,130234990.1
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,4956.26,4956.26,0,9930,2,21779.43,216269739.9
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,451.86,451.86,0,910,2.01,17268.67,15714489.7
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,13092.73,13092.73,0,129624.72,9.9,5598.46,725698530.9
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,216.52,216.52,0,8660,40,8044.8,69667968
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,30.39,30.39,0,1260,41.46,4498.14,5667656.4
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,6,6,0,150,25,3828.96,574344
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,271.94,271.94,0,1903,7,3200,6089600
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),239.02,239.02,0,14837,62.07,8513.11,126308970.9
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,5.02,5.02,0,172.14,34.29,4363.4,751116.28
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,525,525,0,39375,75,576.62,22704412.5
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,120,120,0,759.6,6.33,5200,3949920
+2025,25,Sinaloa,134,Guasave,6,Petatlán,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,75,34,0,578,17,322.6,186462.8
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,50,50,0,1150,23,5241.85,6028127.5
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,11,11,0,343,31.18,10200.25,3498685.75
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,231,231,0,462,2,16478.5,7613067
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,15,15,0,105,7,4400,462000
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),12.81,12.81,0,510,39.81,6396.61,3262271.1
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,89,89,0,1646,18.49,6376.63,10495932.98
+2025,25,Sinaloa,135,Guamúchil,2,Mocorito,13,Mocorito,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,3,3,0,87,29,6600,574200
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,338,338,0,767.26,2.27,7000,5370820
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,75,75,0,1430,19.07,6692.97,9570947.1
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,7,7,0,145.6,20.8,4536.9,660572.64
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,2837,2837,0,6280,2.21,22358.9,140413892
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1781,1781,0,3562,2,16914.67,60250054.54
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,6000,6000,0,63000,10.5,6000,378000000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,185,185,0,1295,7,4500,5827500
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,350,350,0,7000,20,6400,44800000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,890,890,0,5800,6.52,4500,26100000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,400,400,0,3673.44,9.18,4000,14693762.64
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,337,337,0,19828,58.84,882.46,17497416.88
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,112,112,0,2016,18,5941.87,11978809.92
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,9,9,0,162,18,8500,1377000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,6,6,0,124.8,20.8,5600,698880
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,19.17,19.17,0,582.15,30.37,6350,3696652.5
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,10.08,10.08,0,272.5,27.03,7900,2152750
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,82.6,82.6,0,1817,22,5692.91,10344017.47
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,31.36,31.36,0,658,20.98,4500.01,2961006.58
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,129.5,129.5,0,1943,15,4360.42,8472296.06
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,2165.85,2165.85,0,4331.7,2,22095.66,95711770.42
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1827,1827,0,3700,2.03,18112.82,67017434
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,380,380,0,3793.67,9.98,5999.99,22762000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),12,12,0,606.06,50.51,6633.74,4020444.46
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,209,209,0,3971,19,4133.17,16412818.07
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1050,1050,0,7090,6.75,5500,38995000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,11,Guasave,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,2.5,2.5,0,35,14,8042.86,281500.1
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,30,30,0,1050,35,6200,6510000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,334,334,0,758.18,2.27,7000,5307260
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,117.11,117.11,0,2600,22.2,6929.98,18017948
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,2850,2850,0,5750,2.02,21174.74,121754755
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,6134.96,6134.96,0,12269.92,2,16704.57,204963737.5
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1802,1802,0,18921,10.5,6000,113526000
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,287,287,0,5453,19,4108.26,22402341.78
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,956.67,956.67,0,6218.36,6.5,4500,27982620
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,3500,3500,0,4561.67,1.3,4000,18246666.67
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,67,67,0,2680,40,913.56,2448340.8
+2025,25,Sinaloa,135,Guamúchil,3,Guamúchil,15,Salvador Alvarado,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,385,385,0,7050,18.31,7700,54284988
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,400,400,0,11200,28,5570.08,62384896
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,750,750,0,1702.5,2.27,7000,11917500
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,546,546,0,10375,19,6934.48,71945230
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,183.43,183.43,0,4575,24.94,11867.39,54293295.97
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,15,15,0,165,11,11730.89,1935596.85
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,8700,8700,0,17800,2.05,22990.29,409227162
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,4777.95,4777.95,0,9555.9,2,17537.79,167589367.5
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,400,400,0,4200,10.5,6200,26040000
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,4,4,0,420,105,5856.7,2459814
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,41.91,41.91,0,1050,25.05,7330.42,7696941
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,1022,1022,0,7000.7,6.85,4400,30803080
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,810,810,0,15390,19,6400,98496000
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,856,856,0,5564,6.5,4500,25038000
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,2,2,0,17.86,8.93,8500,151810
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,152,152,0,7760,51.05,862.57,6693543.2
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,124,124,0,2229.52,17.98,6800,15160736
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,19,19,0,395.2,20.8,7731.03,3055303.06
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,2,Angostura,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,1,1,0,35,35,12000,420000
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,13,Mocorito,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,10,10,0,89.3,8.93,8800,785840
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,520.6,520.6,0,1181.76,2.27,7000.01,8272334
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,218,218,0,4225.2,19.38,6270.17,26492722.28
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1240.47,1240.47,0,2443.73,1.97,22761.53,55623038.13
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,9373.01,9373.01,0,17668.12,1.88,18773.33,331689519.5
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,28.37,28.37,0,310.75,10.95,6199.92,1926625.62
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,130,130,0,840.01,6.46,4400,3696044
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,15,Salvador Alvarado,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,534,534,0,3600,6.74,4467,16081200
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,87,87,0,1643,18.89,6321.72,10386585.96
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1511,1511,0,3118.6,2.06,22553.26,70334596.64
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,6445.87,6445.87,0,12247.15,1.9,19008.37,232798358.7
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,300,300,0,3480,11.6,6200,21576000
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,275,275,0,1820,6.62,4400,8008000
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,134,134,0,2410.93,17.99,5447.86,13134409.11
+2025,25,Sinaloa,135,Guamúchil,6,Angostura,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,6,6,0,124.8,20.8,7706.35,961752.48
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,12.6,12.6,0,890.95,70.71,10769.46,9595051.86
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,24.5,24.5,0,2409.37,98.34,22563.84,54364639.18
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,55.5,55.5,0,104,1.87,22961.54,2388000.16
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,2018.5,2018.5,0,3908.52,1.94,19208.15,75075438.44
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,575.66,575.66,0,6265.18,10.88,6099.99,38217535.35
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,17.22,17.22,0,1949.63,113.22,6508.26,12688699.35
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,1,Otoño-Invierno,2,Temporal,200201,Tonelada,6840000,Frijol,35,35,0,19.55,0.56,22000,430100
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,20,20,0,198.67,9.93,4000.04,794688.13
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,10,10,0,64,6.4,3900,249600
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,265,265,0,196.7,0.74,18000,3540600
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,63,63,0,38.56,0.61,9000,347040
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,832,832,0,1675.09,2.01,4000.01,6700373.33
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,1264,1264,0,16650.04,13.17,660,10989026.4
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,1643,1643,0,10679.5,6.5,4600,49125700
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,1462,1462,0,20398.56,13.95,560,11423190.8
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,75,75,0,225,3,8500,1912500
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7420000,Litchi,9,9,0,27,3,22300,602100
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,18,18,0,199.98,11.11,7732.36,1546317.35
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,42,42,0,514.2,12.24,3649.12,1876379.76
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,250,250,0,2975,11.9,6844.71,20363012.25
+2025,25,Sinaloa,136,Culiacán,1,Culiacán Altos,6,Culiacán,3,Perennes,2,Temporal,200201,Tonelada,5050000,Agave,25,25,0,1963.25,78.53,7000,13742750
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,22,22,0,427.55,19.43,5716.99,2444299.07
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,30,30,0,1458.7,48.62,9375.39,13675881.39
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,80.6,80.6,0,1265,15.69,7735.18,9785002.7
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,198,198,0,412.88,2.09,22961.54,9480360.64
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1020,1020,0,2038,2,17212.95,35079992.1
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,11500,11500,0,120750,10.5,4900,591675000
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,40,40,0,3483.04,87.08,6415.38,22345011.11
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,77,77,0,550.28,7.15,4150,2283662
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),35,35,0,2816.8,80.48,6630.69,18677333.02
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,20,20,0,1242,62.1,482.71,599525.82
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,20,20,0,96,4.8,5900,566400
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,5,5,0,56,11.2,7732.36,433012.16
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,7,7,0,91.98,13.14,7946.69,730936.55
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,180,180,0,1600,8.89,8500,13600000
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),20,20,0,280,14,6100,1708000
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,525,525,0,8025,15.29,540.52,4337673
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,16,16,0,300.79,18.8,6329.17,1903751.04
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,4,4,0,176.8,44.2,9700.88,1715115.58
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,500,500,0,990.91,1.98,22994.04,22785024.18
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1400,1400,0,2341.5,1.67,18616.23,43589902.55
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,6000,6000,0,48540,8.09,4900,237846000
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,20,20,0,1523.08,76.15,5826.15,8873698.5
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),184,184,0,10917.68,59.34,7481.12,81676485.72
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,3,3,0,13,4.33,5900,76700
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,425,425,0,3315,7.8,7881.97,26128730.55
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,13,Mocorito,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,350,350,0,5814.38,16.61,542.37,3153542.57
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,12,12,0,465.78,38.82,10300.93,4797967.18
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,50.5,50.5,0,2737.39,54.21,17218.25,47133054.46
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1220,1220,0,2585.07,2.12,22978.7,59401548.01
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1370,1370,0,2728.18,1.99,18427.56,50273700.64
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,8341,8341,0,87580.5,10.5,6100,534241050
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,25,25,0,2148.06,85.92,5648.2,12132665.14
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),227,227,0,13611.89,59.96,6779.72,92284803.91
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,28,28,0,1722,61.5,535.53,922182.66
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,1,1,0,10,10,6740.6,67406
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,3.5,3.5,0,41.01,11.72,5064.47,207693.8
+2025,25,Sinaloa,136,Culiacán,2,El Tamarindo,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,430,430,0,8096.9,18.83,542.88,4395645.07
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,20,20,0,1707.31,85.37,9235.4,15767693.75
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,6,6,0,497.64,82.94,15364.26,7645872.66
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1800,1800,0,3521,1.96,22994.04,80962014.84
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,879,879,0,7000,7.96,4900,34300000
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,55.5,55.5,0,3069.9,55.31,6814.42,20919587.31
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),91,91,0,7067.1,77.66,8267.05,58424034.64
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,92,92,0,798.89,8.68,5300.01,4234124.16
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,68,68,0,374,5.5,3800,1421200
+2025,25,Sinaloa,136,Culiacán,3,Navolato,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,33.5,33.5,0,410.08,12.24,4748.2,1947143.19
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5560000,Baby back choi,35,35,0,672.75,19.22,13216.98,8891723.3
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,3,3,0,113.82,37.94,9500,1081290
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,40.7,40.7,0,1413.43,34.73,12494.37,17659914.17
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,236.36,236.36,0,2697.34,11.41,7815.32,21080584.96
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,3257,3257,0,6485.18,1.99,22999.2,149153951.9
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6880000,Gai lan (kay laan),36.25,36.25,0,513.06,14.15,12903.04,6620034
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,18011,18011,0,180290.11,10.01,6100,1099769671
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7500000,Semilla de maíz grano,2000,2000,0,9000,4.5,6000,54000000
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,42,42,0,4636.11,110.38,6677.31,30956736.34
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),354.7,354.7,0,30091.1,84.84,7522.05,226346741
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,9210000,Yu-choy,24.5,24.5,0,387.96,15.84,7999.95,3103660
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,272,272,0,2361.94,8.68,5400,12754474.1
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,87,87,0,522,6,4600,2401200
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,24,16,0,164,10.25,11666.87,1913366.68
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,35,35,0,1936.2,55.32,535.53,1036893.19
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,27,27,0,169.5,6.28,7174.78,1216125
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7420000,Litchi,15,15,0,63,4.2,50000,3150000
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,132,132,0,1736.4,13.15,5016.18,8710100.46
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,60,60,0,609,10.15,8482.97,5166128.73
+2025,25,Sinaloa,136,Culiacán,3,Navolato,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,180,180,0,2808,15.6,550,1544400
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5560000,Baby back choi,147,147,0,1070.16,7.28,12845.89,13747157.64
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,120.8,120.8,0,7681.97,63.59,10678.98,82035610.38
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5660000,Boi choi,165,165,0,1150.92,6.98,5199.87,5984634.38
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,41.5,41.5,0,1163.79,28.04,6555.54,7629275.98
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,11.25,11.25,0,156.2,13.88,9924.71,1550239.7
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,840.6,840.6,0,75752.43,90.12,18638.11,1411881891
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1118.2,1118.2,0,2185,1.95,22997.76,50250105.6
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6880000,Gai lan (kay laan),289.75,289.75,0,3722.2,12.85,12700,47271940
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,2260,2260,0,4506.88,1.99,18106.36,81603191.76
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7320000,Kohlrabi,98,98,0,1672.13,17.06,6982.61,11675830.19
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,16815.35,16815.35,0,172760.05,10.27,6034.61,1042539550
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7980000,Okra (angú o gombo),45.5,45.5,0,841.8,18.5,4793.48,4035151.46
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,1026.5,1026.5,0,76929.62,74.94,7472.97,574892901.6
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),1849.8,1849.8,0,128245.91,69.33,7065.79,906159008.4
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,9210000,Yu-choy,150,150,0,2132,14.21,8000,17056000
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,50,50,0,409.18,8.18,4000,1636720.33
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,27,27,0,1682,62.3,505.11,849595.02
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5820000,Caña de azúcar,710,710,0,49800,70.14,1027.38,51163524
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,20,20,0,125,6.25,8500,1062500
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7420000,Litchi,10,10,0,42,4.2,30052.38,1262199.96
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,213.5,213.5,0,2819.48,13.21,5304.39,14955620.98
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,115,115,0,1748,15.2,550,961400
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5560000,Baby back choi,84,84,0,1274,15.17,12845,16364530
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,125,122,3,8325.52,68.24,9675.38,80552602.24
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,5660000,Boi choi,75,75,0,884,11.79,5248.08,4639302.72
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,330.9,330.9,0,30123.15,91.03,17149.6,516600116.4
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,831,831,0,1150,1.38,22869.57,26300005.5
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6880000,Gai lan (kay laan),180,180,0,2161.8,12.01,11900,25725420
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,1510,1510,0,2404.68,1.59,18602.44,44732918.59
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,18459,18459,0,185931,10.07,6062.23,1127156400
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7500000,Semilla de maíz grano,1327,1327,0,5971.5,4.5,6100,36426150
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,235.6,235.6,0,24479.1,103.9,5585.34,136724074
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),569.25,569.25,0,51325.39,90.16,7598.13,389976974.6
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,50,50,0,429.18,8.58,4000,1716720.33
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,2.5,2.5,0,25.64,10.26,8900,228196
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,33,33,0,2022,61.27,535.53,1082841.66
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7060000,Guayaba,3,3,0,18.24,6.08,3900,71136
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,3,3,0,23.8,7.93,7500,178500
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7420000,Litchi,10,10,0,49.2,4.92,28752.67,1414631.36
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,172.5,172.5,0,1768.48,10.25,8308.71,14693794.77
+2025,25,Sinaloa,136,Culiacán,4,Culiacán,18,Navolato,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,80,80,0,624,7.8,8278.85,5166002.4
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,21,21,0,903.39,43.02,8896.75,8037234.98
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,69.1,69.1,0,969.75,14.03,8897.14,8627999.63
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,98.87,98.87,0,187.2,1.89,22961.54,4298400.29
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,4422,4422,0,8048.04,1.82,19037.06,153211020.4
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,14947,14947,0,156943.5,10.5,6100,957355350
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,32.5,32.5,0,3787.59,116.54,6304.02,23877032.6
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,595,595,0,4016.96,6.75,4150,16670384
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),61.6,61.6,0,5185.99,84.19,8773.21,45497774.27
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,13,13,0,807.04,62.08,611.44,493456.54
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5820000,Caña de azúcar,4158,4158,0,325000,78.16,1026.61,333648250
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,20,20,0,150,7.5,8500,1275000
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7420000,Litchi,160,160,0,648.53,4.05,50000,32426500
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,84,84,0,1050,12.5,4706.85,4942192.5
+2025,25,Sinaloa,136,Culiacán,5,El dorado,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,18,18,0,188,10.44,8500,1598000
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,3,Badiraguato,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,230,230,0,2300,10,6000,13800000
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,3,Badiraguato,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,140,140,0,112,0.8,21000,2352000
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,3,Badiraguato,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,2940,2940,0,6324.27,2.15,4500,28459200
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,3,Badiraguato,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,1830,1830,0,27093.15,14.81,660,17881479
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,3,Badiraguato,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,1135,1135,0,1017.5,0.9,4600,4680500
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,13,Mocorito,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,325,325,0,292.5,0.9,21000,6142500
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,13,Mocorito,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,470,470,0,376,0.8,13000,4888000
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,13,Mocorito,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,1230,1230,0,2121.83,1.73,4500.01,9548250
+2025,25,Sinaloa,136,Culiacán,6,Badiraguato,13,Mocorito,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,3315,3315,0,951,0.29,4600,4374600
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,97,97,0,9162.62,94.46,9487.74,86932556.28
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,100,100,0,2450,24.5,7173.47,17575001.5
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,4,4,0,190.5,47.63,9500,1809750
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,18,18,0,155,8.61,11730.89,1818287.95
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,3936.63,3936.63,0,8275,2.1,25131.2,207960680
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,836.24,836.24,0,1685,2.01,17011.87,28665000.95
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,15797.34,15797.34,0,159366.65,10.09,6095.06,971349140
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,65.99,65.99,0,3835,58.11,6500,24927500
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,259.79,259.79,0,1098.64,4.23,4891.19,5373656.98
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,195,195,0,265,1.36,18919.54,5013678.1
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,1475,1475,0,6145,4.17,12000,73740000
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,170,170,0,1099.9,6.47,5600,6159440
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,35,35,0,63,1.8,4233.33,266699.79
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,23,23,0,779.59,33.9,747.68,582883.85
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,5820000,Caña de azúcar,2913.75,2913.75,0,150961.39,51.81,1100,166057529
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,88,88,0,2237.46,25.43,7714.43,17260730.72
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7420000,Litchi,36,36,0,191,5.31,23152.5,4422127.5
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,30,30,0,437,14.57,4729.33,2066717.21
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,12,12,0,102,8.5,8500,867000
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,1.5,1.5,0,38.47,25.65,6000,230820
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,15.5,15.5,0,197,12.71,12500,2462500
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,250,250,0,2550,10.2,350,892500
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,2,Temporal,200201,Tonelada,7920000,Nopalitos,2,2,0,35,17.5,6000,210000
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,2,Temporal,200201,Tonelada,8130000,Papaya,12,12,0,180,15,12500,2250000
+2025,25,Sinaloa,137,La Cruz,1,Pueblos Unidos,6,Culiacán,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,178,178,0,991.46,5.57,350,347011
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,597,597,0,5283.45,8.85,6100,32229045
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,5,5,0,6.85,1.37,3033.75,20781.19
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,6463,6463,0,11051.73,1.71,3524.08,38947180.66
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,2471,2471,0,16061.5,6.5,4043.93,64951581.7
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,20,20,0,594,29.7,549,326106
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,3,Perennes,2,Temporal,200201,Tonelada,7560000,Mango,1.5,1.5,0,18,12,6500,117000
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,3,Perennes,2,Temporal,200201,Tonelada,7850000,Naranja,10,10,0,82,8.2,8000,656000
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,3,Perennes,2,Temporal,200201,Tonelada,8130000,Papaya,4,4,0,22.5,5.63,11500,258750
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,5,Cosalá,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,2975,2975,0,14964.25,5.03,350,5237487.5
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,1.5,1.5,0,63.5,42.33,5200,330200
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,1034.95,1034.95,0,64376.7,62.2,18044.57,1161649639
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,249.5,249.5,0,474.5,1.9,22000,10439000
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,7946,7946,0,88459.32,11.13,6100,539601852
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,280.5,280.5,0,19717.13,70.29,8438.78,166388447.5
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),1050.5,1050.5,0,73348.94,69.82,7900.99,579529564
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,30.5,30.5,0,1376.77,45.14,7921.43,10905987.18
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,94,94,0,218.08,2.32,2400,523392
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,395.94,395.94,0,684.98,1.73,16833.11,11530341.37
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,58,58,0,235.09,4.05,4078.06,958710.61
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,8,8,0,22,2.75,660,14520
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,1504.5,1504.5,0,9779.25,6.5,4234.05,41405833.46
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,2,Primavera-Verano,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,58.5,58.5,0,215.43,3.68,617.99,133133.42
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,55,55,0,1991,36.2,553.01,1101042.91
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,196,160,0,2847.45,17.8,6500,18508425
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,5,5,0,60,12,11000,660000
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,12,12,0,145,12.08,8500,1232500
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,4,4,0,112,28,5335,597520
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,22,22,0,287.79,13.08,11597.73,3337710
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,213,213,0,2287.25,10.74,350,800537.5
+2025,25,Sinaloa,137,La Cruz,2,Elota-Cosala,8,Elota,3,Perennes,2,Temporal,200201,Tonelada,6220000,Ciruela,68,68,0,306,4.5,7800,2386800
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,30,30,0,58,1.93,23000,1334000
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,100,100,0,210,2.1,4757.22,999016.2
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),120,120,0,7780,64.83,8177.38,63620000
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,1,Otoño-Invierno,2,Temporal,200201,Tonelada,7490000,Maíz grano,1822.76,1822.76,0,10954.79,6.01,6000,65728725.6
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,49,49,0,98,2,4233.33,414866.34
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,248,248,0,509.23,2.05,4349.97,2215136
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,5,5,0,12,2.4,660,7920
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,216.78,216.78,0,280,1.29,2200,616000
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,24,14,0,546,39,7000,3822000
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,120,100,0,893,8.93,16000,14288000
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,5170000,Alfalfa verde,30,30,0,995.25,33.18,489.49,487164.92
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,46,46,0,800,17.39,8000,6400000
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,57,57,0,613,10.75,7615.33,4668200
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,81,81,0,931.5,11.5,8557.17,7971003.86
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,17,17,0,119,7,700,83300
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,2,Temporal,200201,Tonelada,6220000,Ciruela,62,62,0,279,4.5,7800,2176200
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,2,Temporal,200201,Tonelada,7560000,Mango,65.5,65.5,0,522.74,7.98,7980.87,4171920
+2025,25,Sinaloa,137,La Cruz,3,Coyotitán,16,San Ignacio,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,3459,3459,0,17398.77,5.03,350,6089569.5
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,50,50,0,1400,28,6383.22,8936508
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,1285,1285,0,46893.22,36.49,9686.07,454211188.8
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,148,148,0,1210,8.18,4406.91,5332361.1
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,149,149,0,298,2,22977.3,6847235.4
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2413.5,2413.5,0,18660,7.73,6500,121290000
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,230,230,0,4140,18,786.33,3255389.08
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,290,290,0,1740,6,4291.39,7467018.6
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),584,584,0,14532,24.88,7031.8,102186117.6
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,584,584,0,11388,19.5,6200,70605600
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,59,59,0,826,14,9400,7764400
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,1148.64,1148.64,0,16046.18,13.97,4735.99,75994532.22
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,238,238,0,7085,29.77,6372.87,45151783.95
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,60,60,0,1020,17,1313.25,1339515
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,2,Temporal,200201,Tonelada,5050000,Agave,424,424,0,33296.72,78.53,7000,233077040
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,2,Temporal,200201,Tonelada,6220000,Ciruela,35,35,0,157.5,4.5,10864.03,1711084.73
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,2,Temporal,200201,Tonelada,6300000,Coco fruta,650,650,0,6675.5,10.27,7342.92,49017662.46
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,2,Temporal,200201,Tonelada,7560000,Mango,378.74,378.74,0,4898.96,12.93,4646.23,22761686.62
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,2,Temporal,200201,Tonelada,7830000,Nanche,12,12,0,48,4,4000,192000
+2025,25,Sinaloa,138,Mazatlán,1,Mazatlán,12,Mazatlán,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,3410,3410,0,35736,10.48,470.79,16824045
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,888,888,0,36178,40.74,6647.03,240476104
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,75,75,0,150,2,22984.04,3447606
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,214,214,0,1757.64,8.21,6041.5,10618782.06
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,8770000,Sorgo escobero,100,100,0,250,2.5,2103.3,525825
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,49,49,0,686,14,687.85,471865.1
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,50,50,0,150,3,4180,627000
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),414,414,0,13248,32,7234.12,95837621.76
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,360,360,0,8280,23,4004.63,33158336.4
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,17.9,17.9,0,699,39.05,9000,6291000
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,181,181,0,2124.75,11.74,15794.49,33559350
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,200,200,0,1200,6,15000,18000000
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,45,45,0,495,11,8000,3960000
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,985.62,985.62,0,15105.85,15.33,4253.95,64259531.94
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,1,1,0,4.5,4.5,10000,45000
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,5050000,Agave,255,255,0,20025.15,78.53,7000,140176050
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,5060000,Aguacate,6,6,0,58.98,9.83,8900,524922
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,6220000,Ciruela,70,70,0,315,4.5,11002.95,3465929.25
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,6530000,Durazno,35,35,0,119.7,3.42,23000,2753100
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,7390000,Limón,6,6,0,42,7,8500,357000
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,7560000,Mango,586.12,586.12,0,7810,13.32,4384.97,34246632.2
+2025,25,Sinaloa,138,Mazatlán,2,Concordia,4,Concordia,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,665,665,0,5572.7,8.38,500,2786350
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,2334,2334,0,96137,41.19,11249.53,1081496166
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,350,350,0,700,2,22906.49,16034546
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,7240000,Jícama,88,88,0,1508,17.14,8500,12818000
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,231.22,231.22,0,1535.3,6.64,6293.67,9662676.59
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,152,152,0,5776,38,7123.24,41143834.24
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,8770000,Sorgo escobero,100,100,0,185,1.85,6525.38,1207195.3
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,80,80,0,1440,18,654.49,942465.6
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,200,200,0,406,2.03,4291.29,1742263.74
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),587,587,0,27589,47,6449.49,177934979.6
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,324,324,0,9234,28.5,4064.81,37534455.54
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,668,668,0,26052,39,8312.87,216566889.2
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,7854.63,7854.63,0,85673.89,10.91,4169.93,357253813.8
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,1,Riego,200201,Tonelada,8130000,Papaya,48,48,0,1800,37.5,6100,10980000
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,2,Temporal,200201,Tonelada,5050000,Agave,5090,500,0,39265,78.53,4200,164913000
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,2,Temporal,200201,Tonelada,6220000,Ciruela,80,80,0,360,4.5,7540.17,2714461.2
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,2,Temporal,200201,Tonelada,6300000,Coco fruta,380,380,0,3902.6,10.27,7683.44,29985392.95
+2025,25,Sinaloa,138,Mazatlán,3,El Rosario,14,Rosario,3,Perennes,2,Temporal,200201,Tonelada,7560000,Mango,5672.82,5672.82,0,64403.31,11.35,9856.41,634785476.6
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,2077,2077,0,85077.06,40.96,10081.97,857744753.2
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,10,10,0,19.5,1.95,23000,448500
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,42.28,42.28,0,486.22,11.5,6200,3014564
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,60,60,0,2085.75,34.76,7082.1,14771490.08
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,250,250,0,8981.88,35.93,8386.28,75324518.68
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,37,37,0,506.16,13.68,898.9,454987.22
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),147,147,0,6539,44.48,7288.14,47657147.46
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,9516.09,9516.09,0,138309.17,14.53,3995.04,552550261.1
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,3,Perennes,2,Temporal,200201,Tonelada,6300000,Coco fruta,480,480,0,4929.6,10.27,4328.99,21340189.11
+2025,25,Sinaloa,138,Mazatlán,4,Escuinapa,9,Escuinapa,3,Perennes,2,Temporal,200201,Tonelada,7560000,Mango,8518.1,8518.1,0,110417.38,12.96,3408.76,376386862

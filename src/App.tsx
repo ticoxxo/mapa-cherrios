@@ -117,7 +117,10 @@ function Game({ data, era, setEra, mode, setMode }: { data: CoreData; era: Era; 
   const sel = selected ? agebById.get(selected) : null
   const st = modeState(data.manifest, mode, data.era)
   // a mode that belongs to the other view draws the plain territorios here; the banner explains why
-  const mapMode: ModeId = st === 'only_antes' || st === 'only_municipio' ? 'realm' : mode
+  const otherView = st === 'only_antes' || st === 'only_municipio'
+  // Campo in the 2020 view is only the SIAP tables of Guasave / Ahome: the map stays on the plain zones
+  const mapMode: ModeId = otherView || (data.era === 'antes' && mode === 'campo') ? 'realm' : mode
+  const legendMode: ModeId = otherView ? 'realm' : mode
   const switching = era !== data.era
 
   return (
@@ -163,7 +166,7 @@ function Game({ data, era, setEra, mode, setMode }: { data: CoreData; era: Era; 
           <strong>{t(`m_${mode}`)}</strong> — {st === 'soon' ? t('soon') : t('unavailable')}
         </div>
       )}
-      <Legend data={data} mode={mapMode} wealthPrimary={wealthPrimary} groups={groups} setGroups={setGroups} workGroups={workGroups} setWorkGroups={setWorkGroups} waterUses={waterUses} setWaterUses={setWaterUses} />
+      <Legend data={data} mode={legendMode}wealthPrimary={wealthPrimary} groups={groups} setGroups={setGroups} workGroups={workGroups} setWorkGroups={setWorkGroups} waterUses={waterUses} setWaterUses={setWaterUses} />
       <ModeBar manifest={data.manifest} era={data.era} mode={mode} setMode={setMode} skin={skin} />
       {hover && !sel && !sighting && window.matchMedia('(hover: hover)').matches && <Tooltip h={hover} mode={mapMode} tier={tier} skin={skin} era={data.era} />}
       {sighting && <SightingCard info={sighting} onClose={() => showSighting(null, true)} />}

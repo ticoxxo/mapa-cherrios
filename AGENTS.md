@@ -12,11 +12,11 @@ Juan José Ríos was part of Guasave (and El Estero part of Ahome) until the 202
 next to the style switch (`src/era.ts`, `?era=antes`, localStorage `jjr-era`):
 
 - **Municipio** (default, `public/data/`): Marco Geoestadístico 2025 zones of 25-020 + every live layer
-  (Fauna, Calor, Verde, Chamba, Agua). Census-based modes (Gente, Bienestar) show "solo en «Antes de ser
+  (Fauna, Calor, Verde, Chamba, Agua, Campo). Census-based modes (Gente, Bienestar) show "solo en «Antes de ser
   Municipio»"; never fill them with re-apportioned 2020 numbers.
 - **Antes de ser Municipio** (`public/data/antes/`): Marco Geoestadístico 2020 (census edition, state
   shapefile zip) for Guasave 011-0138 + Ahome 001-0136, with Censo 2020 and CONAPO / CONEVAL 2020. Only
-  modes in `ANTES_MODES` (Territorio, Gente, Bienestar); live modes say "solo en «Municipio»".
+  modes in `ANTES_MODES` (Territorio, Gente, Bienestar, and Campo with only the SIAP tables of Guasave / Ahome); live modes say "solo en «Municipio»".
 
 ## Non-negotiable rules
 
@@ -53,7 +53,7 @@ next to the style switch (`src/era.ts`, `?era=antes`, localStorage `jjr-era`):
    and ask the owner before adding it; never sign up for or enable anything paid on your own.
    Today everything is free: public GitHub repo (unlimited Actions minutes, 10 GB cache), Cloudflare Workers
    static assets on the free plan (static requests are free and unlimited; 25 MiB per file, 20,000 files),
-   open data sources (INEGI, CONAPO, CONEVAL, CONAGUA REPDA via Zenodo, SMN drought monitor, OSM, iNaturalist, NASA POWER, Landsat, Sentinel-2, ESA
+   open data sources (INEGI, CONAPO, CONEVAL, CONAGUA REPDA via Zenodo, SMN drought monitor, SIAP cierre agrícola, INEGI USV Serie VII via CONABIO, OSM, iNaturalist, NASA POWER, Landsat, Sentinel-2, ESA
    WorldCover via the free Microsoft Planetary Computer), AWS Terrain Tiles, Google Fonts, GTM / GA4 standard.
    Things that would break this: making the repo private (Actions minutes become limited), Worker code that
    runs on every request (counts against the free daily limit), files over 25 MiB, paid map tiles or APIs.
@@ -68,7 +68,7 @@ npm run data                # full pipeline (= uv run --directory pipeline pytho
 
 # faster partial runs; skipped data modes KEEP last run's numbers (see run.py → _carry_over)
 uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm
-uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green   # only Chamba
+uv run --directory pipeline python -m hlm.run --skip blocks,streets,osm,wildlife,heat,green,water,campo   # only Chamba
 
 # deploy (Cloudflare Workers static assets, account "vinc")
 npm run build && CLOUDFLARE_ACCOUNT_ID=<vinc account id> npx wrangler deploy
@@ -93,12 +93,13 @@ pipeline/hlm/      Python pipeline (uv project in pipeline/)
   green.py         Verde — Sentinel-2 NDVI (now vs a year ago) + ESA WorldCover trees
   work.py          Chamba — INEGI DENUE businesses, estimated jobs
   water.py         Agua — CONAGUA REPDA water rights (Zenodo copy) + SMN drought monitor
+  campo.py         Campo — INEGI USV Serie VII farmland + ESA WorldCover cropland + SIAP cierre agrícola
   chronicle.py     La Gaceta: weekly snapshot (history.json) + entries (chronicle.json)
   run.py           orchestration, stats.json, manifest.json
 pipeline/manual/   hand-downloaded sources (trimmed CONAPO/CONEVAL CSVs are committed)
 public/data/       pipeline output served by the site (committed)
 src/
-  App.tsx          state: mode, selection, groups, cards; keyboard 1–8 / Esc
+  App.tsx          state: mode, selection, groups, cards; keyboard 1–9 / Esc
   data.ts          types for every data file + loadCore()
   modes.ts         mode list, colour ramps and MapLibre colour expressions
   i18n.ts          Spanish strings and number/date formatting (es-MX)
@@ -137,7 +138,8 @@ Follow the existing pattern (Fauna / Calor / Verde / Chamba are good templates):
 - **CONAGUA sites (datos.conagua, SINA, REPDA, SIGA) sit behind an Incapsula bot wall.** Don't bypass it: REPDA
   comes from the Zenodo copy of CONAGUA's releases; dam levels are not available to scripts.
 - **SMN drought table: an empty cell means "sin sequía"**, not missing data.
-- **Mode bar on phones**: 8 modes fill a 375 px screen exactly; a 9th mode needs a new mobile layout.
+- **Mode bar on phones**: 9 modes don't fit 375 px, so under 760 px the belt scrolls sideways (fixed 46 px buttons,
+  `ModeBar` scrolls the active one into view). Check a new mode's label at 8.5–10 px in all three skins.
 - **Planetary Computer SAS tokens** are per collection: `/api/sas/v1/token/landsat-c2-l2`, `sentinel-2-l2a`,
   `esa-worldcover`.
 - **Standalone SVGs must be valid XML** (e.g. no duplicate `stroke-width`) or `addImage` silently fails —
@@ -150,6 +152,11 @@ Follow the existing pattern (Fauna / Calor / Verde / Chamba are good templates):
 - The browser pane in a hidden tab throttles animation frames; slow first paint there is not a real bug.
 - INEGI re-keys AGEBs when a municipio is created: join 2020 tables only to the 2020 census-edition
   outlines (`base.load_agebs_2020`), never to the live `wscatgeo` service.
+- **SIAP has no rows for 25-020 yet** (cierres up to 2025): it still counts the town inside Guasave (011) and Ahome
+  (001). Show those as whole-municipio tables in «Antes»; never split them over zones or fields. SIAP moved to
+  `nube.agricultura.gob.mx` (the old `*.siap.gob.mx` hosts no longer resolve).
+- **INEGI USV Serie VII**: INEGI's page only offers it through a JavaScript catalogue; `campo.py` reads CONABIO's
+  unchanged copy of the national shapefile (317 MB zip, cached for years). A committed clip is the fallback.
 - REPDA releases file wells under the old municipio codes: `water.py` keeps points by the 2025 municipio
   outline, not by `CLAVE DE MUNICIPIO`.
 
